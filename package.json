@@ -7,9 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "format:check": "prettier --check .",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "cz": "cz",
     "prepare": "husky install"
   },
@@ -46,7 +45,7 @@
   },
   "lint-staged": {
     "*": [
-      "prettier --write"
+      "prettier --write --plugin-search-dir=."
     ]
   }
 }

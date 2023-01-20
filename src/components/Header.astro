@@ -1,5 +1,5 @@
 ---
-import { LOGO_IMAGE, SITE } from "src/config";
+import { LOGO_IMAGE, SITE } from "@/config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
@@ -22,7 +22,7 @@ const { activeNav } = Astro.props;
           LOGO_IMAGE.enable ? (
             <img
               src={LOGO_IMAGE.svg ? logoSVG : logoPNG}
-              alt="AstroPaper Logo"
+              alt="Astroverse Logo"
               width={LOGO_IMAGE.width}
               height={LOGO_IMAGE.height}
             />
@@ -44,22 +44,26 @@ const { activeNav } = Astro.props;
             <div id="third-line"></div>
           </div>
         </button>
+
         <ul id="menu-items" class="display-none sm:flex">
           <li>
             <a href="/posts" class={activeNav === "posts" ? "active" : ""}>
               Posts
             </a>
           </li>
+
           <li>
             <a href="/tags" class={activeNav === "tags" ? "active" : ""}>
               Tags
             </a>
           </li>
+
           <li>
             <a href="/about" class={activeNav === "about" ? "active" : ""}>
               About
             </a>
           </li>
+
           <li>
             <LinkButton
               href="/search"
@@ -78,6 +82,7 @@ const { activeNav } = Astro.props;
               </svg>
             </LinkButton>
           </li>
+
           <li>
             {
               SITE.lightAndDarkMode && (

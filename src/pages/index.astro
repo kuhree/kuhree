@@ -9,7 +9,7 @@ import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
 import type { Frontmatter } from "src/types";
 import Socials from "@components/Socials.astro";
-import { SOCIALS } from "@config";
+import { SITE, SOCIALS } from "@config";
 
 const posts = await Astro.glob<Frontmatter>("../contents/**/*.md");
 
@@ -18,14 +18,14 @@ const featuredPosts = sortedPosts.filter(
   ({ frontmatter }) => frontmatter.featured
 );
 
-const socialCount = SOCIALS.filter(social => social.active).length;
+const socialCount = SOCIALS.filter((social) => social.active).length;
 ---
 
 <Layout>
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Mingalaba</h1>
+      <h1>{SITE.title}</h1>
       <a
         target="_blank"
         href="/rss.xml"
@@ -48,20 +48,11 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         out of the box. Light and dark mode are supported by default. Moreover,
         additional color schemes can also be configured.
       </p>
-      <p>
-        Read the blog posts or check
-        <LinkButton
-          className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
+
       {
         // only display if at least one social link is enabled
         socialCount > 0 && (
           <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
             <Socials />
           </div>
         )
@@ -109,8 +100,8 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <div class="all-posts-btn-wrapper">
         <LinkButton href="/posts">
           All Posts
-          <svg xmlns="http://www.w3.org/2000/svg"
-            ><path
+          <svg xmlns="http://www.w3.org/2000/svg">
+            <path
               d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
             ></path>
           </svg>
