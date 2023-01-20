@@ -1,0 +1,15 @@
+kind: pipeline
+type: docker
+name: main
+
+steps:
+- name: Install Deps
+  image: node18
+  commands:
+  - npm install -g pnpm
+  - pnpm install
+
+- name: build
+  image: node18
+  commands:
+  - pnpm build
