@@ -15,7 +15,7 @@ const posts = Object.values(postImportResult);
 export const get = () =>
   rss({
     title: SITE.title,
-    description: SITE.desc,
+    description: SITE.description,
     site: SITE.website,
     items: posts
       .filter(({ frontmatter }) => !frontmatter.draft)

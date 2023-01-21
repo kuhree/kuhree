@@ -43,7 +43,7 @@
     }
   },
   "lint-staged": {
-    "*": [
+    "**/*.{json,yml,yaml,md,mdx,ts,tsx,astro}": [
       "prettier --write --plugin-search-dir=."
     ]
   }
