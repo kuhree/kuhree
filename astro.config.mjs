@@ -8,6 +8,8 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://kharijohnson.dev/",
+  outDir: "dist",
+  publicDir: "public",
   integrations: [
     tailwind({
       config: {

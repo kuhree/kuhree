@@ -1,15 +1,36 @@
 kind: pipeline
 type: docker
-name: main
+name: default
 
 steps:
-- name: Install Deps
-  image: node18
+- name: Identify Runner
+  image: alpine
   commands:
-  - npm install -g pnpm
-  - pnpm install
-
+    - echo $DRONE_RUNNER_NAME
+- name: deps
+  image: node
+  commands: 
+    - npm install -g pnpm
+    - pnpm install
+- name: test
+  image: node
+  depends_on: 
+    - deps
+  commands:
+    - pnpm format:check
+    - pnpm lint:check
 - name: build
-  image: node18
+  image: node
+  depends_on: 
+    - test
   commands:
-  - pnpm build
+    - pnpm build
+
+trigger:
+  branch:
+  - main
+  event:
+  - push
+  - pull_request
+  action: 
+  - synchronized

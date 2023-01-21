@@ -8,6 +8,7 @@
     "serve:preview": "astro preview",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "lint:astro": "astro check",
     "cz": "cz",
     "prepare": "husky install"
   },
