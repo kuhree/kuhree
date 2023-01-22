@@ -9,5 +9,5 @@ steps:
     - npm install -g pnpm
     - pnpm install
     - pnpm format:check
-    - pnpm lint:check
+    - pnpm lint:astro
     - pnpm build
