@@ -88,14 +88,43 @@ function makeOgImage(siteTitle: string) {
   );
 }
 
+const { fontRegular, fontBold } = await (async () => {
+  // Regular Font
+  const fontFileRegular = await fetch(
+    "https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf"
+  );
+  const fontRegular: ArrayBuffer = await fontFileRegular.arrayBuffer();
+
+  // Bold Font
+  const fontFileBold = await fetch(
+    "https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf"
+  );
+  const fontBold: ArrayBuffer = await fontFileBold.arrayBuffer();
+
+  return { fontRegular, fontBold };
+})();
+
 const options: SatoriOptions = {
   // debug: true,
   width: 1200,
   height: 630,
   // embedFont: true,
-  fonts: [],
+  fonts: [
+    {
+      name: "IBM Plex Mono",
+      data: fontRegular,
+      weight: 400,
+      style: "normal",
+    },
+    {
+      name: "IBM Plex Mono",
+      data: fontBold,
+      weight: 600,
+      style: "normal",
+    },
+  ],
 };
 
-export default async function generateOgImage(siteTitle = SITE.title) {
+export default async function generateOgImage(siteTitle: string = SITE.title) {
   return satori(makeOgImage(siteTitle), options);
 }
