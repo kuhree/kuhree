@@ -3,25 +3,11 @@ type: docker
 name: default
 
 steps:
-- name: Identify Runner
-  image: alpine
-  commands:
-    - echo $DRONE_RUNNER_NAME
-- name: deps
+- name: test-build
   image: node
   commands: 
     - npm install -g pnpm
     - pnpm install
-- name: test
-  image: node
-  depends_on: 
-    - deps
-  commands:
     - pnpm format:check
     - pnpm lint:check
-- name: build
-  image: node
-  depends_on: 
-    - test
-  commands:
     - pnpm build
