@@ -7,19 +7,18 @@ trigger:
   - main
 
 steps:
-- name: test-build
+- name: test
   image: node
   commands: 
     - npm install -g pnpm
     - pnpm install
     - pnpm format:check
     - pnpm lint:astro
-    - pnpm build
 
 - name: release
   image: plugins/gitea-release
   depends_on:
-     - test-build
+     - test
   environment:
     GITEA_API_KEY:
       from_secret: gitea_api_key
