@@ -4,50 +4,54 @@ name: default
 
 trigger:
   branch:
-  - main
+    - main
 
 steps:
-- name: test
-  image: node
-  commands: 
-    - npm install -g pnpm
-    - pnpm install
-    - pnpm format:check
-    - pnpm lint:astro
+  - name: test
+    image: node
+    commands: 
+      - npm install -g pnpm
+      - pnpm install
+      - pnpm format:check
+      - pnpm lint:astro
 
-- name: release
-  image: plugins/gitea-release
-  depends_on:
-     - test
-  environment:
-    GITEA_API_KEY:
-      from_secret: gitea_api_key
-    GITEA_BASE_URL: 
-      from_secret: gitea_base_url
-  settings:
-    api_key: $GITEA_API_KEY
-    base_url: $GITEA_BASE_URL
-    files: dist/*
-  when:
-    ref:
-    - refs/tags/*   
+  - name: release
+    image: plugins/gitea-release
+    depends_on:
+       - test
+    when:
+      ref:
+        - refs/tags/*   
+    environment:
+      GITEA_API_KEY:
+        from_secret: gitea_api_key
+      GITEA_BASE_URL: 
+        from_secret: gitea_base_url
+    settings:
+      api_key: 
+        from_secret: gitea_api_key
+      base_url: 
+        from_secret: gitea_base_url
+      files: dist/*
 
-- name: docker  
-  image: plugins/docker
-  depends_on:
-     - test
-  environment:
-    USERNAME:
-      from_secret: gitea_username
-    PASSWORD:
-      from_secret: gitea_password
-    GITEA_BASE_URL: 
-      from_secret: gitea_base_url
-  settings:
-    dockerfile: Dockerfile
-    registry: $GITEA_BASE_URL
-    username: $USERNAME
-    password: $PASSWORD
-    repo: kuhree/astroverse
-    tags: latest
-    auto_tag: true
+  - name: docker  
+    image: plugins/docker
+    privileged: true
+    depends_on:
+       - test
+    environment:
+      USERNAME:
+        from_secret: gitea_username
+      PASSWORD:
+        from_secret: gitea_password
+      GITEA_BASE_URL: 
+        from_secret: gitea_base_url
+    settings:
+      tags: latest
+      auto_tag: true
+      repo: git.littlevibe.net/kuhree/astroverse
+      registry: git.littlevibe.net 
+      username: 
+        from_secret: gitea_username
+      password: 
+        from_secret: gitea_password
