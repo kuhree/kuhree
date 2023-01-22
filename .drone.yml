@@ -25,12 +25,3 @@ steps:
     - test
   commands:
     - pnpm build
-
-trigger:
-  branch:
-  - main
-  event:
-  - push
-  - pull_request
-  action: 
-  - synchronized
