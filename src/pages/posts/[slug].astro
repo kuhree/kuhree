@@ -1,11 +1,12 @@
 ---
-import { SITE } from "src/config";
+import type { MarkdownInstance } from "astro";
+
+import { SITE } from "@config";
+import type { Frontmatter } from "@types";
 import Posts from "@layouts/Posts.astro";
 import PostDetails from "@layouts/PostDetails.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import getPageNumbers from "@utils/getPageNumbers";
-import type { MarkdownInstance } from "astro";
-import type { Frontmatter } from "src/types";
 import { slugify } from "@utils/slugify";
 
 export interface Props {

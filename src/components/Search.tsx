@@ -1,8 +1,9 @@
 import Fuse from "fuse.js";
 import { useEffect, useRef, useState } from "react";
+
+import type { Frontmatter } from "@types";
 import Card from "@components/Card";
 import { slugify } from "@utils/slugify";
-import type { Frontmatter } from "src/types";
 
 type SearchItem = {
   title: string;

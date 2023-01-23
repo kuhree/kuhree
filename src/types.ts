@@ -1,13 +1,29 @@
 export interface Frontmatter {
-  title: string;
-  ogImage?: string;
-  description: string;
-  author: string;
-  datetime: string;
-  slug: string;
   featured: boolean;
   draft: boolean;
+
+  author: string;
+  datetime: string;
+
+  slug?: string;
+  aliases?: string | string[];
+  description: string;
+
   tags: string[];
+
+  /**
+   * Attach an image to the post.
+   * Will be used for the `ogImage` as well.
+   *
+   * ~~Adjust location with banner_x and banner_y~~
+   */
+  banner?: string;
+  // banner_x?: string;
+  // banner_y?: string;
+}
+
+export interface ObsidianFrontmatter extends Frontmatter {
+  id?: string;
 }
 
 export type SocialObjects = {

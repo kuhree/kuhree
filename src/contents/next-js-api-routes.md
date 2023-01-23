@@ -3,7 +3,7 @@ author: Khari Johnson
 datetime: 2020-12-03:22:00Z
 draft: false
 featured: false
-ogImage: "https://images.pexels.com/photos/4578665/pexels-photo-4578665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+banner: "https://images.pexels.com/photos/4578665/pexels-photo-4578665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
 title: Using Next.js API routes
 slug: next-api-routes
 description: Next.JS comes with a useful feature out of the box, api routes.

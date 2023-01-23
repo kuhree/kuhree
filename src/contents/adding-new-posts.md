@@ -7,7 +7,7 @@ featured: false
 draft: true
 tags:
   - docs
-ogImage: ""
+banner: ""
 description:
   Some rules & recommendations for creating or adding new posts using AstroPaper
   theme.
@@ -33,7 +33,7 @@ Here is the list of frontmatter property for each post.
 | **_featured_**    | Whether or not display this post in featured section of home page                         | default = false           |
 | **_draft_**       | Mark this post 'unpublished'.                                                             | default = false           |
 | **_tags_**        | Related keywords for this post. Written in array yaml format.                             |                           |
-| **_ogImage_**     | OG image of the post. Useful for social media sharing and SEO.                            | default = SITE.ogImage    |
+| **_banner_**      | OG image of the post. Useful for social media sharing and SEO.                            | default = SITE.banner     |
 
 `title` and `slug` fields in frontmatter must be specified.
 
@@ -56,7 +56,7 @@ tags:
   - some
   - example
   - tags
-ogImage: ""
+banner: ""
 description: This is the example description of the example post.
 ---
 ```

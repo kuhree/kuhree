@@ -1,5 +1,8 @@
 ---
-import { SITE } from "src/config";
+import type { MarkdownInstance } from "astro";
+
+import { SITE } from "@config";
+import type { Frontmatter } from "@types";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
@@ -7,8 +10,6 @@ import Footer from "@components/Footer.astro";
 import Card from "@components/Card";
 import getUniqueTags from "@utils/getUniqueTags";
 import getPostsByTag from "@utils/getPostsByTag";
-import type { MarkdownInstance } from "astro";
-import type { Frontmatter } from "src/types";
 import { slugify } from "@utils/slugify";
 
 export interface Props {
