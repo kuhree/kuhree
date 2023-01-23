@@ -49,7 +49,7 @@ steps:
     settings:
       tags: latest
       auto_tag: true
-      repo: git.littlevibe.net/kuhree/astroverse
+      repo: git.littlevibe.net/kuhree/www
       registry: git.littlevibe.net 
       username: 
         from_secret: gitea_username
