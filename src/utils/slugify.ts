@@ -1,11 +1,16 @@
 import { slug as slugger } from "github-slugger";
 import type { Frontmatter } from "src/types";
 
-export const slugifyStr = (str: string) => slugger(str);
+type SlugInput = string | Frontmatter;
 
-const slugify = (frontmatter: Frontmatter) =>
-  frontmatter.slug ? slugger(frontmatter.slug) : slugger(frontmatter.title);
+export function slugify(item: SlugInput) {
+  if (typeof item === "string") {
+    return slugger(item);
+  } else {
+    return slugger(item.slug ?? item.title);
+  }
+}
 
-export const slufigyAll = (arr: string[]) => arr.map((str) => slugifyStr(str));
-
-export default slugify;
+export function slugifyMany(list: SlugInput[]) {
+  return list.map((str) => slugify(str));
+}
