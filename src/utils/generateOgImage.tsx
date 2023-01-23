@@ -72,7 +72,7 @@ function makeOgImage(siteTitle: string) {
             }}
           >
             <span>
-              by <span style={{ color: "transparent" }}>"</span>
+              by <span style={{ color: "transparent" }}>&quot;</span>
               <span style={{ overflow: "hidden", fontWeight: "bold" }}>
                 {SITE.author}
               </span>

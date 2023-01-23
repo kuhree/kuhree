@@ -5,7 +5,7 @@ import { Frontmatter } from "@types";
  */
 function extractTitle(
   { aliases }: Pick<Frontmatter, "aliases">,
-  amount: number = 1,
+  amount = 1,
   joint = ", "
 ) {
   if (typeof aliases === "undefined") {
