@@ -7,6 +7,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
+import extractTitle from "@utils/extractTitle";
 
 export interface Props {
   post: MarkdownInstance<Frontmatter>;
@@ -14,7 +15,9 @@ export interface Props {
 
 const { frontmatter, Content } = Astro.props.post;
 
-const { title, author, description, banner, datetime, tags } = frontmatter;
+const { author, description, banner, datetime, tags } = frontmatter;
+
+const title = extractTitle(frontmatter);
 
 const ogUrl = new URL(banner ? banner : `${title}.svg`, Astro.url.origin).href;
 ---

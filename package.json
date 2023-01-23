@@ -6,8 +6,8 @@
     "build": "astro build",
     "serve": "astro dev",
     "serve:preview": "astro preview",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format": "prettier --write --plugin-search-dir=. .",
+    "format:check": "prettier --check  --plugin-search-dir=. .",
     "lint:astro": "astro check",
     "cz": "cz",
     "prepare": "husky install"
@@ -35,6 +35,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
+    "prettier-plugin-astro": "^0.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -45,7 +46,7 @@
   },
   "lint-staged": {
     "**/*.{json,yml,yaml,md,mdx,ts,tsx,astro}": [
-      "prettier --write --plugin-search-dir=."
+      "prettier --write --plugin-search-dir=. ."
     ]
   }
 }
