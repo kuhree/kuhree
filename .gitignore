@@ -11,6 +11,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# developer env
+.tmuxrc
 
 # environment variables
 .env
