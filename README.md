@@ -1,4 +1,4 @@
-# 📄 Khari Johnson (.dev) 
+# 📄 Khari Johnson (.dev)
 
 ![AstroPaper](public/astropaper-og.jpg)
 ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -69,28 +69,23 @@ Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page
 
 Any static assets, like images, can be placed in the `public/` directory.
 
-All blog posts are stored in `src/contents/` directory.
+All blog posts are stored in `src/content/blog` directory.
 
 ## 📖 Documentation
 
 Documentation can be read in two formats\_ _markdown_ & _blog post_.
 
-- Configuration - [markdown](src/contents/how-to-configure-astropaper-theme.md) | [blog post](https://astro-paper.pages.dev/posts/how-to-configure-astropaper-theme/)
-- Add Posts - [markdown](src/contents/adding-new-post.md) | [blog post](https://astro-paper.pages.dev/posts/adding-new-posts-in-astropaper-theme/)
-- Customize Color Schemes - [markdown](src/contents/customizing-astropaper-theme-color-schemes.md) | [blog post](https://astro-paper.pages.dev/posts/customizing-astropaper-theme-color-schemes/)
-- Predefined Color Schemes - [markdown](src/contents/predefined-color-schemes.md) | [blog post](https://astro-paper.pages.dev/posts/predefined-color-schemes/)
-
 ## 💻 Tech Stack
 
-**Main Framework** - [Astro](https://astro.build/)  
-**Type Checking** - [TypeScript](https://www.typescriptlang.org/)  
-**Component Framework** - [ReactJS](https://reactjs.org/)  
-**Styling** - [TailwindCSS](https://tailwindcss.com/)  
-**UI/UX** - [Figma](https://figma.com)  
-**Fuzzy Search** - [FuseJS](https://fusejs.io/)  
-**Icons** - [Boxicons](https://boxicons.com/) | [Tablers](https://tabler-icons.io/)  
-**Code Formatting** - [Prettier](https://prettier.io/)  
-**Deployment** - [Cloudflare Pages](https://pages.cloudflare.com/)  
+**Main Framework** - [Astro](https://astro.build/)
+**Type Checking** - [TypeScript](https://www.typescriptlang.org/)
+**Component Framework** - [ReactJS](https://reactjs.org/)
+**Styling** - [TailwindCSS](https://tailwindcss.com/)
+**UI/UX** - [Figma](https://figma.com)
+**Fuzzy Search** - [FuseJS](https://fusejs.io/)
+**Icons** - [Boxicons](https://boxicons.com/) | [Tablers](https://tabler-icons.io/)
+**Code Formatting** - [Prettier](https://prettier.io/)
+**Deployment** - [Cloudflare Pages](https://pages.cloudflare.com/)
 **Illustration in About Page** - [https://freesvgillustration.com](https://freesvgillustration.com/)
 
 ## 👨🏻‍💻 Running Locally

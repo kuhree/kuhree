@@ -1,11 +1,14 @@
 ---
 author: Khari Johnson
-datetime: 2020-12-03:22:00Z
-draft: false
-featured: false
+publishedAt: 2020-12-03:22:00Z
+isDraft: false
+isFeatured: false
+# slug: next-api-routes
+
 banner: "https://images.pexels.com/photos/4578665/pexels-photo-4578665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-title: Using Next.js API routes
-slug: next-api-routes
+banner_alt: "Map of computers"
+aliases:
+  - Using Next.js API routes
 description: Next.JS comes with a useful feature out of the box, api routes.
   Files created in the `pages/api/` folder are treated as an endpoint
   rather than a page. Instead of exporting a React component to display

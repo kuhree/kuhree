@@ -1,16 +1,18 @@
 ---
 author: Sat Naing
-datetime: 2022-09-23T15:22:00Z
-title: Adding new posts
-slug: adding-new-posts
-featured: false
-draft: true
-tags:
-  - docs
-banner: ""
+publishedAt: 2022-09-23T15:22:00Z
+isFeatured: false
+isDraft: true
+
+# banner: ""
+# banner_alt: ""
+aliases:
+  - Adding new posts
 description:
   Some rules & recommendations for creating or adding new posts using AstroPaper
   theme.
+tags:
+  - docs
 ---
 
 Here are some rules/recommendations, tips & ticks for creating new posts in AstroPaper blog theme.
@@ -28,7 +30,7 @@ Here is the list of frontmatter property for each post.
 | **_title_**       | Title of the post. (h1)                                                                   | required<sup>\*</sup>     |
 | **_description_** | Description of the post. Used in post excerpt and site description of the post.           | default = SITE.desc       |
 | **_author_**      | Author of the post.                                                                       | default = SITE.author     |
-| **_datetime_**    | Published datetime in ISO 8601 format.                                                    |                           |
+| **_publishedAt_** | Published datetime in ISO 8601 format.                                                    |                           |
 | **_slug_**        | Slug for the post. Usually the all lowercase title seperated in `-` instead of whtiespace | default = slugified title |
 | **_featured_**    | Whether or not display this post in featured section of home page                         | default = false           |
 | **_draft_**       | Mark this post 'unpublished'.                                                             | default = false           |
@@ -44,19 +46,20 @@ Title is the title of the post and it is very important for search engine optimi
 Here is the sample frontmatter for the post.
 
 ```yaml
-# src/contents/sample-post.md
+# src/content/.template.md
 ---
 title: The title of the post
 author: your name
-datetime: 2022-09-21T05:17:19Z
+publishedAt: 2022-09-21T05:17:19Z
 slug: the-title-of-the-post
-featured: true
-draft: false
+isFeatured: true
+isDraft: false
 tags:
   - some
   - example
   - tags
 banner: ""
+banner_alt: ""
 description: This is the example description of the example post.
 ---
 ```

@@ -1,5 +1,5 @@
-import extractTitle from "@utils/extractTitle";
 import type { Frontmatter } from "@types";
+import extractTitle from "@utils/extractTitle";
 import Datetime from "./Datetime";
 
 export interface Props {
@@ -16,7 +16,7 @@ const styles = {
 };
 
 export default function Card({ href, post, secHeading = true }: Props) {
-  const title = extractTitle(post);
+  const title = extractTitle(post.data);
 
   return (
     <li className={styles.cardContainer}>
@@ -27,8 +27,8 @@ export default function Card({ href, post, secHeading = true }: Props) {
           <h3 className={styles.titleHeading}>{title}</h3>
         )}
       </a>
-      <Datetime datetime={post.datetime} />
-      <p>{post.description}</p>
+      <Datetime datetime={post.data.publishedAt} />
+      <p>{post.data.description}</p>
     </li>
   );
 }

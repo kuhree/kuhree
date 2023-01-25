@@ -9,10 +9,11 @@ trigger:
 steps:
   - name: test
     image: node
-    commands: 
+    commands:
       - npm install -g pnpm
       - pnpm install
       - pnpm format:check
+      - pnpm lint
       - pnpm lint:astro
 
   - name: release
@@ -21,20 +22,20 @@ steps:
        - test
     when:
       ref:
-        - refs/tags/*   
+        - refs/tags/*
     environment:
       GITEA_API_KEY:
         from_secret: gitea_api_key
-      GITEA_BASE_URL: 
+      GITEA_BASE_URL:
         from_secret: gitea_base_url
     settings:
-      api_key: 
+      api_key:
         from_secret: gitea_api_key
-      base_url: 
+      base_url:
         from_secret: gitea_base_url
       files: dist/*
 
-  - name: docker  
+  - name: docker
     image: plugins/docker
     privileged: true
     depends_on:
@@ -44,14 +45,14 @@ steps:
         from_secret: gitea_username
       PASSWORD:
         from_secret: gitea_password
-      GITEA_BASE_URL: 
+      GITEA_BASE_URL:
         from_secret: gitea_base_url
     settings:
       tags: latest
       auto_tag: true
       repo: git.littlevibe.net/kuhree/www
-      registry: git.littlevibe.net 
-      username: 
+      registry: git.littlevibe.net
+      username:
         from_secret: gitea_username
-      password: 
+      password:
         from_secret: gitea_password

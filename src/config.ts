@@ -12,6 +12,13 @@ export const SITE = {
   postPerPage: 3,
 } as const;
 
+export const ASSETS = {
+  logo: {
+    src: (ext: "png" | "svg" = "png") => `/assets/logo.${ext}`,
+    alt: "Khari Johnson's logo",
+  },
+};
+
 export const LOGO_IMAGE = {
   enable: true,
   svg: false,

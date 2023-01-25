@@ -1,10 +1,10 @@
-import { Frontmatter } from "@types";
+import type { Frontmatter } from "@types";
 
 /**
  * Extract N items from a posts frontmatter to use as a title
  */
 function extractTitle(
-  { aliases }: Pick<Frontmatter, "aliases">,
+  { aliases }: Pick<Frontmatter["data"], "aliases">,
   amount = 1,
   joint = ", "
 ) {

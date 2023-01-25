@@ -1,20 +1,18 @@
 ---
-import type { MarkdownInstance } from "astro";
-
+import Card from "@components/Card";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import LinkButton from "@components/LinkButton.astro";
 import { SITE } from "@config";
-import type { Frontmatter } from "@types";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import Card from "@components/Card";
-import LinkButton from "@components/LinkButton.astro";
+import type { Frontmatter } from "@types";
 import { slugify } from "@utils/slugify";
 
 export interface Props {
   pageNum: number;
   totalPages: number;
-  posts: MarkdownInstance<Frontmatter>[];
+  posts: Frontmatter[];
 }
 
 const { pageNum, totalPages, posts } = Astro.props;
@@ -28,10 +26,8 @@ const next = pageNum < totalPages ? "" : "disabled";
   <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
     <ul>
       {
-        posts.map(({ frontmatter }) => {
-          return (
-            <Card href={`/posts/${slugify(frontmatter)}`} post={frontmatter} />
-          );
+        posts.map((post) => {
+          return <Card href={`/blog/${slugify(post)}`} post={post} />;
         })
       }
     </ul>
@@ -42,7 +38,7 @@ const next = pageNum < totalPages ? "" : "disabled";
       <nav class="pagination-wrapper" aria-label="Pagination">
         <LinkButton
           disabled={prev === "disabled"}
-          href={`/posts${pageNum - 1 !== 1 ? "/" + (pageNum - 1) : ""}`}
+          href={`/blog${pageNum - 1 !== 1 ? "/" + (pageNum - 1) : ""}`}
           className={`mr-4 select-none ${prev}`}
           ariaLabel="Previous"
         >
@@ -53,7 +49,7 @@ const next = pageNum < totalPages ? "" : "disabled";
         </LinkButton>
         <LinkButton
           disabled={next === "disabled"}
-          href={`/posts/${pageNum + 1}`}
+          href={`/blog/${pageNum + 1}`}
           className={`ml-4 select-none ${next}`}
           ariaLabel="Next"
         >

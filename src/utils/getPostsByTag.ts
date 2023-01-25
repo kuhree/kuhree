@@ -1,12 +1,8 @@
-import type { MarkdownInstance } from "astro";
-
-import { slugifyMany } from "./slugify";
 import type { Frontmatter } from "../types";
+import { slugifyMany } from "./slugify";
 
-function getPostsByTag(posts: MarkdownInstance<Frontmatter>[], tag: string) {
-  return posts.filter((post) =>
-    slugifyMany(post.frontmatter.tags).includes(tag)
-  );
+function getPostsByTag(posts: Frontmatter[], tag: string) {
+  return posts.filter((post) => slugifyMany(post.data.tags).includes(tag));
 }
 
 export default getPostsByTag;

@@ -9,7 +9,7 @@ export function slugify(item: SlugInput) {
   if (typeof item === "string") {
     return slugger(item);
   } else {
-    return slugger(item.slug ?? extractTitle(item));
+    return slugger(item.slug ?? extractTitle(item.data));
   }
 }
 
