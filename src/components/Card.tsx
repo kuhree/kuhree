@@ -5,7 +5,6 @@ import Datetime from "./Datetime";
 export interface Props {
   href?: string;
   post: Frontmatter;
-  secHeading?: boolean;
 }
 
 const styles = {
@@ -15,18 +14,15 @@ const styles = {
   titleHeading: "font-medium text-lg decoration-dashed hover:underline",
 };
 
-export default function Card({ href, post, secHeading = true }: Props) {
+export default function Card({ href, post }: Props) {
   const title = extractTitle(post.data);
 
   return (
     <li className={styles.cardContainer}>
       <a href={href} className={styles.titleLink}>
-        {secHeading ? (
-          <h2 className={styles.titleHeading}>{title}</h2>
-        ) : (
-          <h3 className={styles.titleHeading}>{title}</h3>
-        )}
+        <h3 className={styles.titleHeading}>{title}</h3>
       </a>
+
       <Datetime datetime={post.data.publishedAt} />
       <p>{post.data.description}</p>
     </li>

@@ -68,11 +68,7 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
             <h2>Featured</h2>
             <ul>
               {featuredPosts.map((post) => (
-                <Card
-                  href={`/writing/${slugify(post)}`}
-                  post={post}
-                  secHeading={false}
-                />
+                <Card href={`/writing/${slugify(post)}`} post={post} />
               ))}
             </ul>
           </section>
@@ -88,11 +84,7 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
           sortedPosts.map(
             (post, index) =>
               index < 4 && (
-                <Card
-                  href={`/writing/${slugify(post)}`}
-                  post={post}
-                  secHeading={false}
-                />
+                <Card href={`/writing/${slugify(post)}`} post={post} />
               )
           )
         }
