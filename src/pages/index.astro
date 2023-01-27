@@ -11,7 +11,7 @@ import getSortedPosts from "@utils/getSortedPosts";
 import { slugify } from "@utils/slugify";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("blog");
+const posts = await getCollection("writing");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.isFeatured);
@@ -69,7 +69,7 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
             <ul>
               {featuredPosts.map((post) => (
                 <Card
-                  href={`/blog/${slugify(post)}`}
+                  href={`/writing/${slugify(post)}`}
                   post={post}
                   secHeading={false}
                 />
@@ -89,7 +89,7 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
             (post, index) =>
               index < 4 && (
                 <Card
-                  href={`/blog/${slugify(post)}`}
+                  href={`/writing/${slugify(post)}`}
                   post={post}
                   secHeading={false}
                 />
@@ -98,7 +98,7 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
         }
       </ul>
       <div class="all-posts-btn-wrapper">
-        <LinkButton href="/blog">
+        <LinkButton href="/writing">
           All Posts
           <svg xmlns="http://www.w3.org/2000/svg">
             <path

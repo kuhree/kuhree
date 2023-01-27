@@ -6,11 +6,7 @@
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white&style=for-the-badge)](https://conventionalcommits.org)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=for-the-badge)](http://commitizen.github.io/cz-cli/)
 
-AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro blog theme. This theme is designed and crafted based on [my personal blog](https://satnaing.dev/blog).
-
 This theme follows best practices and provides accessibility out of the box. Light and dark mode are supported by default. Moreover, additional color schemes can also be configured.
-
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. Read [the blog posts](https://astro-paper.pages.dev/posts/) or check [the README Documentation Section](#-documentation) for more info.
 
 ## 🔥 Features
 
@@ -24,7 +20,6 @@ This theme is self-documented \_ which means articles/posts in this theme can al
 - [x] sitemap & rss feed
 - [x] followed best practices
 - [x] highly customizable
-- [x] dynamic OG image generation for blog posts [#15](https://github.com/satnaing/astro-paper/pull/15) ([Blog Post](https://astro-paper.pages.dev/posts/dynamic-og-image-generation-in-astropaper-blog-posts/))
 
 _Note: I've tested screen-reader accessibility of AstroPaper using **VoiceOver** on Mac and **TalkBack** on Android. I couldn't test all other screen-readers out there. However, accessibility enhancements in AstroPaper should be working fine on others as well._
 
@@ -54,8 +49,9 @@ Inside of AstroPaper, you'll see the following folders and files:
 │   ├── assets/
 │   │   └── socialIcons.ts
 │   ├── components/
-│   ├── contents/
-│   │   └── some-blog-posts.md
+│   ├── content/
+│   │   └── writing
+  │   │   └── some-posts.md
 │   ├── layouts/
 │   └── pages/
 │   └── styles/
@@ -69,11 +65,11 @@ Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page
 
 Any static assets, like images, can be placed in the `public/` directory.
 
-All blog posts are stored in `src/content/blog` directory.
+All posts are stored in `src/content/writing` directory.
 
 ## 📖 Documentation
 
-Documentation can be read in two formats\_ _markdown_ & _blog post_.
+Documentation can be read in two formats\_ _markdown_ & _post_.
 
 ## 💻 Tech Stack
 
@@ -84,8 +80,8 @@ Documentation can be read in two formats\_ _markdown_ & _blog post_.
 **UI/UX** - [Figma](https://figma.com)
 **Fuzzy Search** - [FuseJS](https://fusejs.io/)
 **Icons** - [Boxicons](https://boxicons.com/) | [Tablers](https://tabler-icons.io/)
-**Code Formatting** - [Prettier](https://prettier.io/)
-**Deployment** - [Cloudflare Pages](https://pages.cloudflare.com/)
+**Code Formatting/Linting** - [Prettier](https://prettier.io/) | [Eslint](https://eslint.com)
+**Deployment** - [Vercel](https://vercel.com)
 **Illustration in About Page** - [https://freesvgillustration.com](https://freesvgillustration.com/)
 
 ## 👨🏻‍💻 Running Locally
@@ -94,7 +90,7 @@ The easiest way to run this project locally is to run the following command in y
 
 ```bash
 # npm 6.x
-npm create astro@latest --template satnaing/astro-paper
+pnpm create astro@latest --template satnaing/astro-paper
 
 # npm 7+, extra double-dash is needed:
 npm create astro@latest -- --template satnaing/astro-paper
@@ -116,17 +112,17 @@ PUBLIC_GOOGLE_SITE_VERIFICATION=your-google-site-verification-value
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run format:check` | Check code format with Prettier                    |
-| `npm run format`       | Format codes with Prettier                         |
-| `npm run cz`           | Commit code changes with commitizen                |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+| Command                 | Action                                             |
+| :---------------------  | :------------------------------------------------- |
+| `pnpm install`          | Installs dependencies                              |
+| `pnpm run dev`          | Starts local dev server at `localhost:3000`        |
+| `pnpm run build`        | Build your production site to `./dist/`            |
+| `pnpm run preview`      | Preview your build locally, before deploying       |
+| `pnpm run format:check` | Check code format with Prettier                    |
+| `pnpm run format`       | Format codes with Prettier                         |
+| `pnpm run astro --help` | Get help using the Astro CLI                       |
+| `pnpm cz`               | Commit code changes with commitizen                |
+| `pnpm astro ...`        | Run CLI commands like `astro add`, `astro preview` |
 
 ## ✨ Feedback & Suggestions
 

@@ -20,7 +20,7 @@ tags:
 
 Next.JS comes with a useful feature out of the box, api routes. Files created in the `pages/api/` folder are treated as an endpoint rather than a page. Instead of exporting a React component to display your UI, you can export a function returning, say, a JSON response.
 
-For example, if you wanted to return a blog post from your CMS, you could write the following in file `pages/api/post.js` :
+For example, if you wanted to return a post from your CMS, you could write the following in file `pages/api/post.js` :
 
 ```js
 /**
@@ -30,7 +30,7 @@ For example, if you wanted to return a blog post from your CMS, you could write 
 export default (request, response) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify({ title: "My Blog Post" }));
+  res.end(JSON.stringify({ title: "My Post" }));
 };
 ```
 
@@ -77,7 +77,7 @@ One great use for API functions is creating a sitemap for your Next.JS project. 
 ```js
 import { NextApiRequest, NextApiResponse } from "next";
 import { SitemapStream, streamToPromise } from "sitemap";
-import posts from "../blog/post-index";
+import posts from "../posts/post-index";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -94,11 +94,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       });
     });
 
-    // Create each URL row for each blog post
+    // Create each URL row for each post
     Object.entries(posts).forEach(([name, metadata]) => {
       smStream.write({
         title: name,
-        url: `/blog/${metadata.slug}`,
+        url: `/posts/${metadata.slug}`,
         changefreq: "weekly",
         priority: 0.9,
       });

@@ -1,7 +1,7 @@
 import { CollectionEntry } from "astro:content";
 
 // Frontmatter from Astro's ContentAPI, see `src/content/config.ts` for more.
-export type Frontmatter = CollectionEntry<"blog">;
+export type Frontmatter = CollectionEntry<"writing">;
 
 export type SocialObjects = {
   name: SocialMedia;

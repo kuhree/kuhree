@@ -4,8 +4,6 @@ publishedAt: 2022-09-23T15:22:00Z
 isFeatured: false
 isDraft: true
 
-# banner: ""
-# banner_alt: ""
 aliases:
   - Adding new posts
 description:
@@ -15,7 +13,7 @@ tags:
   - docs
 ---
 
-Here are some rules/recommendations, tips & ticks for creating new posts in AstroPaper blog theme.
+Here are some rules/recommendations, tips & ticks for creating new posts in AstroPaper theme.
 
 ## Table of contents
 
@@ -25,17 +23,17 @@ Frontmatter is the main place to store some important information about the post
 
 Here is the list of frontmatter property for each post.
 
-| Property          | Description                                                                               | Remark                    |
-| ----------------- | ----------------------------------------------------------------------------------------- | ------------------------- |
-| **_title_**       | Title of the post. (h1)                                                                   | required<sup>\*</sup>     |
-| **_description_** | Description of the post. Used in post excerpt and site description of the post.           | default = SITE.desc       |
-| **_author_**      | Author of the post.                                                                       | default = SITE.author     |
-| **_publishedAt_** | Published datetime in ISO 8601 format.                                                    |                           |
-| **_slug_**        | Slug for the post. Usually the all lowercase title seperated in `-` instead of whtiespace | default = slugified title |
-| **_featured_**    | Whether or not display this post in featured section of home page                         | default = false           |
-| **_draft_**       | Mark this post 'unpublished'.                                                             | default = false           |
-| **_tags_**        | Related keywords for this post. Written in array yaml format.                             |                           |
-| **_banner_**      | OG image of the post. Useful for social media sharing and SEO.                            | default = SITE.banner     |
+| Property          | Description                                                                               | Remark                     |
+| ----------------- | ----------------------------------------------------------------------------------------- | -------------------------- |
+| **_title_**       | Title of the post. (h1)                                                                   | required<sup>\*</sup>      |
+| **_description_** | Description of the post. Used in post excerpt and site description of the post.           | default = SITE.description |
+| **_author_**      | Author of the post.                                                                       | default = SITE.author      |
+| **_slug_**        | Slug for the post. Usually the all lowercase title seperated in `-` instead of whtiespace | default = slugified title  |
+| **_isFeatured_**  | Whether or not display this post in featured section of home page                         | default = false            |
+| **_isDraft_**     | Mark this post 'unpublished'.                                                             | default = false            |
+| **_banner_**      | OG image of the post. Useful for social media sharing and SEO.                            | default = SITE.banner      |
+| **_tags_**        | Related keywords for this post. Written in array yaml format.                             |                            |
+| **_publishedAt_** | Published datetime in ISO 8601 format.                                                    |                            |
 
 `title` and `slug` fields in frontmatter must be specified.
 
@@ -77,7 +75,7 @@ For instance, if you want to place your table of contents just under the intro p
 # some frontmatter
 ---
 
-Here are some recommendations, tips & ticks for creating new posts in AstroPaper blog theme.
+Here are some recommendations, tips & ticks for creating new posts in AstroPaper theme.
 
 ## Table of contents
 
@@ -86,7 +84,7 @@ Here are some recommendations, tips & ticks for creating new posts in AstroPaper
 
 ## Headings
 
-There's one thing to note about headings. The AstroPaper blog posts use title (title in the frontmatter) as the main heading of the post. Therefore, the rest of the heading in the post should be using h2 \~ h6.
+There's one thing to note about headings. The AstroPaper posts use title (title in the frontmatter) as the main heading of the post. Therefore, the rest of the heading in the post should be using h2 \~ h6.
 
 This rule is not mandatory, but highly recommended for visual, accessibility and SEO purposes.
 
@@ -94,7 +92,7 @@ This rule is not mandatory, but highly recommended for visual, accessibility and
 
 ### Image compression
 
-When you put images in the blog post, it is recommended that the image is compressed. This will affect the overall performance of the website.
+When you put images in the post, it is recommended that the image is compressed. This will affect the overall performance of the website.
 
 My recommendation for image compression sites.
 

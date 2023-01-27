@@ -1,11 +1,11 @@
 ---
 import { SITE } from "@config";
-import BlogLayout from "@layouts/Blog.astro";
+import WritingLayout from "@layouts/Writing.astro";
 import getPageNumbers from "@utils/getPageNumbers";
 import getSortedPosts from "@utils/getSortedPosts";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("blog");
+const posts = await getCollection("writing");
 
 const sortedPosts = getSortedPosts(posts);
 
@@ -14,4 +14,8 @@ const totalPages = getPageNumbers(sortedPosts.length);
 const paginatedPosts = sortedPosts.slice(0, SITE.postPerPage);
 ---
 
-<BlogLayout posts={paginatedPosts} pageNum={1} totalPages={totalPages.length} />
+<WritingLayout
+  posts={paginatedPosts}
+  pageNum={1}
+  totalPages={totalPages.length}
+/>

@@ -16,7 +16,7 @@ export interface Props {
 }
 
 export async function getStaticPaths() {
-  const posts: Frontmatter[] = await getCollection("blog");
+  const posts: Frontmatter[] = await getCollection("writing");
 
   const tags = getUniqueTags(posts);
 
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.props;
 
-const posts: Frontmatter[] = await getCollection("blog");
+const posts: Frontmatter[] = await getCollection("writing");
 
 const postsByTag = getPostsByTag(posts, tag);
 ---
@@ -45,7 +45,7 @@ const postsByTag = getPostsByTag(posts, tag);
     <ul>
       {
         postsByTag.map((post) => (
-          <Card href={`/blog/${slugify(post)}`} post={post} />
+          <Card href={`/writing/${slugify(post)}`} post={post} />
         ))
       }
     </ul>

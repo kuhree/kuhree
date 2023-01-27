@@ -9,7 +9,7 @@ export const get: APIRoute = async ({ params }) => ({
 });
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("blog", ({ data }) => {
+  const allPosts = await getCollection("writing", ({ data }) => {
     return (
       data.isDraft === false &&
       typeof data.banner === "string" &&

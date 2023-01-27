@@ -6,7 +6,7 @@ import { slugify } from "@utils/slugify";
 import { getCollection } from "astro:content";
 
 export async function get() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("writing");
 
   return rss({
     title: SITE.title,
