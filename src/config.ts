@@ -22,8 +22,8 @@ export const ASSETS = {
 export const LOGO_IMAGE = {
   enable: true,
   svg: false,
-  width: 48,
-  height: 48,
+  width: 36,
+  height: 36,
 };
 
 export const SOCIALS: SocialObjects = [
