@@ -5,6 +5,8 @@ name: default
 trigger:
   branch:
     - main
+  event:
+    - push
 
 steps:
   - name: test
