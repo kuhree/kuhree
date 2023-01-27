@@ -1,7 +1,7 @@
 FROM node as builder
 WORKDIR /data/app
 
-COPY package.json package-lock.json ./
+COPY package.json pnpm-lock.yaml ./
 
 RUN npm install -g pnpm && pnpm install --frozen-lockfile
 
