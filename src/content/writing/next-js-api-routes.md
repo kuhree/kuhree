@@ -72,9 +72,9 @@ export default async (req, res) => {
 
 ## Bonus
 
-One great use for API functions is creating a sitemap for your Next.JS project. The function below is the very same code for our website here.
+One great use for API functions is creating a sitemap for your Next.JS project. The function below is the very same code for our old website.
 
-```js
+```tsx
 import { NextApiRequest, NextApiResponse } from "next";
 import { SitemapStream, streamToPromise } from "sitemap";
 import posts from "../posts/post-index";
@@ -85,7 +85,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       hostname: `https://${req.headers.host}`,
     });
 
-    // Create each URL row for each static page
+    // Create URL row for each static page
     staticPages.forEach((page) => {
       smStream.write({
         changefreq: "monthly",
@@ -94,7 +94,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       });
     });
 
-    // Create each URL row for each post
+    // Create URL row for each post
     Object.entries(posts).forEach(([name, metadata]) => {
       smStream.write({
         title: name,
@@ -117,7 +117,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     res.end(sitemapOutput);
   } catch (e) {
-    console.log(e);
     res.send(JSON.stringify(e));
   }
 };

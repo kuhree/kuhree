@@ -15,7 +15,7 @@ const {
   post: { data, render },
 } = Astro.props;
 
-const { author, description, banner, publishedAt, tags } = data;
+const { author, description, banner, banner_alt, publishedAt, tags } = data;
 
 const { Content } = await render();
 
@@ -41,10 +41,6 @@ const ogUrl = new URL(banner ? banner : `${title}.svg`, Astro.url.origin).href;
   <main id="main-content">
     <h1 class="post-title">{title}</h1>
     <Datetime datetime={publishedAt} size="lg" className="my-2" />
-    <article id="article" role="article" class="mx-auto max-w-3xl mt-8 prose">
-      <Content />
-    </article>
-
     {
       tags ? (
         <ul class="tags-container">
@@ -54,6 +50,11 @@ const ogUrl = new URL(banner ? banner : `${title}.svg`, Astro.url.origin).href;
         </ul>
       ) : null
     }
+
+    <img src={ogUrl} alt={banner_alt} class="post-banner" />
+    <article id="article" role="article" class="mx-auto max-w-3xl mt-8 prose">
+      <Content />
+    </article>
   </main>
   <Footer />
 </Layout>
@@ -65,7 +66,10 @@ const ogUrl = new URL(banner ? banner : `${title}.svg`, Astro.url.origin).href;
   .post-title {
     @apply font-semibold text-2xl text-skin-accent;
   }
+  .post-banner {
+    @apply block w-full max-w-prose mx-auto object-contain object-center;
+  }
   .tags-container {
-    @apply my-8;
+    @apply my-2;
   }
 </style>
