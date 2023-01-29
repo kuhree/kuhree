@@ -65,7 +65,7 @@ Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page
 
 Any static assets, like images, can be placed in the `public/` directory.
 
-All posts are stored in `src/content/writing` directory.
+All posts are stored in `src/content/posts` directory.
 
 ## 📖 Documentation
 
