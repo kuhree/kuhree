@@ -50,7 +50,7 @@ Inside of AstroPaper, you'll see the following folders and files:
 │   │   └── socialIcons.ts
 │   ├── components/
 │   ├── content/
-│   │   └── writing
+│   │   └── posts
   │   │   └── some-posts.md
 │   ├── layouts/
 │   └── pages/

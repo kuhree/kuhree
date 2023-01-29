@@ -15,7 +15,7 @@ export interface Props {
 }
 
 export async function getStaticPaths() {
-  const posts: Frontmatter[] = await getCollection("writing");
+  const posts: Frontmatter[] = await getCollection("posts");
   const tags = getUniqueTags(posts);
 
   return tags.map((tag) => ({ params: { tag } }));
@@ -23,8 +23,8 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const postsByTag: Frontmatter[] = await getCollection(
-  "writing",
-  (entry): entry is CollectionEntry<"writing"> => {
+  "posts",
+  (entry): entry is CollectionEntry<"posts"> => {
     if (!tag) return false;
     return entry.data.tags?.includes(tag) ?? false;
   }
@@ -37,7 +37,7 @@ const postsByTag: Frontmatter[] = await getCollection(
     <ul>
       {
         postsByTag.map((post) => (
-          <Card href={`/writing/${slugify(post)}`} post={post} />
+          <Card href={`/posts/${slugify(post)}`} post={post} />
         ))
       }
     </ul>

@@ -22,12 +22,12 @@ const next = pageNum < totalPages ? "" : "disabled";
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
-  <Header activeNav="writing" />
+  <Header activeNav="posts" />
   <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
     <ul>
       {
         posts.map((post) => {
-          return <Card href={`/writing/${slugify(post)}`} post={post} />;
+          return <Card href={`/posts/${slugify(post)}`} post={post} />;
         })
       }
     </ul>
@@ -38,7 +38,7 @@ const next = pageNum < totalPages ? "" : "disabled";
       <nav class="pagination-wrapper" aria-label="Pagination">
         <LinkButton
           disabled={prev === "disabled"}
-          href={`/writing${pageNum - 1 !== 1 ? "/" + (pageNum - 1) : ""}`}
+          href={`/posts${pageNum - 1 !== 1 ? "/" + (pageNum - 1) : ""}`}
           className={`mr-4 select-none ${prev}`}
           ariaLabel="Previous"
         >
@@ -49,7 +49,7 @@ const next = pageNum < totalPages ? "" : "disabled";
         </LinkButton>
         <LinkButton
           disabled={next === "disabled"}
-          href={`/writing/${pageNum + 1}`}
+          href={`/posts/${pageNum + 1}`}
           className={`ml-4 select-none ${next}`}
           ariaLabel="Next"
         >

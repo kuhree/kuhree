@@ -8,7 +8,7 @@ import Main from "@layouts/Main.astro";
 import getUniqueTags from "@utils/getUniqueTags";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("writing");
+const posts = await getCollection("posts");
 
 const tags = getUniqueTags(posts);
 ---

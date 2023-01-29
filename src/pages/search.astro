@@ -9,7 +9,7 @@ import extractTitle from "@utils/extractTitle";
 import { getCollection } from "astro:content";
 
 // Retrieve all articles
-const posts = await getCollection("writing");
+const posts = await getCollection("posts");
 
 // List of items to search in
 const promises = posts

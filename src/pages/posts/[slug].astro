@@ -1,22 +1,22 @@
 ---
-import WritingPostLayout from "@layouts/WritingPost.astro";
+import Layout from "@layouts/PostsIndex.astro";
 import getPageNumbers from "@utils/getPageNumbers";
 import { slugify } from "@utils/slugify";
 import { CollectionEntry, getCollection, getEntryBySlug } from "astro:content";
 
 export interface Props {
-  post: CollectionEntry<"writing">;
+  post: CollectionEntry<"posts">;
 }
 
 type PostResult = {
   params: { slug: string | number };
-  props?: { post: CollectionEntry<"writing"> };
+  props?: { post: CollectionEntry<"posts"> };
 }[];
 
 type PagePaths = { params: { slug: string } }[];
 
 export async function getStaticPaths() {
-  const posts = await getCollection("writing");
+  const posts = await getCollection("posts");
 
   const filteredPosts = posts.filter(({ data }) => !data.isDraft);
 
@@ -38,12 +38,12 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 
-const post = slug ? await getEntryBySlug("writing", slug) : false;
+const post = slug ? await getEntryBySlug("posts", slug) : false;
 ---
 
 {
   post ? (
-    <WritingPostLayout post={post} />
+    <Layout posts={post} />
   ) : (
     <h1>Sorry, seems that post is no longer available.</h1>
   )
