@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content";
+import { CollectionEntry, getCollection } from "astro:content";
 
 import extractTitle from "@utils/extractTitle";
 import generateOgImage from "@utils/generateOgImage";
@@ -9,13 +9,18 @@ export const get: APIRoute = async ({ params }) => ({
 });
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("posts", ({ data }) => {
-    return (
-      data.isDraft === false &&
-      typeof data.banner === "string" &&
-      data.banner.length >= 1
-    );
-  });
+  const allPosts = await getCollection(
+    "posts",
+    (post): post is CollectionEntry<"posts"> => {
+      const { data } = post;
+
+      return (
+        data.isDraft === false &&
+        typeof data.banner === "string" &&
+        data.banner.length >= 1
+      );
+    }
+  );
 
   return allPosts.map(({ data }) => ({
     params: { ogTitle: extractTitle(data) },
