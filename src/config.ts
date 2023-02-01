@@ -4,9 +4,9 @@ export const SITE = {
   website: "https://kharijohnson.dev/",
   author: "Khari Johnson",
   description: "Builder. Explorer. *Nix Enthusiast",
-  biography:
-    "AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro theme. This theme follows best practices and provides accessibility out of the box. Light and dark mode are supported by default. Moreover, additional color schemes can also be configured. ",
   title: "Khari Johnson",
+  biography:
+    "Hi there! I'm a curious adventurer with a passion for making and all things *Nix. My never-ending curiosity has taken me on many exciting journeys, both physical and mental. I'm always eager to explore new ideas and techniques in the maker world, constantly seeking to improve my skills and abilities. When I'm not tinkering with tech, you'll likely find me out on some wild adventure or soaking up the beauty of nature. If you're looking for someone who loves to create, explore, and challenge the norm, let's connect!",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 3,
