@@ -1,6 +1,6 @@
 ---
-isDraft: true
-isFeatured: false
+isDraft: false
+isFeatured: true
 author: Khari Johnson
 publishedAt: 2023-01-27:12:30.000Z
 
@@ -8,9 +8,10 @@ banner: "https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"
 banner_alt: "Docker's Logo"
 aliases:
   - Running Docker on MacOS
-description: Running docker on MacOS is not a fun experience.
-  Things can be slow, fans get loud, programs start crashing -- it sucks.
-  Surely, there's something we can do about that.
+description:
+  Running `docker` on MacOS is NOT the same as running it natively on linux.
+  This is because MacOS requires a Linux VM (or some other virtualizaation solution)
+  for the docker CLI to talk to.
 tags:
   - docker
   - macos
@@ -18,7 +19,7 @@ tags:
 
 ## Table of contents
 
-## The Problem
+## The "Problem"
 
 Running `docker` on MacOS is NOT the same as running it natively on linux.
 This is because MacOS requires a Linux VM (or some other virtualizaation solution)
@@ -163,8 +164,7 @@ dockerRemoteConnect () {
   # Use these when lazydocker isn't working
   export DOCKER_HOST=ssh://username@remote-machine
 
-  # Use one of these when you've created a "remote" context
-  # and you aren't worried about lazydocker
+  # Use one of the following when you've created a "remote" context and you aren't worried about lazydocker
   # export DOCKER_CONTEXT=$desired_context
   # docker context use $desired_context
 
