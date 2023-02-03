@@ -66,6 +66,19 @@ const { activeNav } = Astro.props;
 
           <li>
             <LinkButton
+              href="https://kuhree.github.io/resume/"
+              className={`focus-outline p-3 sm:p-1 ${
+                activeNav === "search" ? "active" : ""
+              }`}
+              ariaLabel="search"
+              title="Search"
+            >
+              Resume
+            </LinkButton>
+          </li>
+
+          <li>
+            <LinkButton
               href="/search"
               className={`focus-outline p-3 sm:p-1 ${
                 activeNav === "search" ? "active" : ""
