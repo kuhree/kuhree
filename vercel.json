@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    { 
-      "source": "/resume",
-      "destination": "https://kuhree.github.io/resume", 
-      "permanent": true
-    }
-  ]
-}
