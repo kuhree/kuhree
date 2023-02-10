@@ -5,8 +5,7 @@ export const SITE = {
   author: "Khari Johnson",
   description: "Builder. Explorer. *Nix Enthusiast",
   title: "Khari Johnson",
-  biography:
-    "Hi there! I'm a curious adventurer with a passion for making and all things *Nix. My never-ending curiosity has taken me on many exciting journeys, both physical and mental. I'm always eager to explore new ideas and techniques in the maker world, constantly seeking to improve my skills and abilities. When I'm not tinkering with tech, you'll likely find me out on some wild adventure or soaking up the beauty of nature. If you're looking for someone who loves to create, explore, and challenge the norm, let's connect!",
+  biography: "",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 3,
