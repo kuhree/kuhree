@@ -7,7 +7,7 @@ import logoPNG from "/assets/logo.png";
 import logoSVG from "/assets/logo.svg";
 
 export interface Props {
-  activeNav?: "posts" | "tags" | "about" | "search";
+  activeNav?: "posts" | "about" | "search";
 }
 
 const { activeNav } = Astro.props;
@@ -53,12 +53,6 @@ const { activeNav } = Astro.props;
           </li>
 
           <li>
-            <a href="/tags" class={activeNav === "tags" ? "active" : ""}>
-              Tags
-            </a>
-          </li>
-
-          <li>
             <a href="/about" class={activeNav === "about" ? "active" : ""}>
               About
             </a>
@@ -73,7 +67,7 @@ const { activeNav } = Astro.props;
               ariaLabel="search"
               title="Search"
             >
-              Resume
+              Hire Me
             </LinkButton>
           </li>
 

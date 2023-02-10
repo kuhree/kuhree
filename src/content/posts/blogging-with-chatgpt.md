@@ -15,7 +15,7 @@ publishedAt: 2023-01-31:12:30.000Z
 tags:
   - ChatGPT
   - AI
-  - Large Language Model (LLM)
+  - Large Language Model
 ---
 
 This site is a _bit_ empty with the single post from the beginning of 2020.
