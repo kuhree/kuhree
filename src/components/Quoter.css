@@ -1,24 +1,5 @@
-:root {
-  /* Theme Vars */
-  --color-bg: #242424;
-  --color-bg--alt: #1a1a1a;
-  --color-fg: rgba(255, 255, 255, 0.87);
-  --color-primary: #646cff;
-
-  --radius-md: 8px;
-}
-
 button {
-  @apply border-skin-line;
-  border-radius: var(--radius-md);
-  border-width: 1px;
-  border-style: solid;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--color-bg--alt);
-  cursor: pointer;
+  @apply border-skin-line rounded-md p-2 px-4 text-lg font-semibold cursor-pointer border-solid border-2;
   transition: border-color 0.25s, color 0.35s;
 }
 
@@ -39,24 +20,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-
-    --color-bg: #ffffff;
-    --color-bg--alt: #f9f9f9;
-    --color-fg: #213547;
-    --color-primary: #747bff;
-  }
-  a:hover {
-    color: var(--color-primary);
-  }
-  button {
-    background-color: var(--color-bg--alt);
-  }
-}
-
 .quote-container {
   display: flex;
   justify-content: center;
@@ -74,17 +37,12 @@ button:focus-visible {
 }
 
 .quote-container.history .quote {
-  margin: 1rem;
-  border-radius: var(--radius-md);
+  @apply rounded-md m-4;
 }
 
 .quote {
+  @apply bg-skin-card rounded-md py-1 px-2 flex;
   flex: 1 1 auto;
-  display: flex;
-  margin: 0;
-  padding: 1rem 1.5rem;
-  background-color: var(--color-bg--alt);
-  border-radius: var(--radius-md);
 }
 
 .quote blockquote {
@@ -97,15 +55,14 @@ button:focus-visible {
 }
 
 .quote-action {
+  @apply py-1 px-2 ml-4;
   flex: 0 0 25%;
   display: block;
-  padding: 0.25rem 0.75rem;
-  margin-left: 01rem;
 }
 
 .quote-action.icon {
+  @apply p-1;
   flex: 0 0 auto;
-  padding: 0.3rem;
 }
 
 .quote-attribution {
