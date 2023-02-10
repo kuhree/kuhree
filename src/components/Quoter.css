@@ -1,14 +1,14 @@
 button {
-  @apply border-skin-line rounded-md p-2 px-4 text-lg font-semibold cursor-pointer border-solid border-2;
+  @apply rounded-md p-2 px-4;
+  @apply text-lg font-semibold cursor-pointer;
+  @apply border-skin-line border-solid border-2;
+  @apply hover:border-skin-accent hover:text-skin-accent hover:fill-skin-accent;
+
   transition: border-color 0.25s, color 0.35s;
 }
 
 button svg {
   transition: fill 0.25s;
-}
-
-button:hover {
-  @apply border-skin-accent text-skin-accent fill-skin-accent;
 }
 
 button:hover svg {
@@ -18,6 +18,27 @@ button:hover svg {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.quote {
+  @apply bg-skin-card rounded-md py-1 px-2 flex;
+  flex: 1 1 auto;
+}
+
+.quote blockquote {
+  @apply prose;
+  flex: 1 1 auto;
+  align-self: center;
+}
+.quote {
+  @apply bg-skin-card rounded-md py-1 px-2 flex;
+  flex: 1 1 auto;
+}
+
+.quote blockquote {
+  @apply prose;
+  flex: 1 1 auto;
+  align-self: center;
 }
 
 .quote-container {
@@ -30,6 +51,8 @@ button:focus-visible {
 
 .quote-container.history {
   display: block;
+  overflow: scroll;
+  height: 5%;
 }
 
 .quote-container.history h2 {
@@ -38,20 +61,6 @@ button:focus-visible {
 
 .quote-container.history .quote {
   @apply rounded-md m-4;
-}
-
-.quote {
-  @apply bg-skin-card rounded-md py-1 px-2 flex;
-  flex: 1 1 auto;
-}
-
-.quote blockquote {
-  flex: 1 1 auto;
-}
-
-.quote .quote-action {
-  flex: 0 0 auto;
-  align-self: center;
 }
 
 .quote-action {
@@ -63,6 +72,7 @@ button:focus-visible {
 .quote-action.icon {
   @apply p-1;
   flex: 0 0 auto;
+  align-self: flex-end;
 }
 
 .quote-attribution {

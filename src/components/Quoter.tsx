@@ -16,7 +16,7 @@ type QuoterProps = {
   queryFn?: () => Promise<QuoteSchema>;
 };
 
-export function useQuoter({ queryFn = fetchQuote }: QuoterProps) {
+export function useQuoteQuery({ queryFn = fetchQuote }: QuoterProps) {
   const [query, setQuery] = useState<QueryState<QuoteSchema>>({
     data: undefined,
     error: undefined,
@@ -33,7 +33,17 @@ export function useQuoter({ queryFn = fetchQuote }: QuoterProps) {
 
 export function useCopyToClipboard() {
   const copy = (message: string) => {
-    navigator.clipboard.writeText(message);
+    try {
+      navigator.clipboard.writeText(message);
+    } catch (cause) {
+      const error = new Error(
+        "Cannot copy to clipboard. Check the console for more details",
+        { cause }
+      );
+
+      console.error(error);
+      alert(error.message);
+    }
   };
 
   const handleCopy = (message: string) => () => copy(message);
@@ -43,7 +53,7 @@ export function useCopyToClipboard() {
 
 export function Quoter(props: QuoterProps) {
   const { handleCopy } = useCopyToClipboard();
-  const [{ error, data }, { refetch }] = useQuoter(props);
+  const [{ error, data }, { refetch }] = useQuoteQuery(props);
   const [quoteHistory, setQuoteHistory] = useState<Set<string>>(new Set());
 
   const historyList = [...quoteHistory].reverse();
