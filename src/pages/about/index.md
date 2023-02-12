@@ -28,3 +28,4 @@ If I had to describe myself...
 
 [time-machine]: https://timemachine.love "Time Machine"
 [theqube]: https://theqube.app "The Qube"
+[resume]: /about/resume "My Resume/CV"

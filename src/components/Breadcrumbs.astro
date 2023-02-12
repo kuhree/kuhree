@@ -51,4 +51,10 @@ breadcrumbList[0] === "posts" &&
   .breadcrumb ul li:not(:last-child) a {
     @apply hover:opacity-100;
   }
+
+  @media print {
+    .breadcrumb {
+      display: none;
+    }
+  }
 </style>
