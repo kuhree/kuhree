@@ -53,4 +53,4 @@ I've been on the job search for about a month now. It's been rough, yet rewardin
 
 <!-- References  -->
 
-[chatgpt-userbase-record]: https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/ "ChatGPT sets record for fastest-growing user base"
+[chatgpt-userbase-record]: https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/ 'ChatGPT sets record for fastest-growing user base'

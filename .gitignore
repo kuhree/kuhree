@@ -1,8 +1,7 @@
 # build output
 dist/
-.output/
+# generated types
 .astro/
-.vercel
 
 # dependencies
 node_modules/
@@ -13,12 +12,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# developer env
-.tmuxrc
-
 # environment variables
 .env
 .env.production
+.env.sentry*
 
 # macOS-specific files
 .DS_Store

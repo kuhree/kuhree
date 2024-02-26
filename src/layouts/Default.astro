@@ -1,0 +1,59 @@
+---
+// Learn about using Astro layouts:
+// https://docs.astro.build/en/core-concepts/layouts/
+
+// Component Imports
+
+import Head from '../components/Head.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+import SpeedInsights from '@vercel/speed-insights/astro'
+
+interface Props {
+  title?: string | undefined
+  description?: string | undefined
+
+  theme?: {
+    nav?: {
+      enabled: boolean
+    }
+
+    footer?: {
+      enabled: boolean
+    }
+  }
+}
+
+const { title, description, theme } = Astro.props
+
+const { nav = { enabled: true }, footer = { enabled: true } } = theme || {}
+---
+
+<html lang='en'>
+  <head>
+    <Head title={title} description={description} />
+  </head>
+  <body
+    class='text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-900'
+  >
+    <div class='flex flex-col h-full w-full'>
+      {nav?.enabled ? <Nav /> : null}
+      <slot />
+      <SpeedInsights />
+      {footer?.enabled ? <Footer /> : null}
+    </div>
+
+    <script>
+      // Add “loaded” class once the document has completely loaded.
+      addEventListener('load', () =>
+        document.documentElement.classList.add('loaded')
+      )
+    </script>
+
+    <style>
+      :root {
+        --_placeholder-bg: linear-gradient(transparent, transparent);
+      }
+    </style>
+  </body>
+</html>

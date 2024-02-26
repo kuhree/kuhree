@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/Default.astro'
+
+import Hero from '../components/ui/Hero.astro'
+import { SITE } from '../config'
+---
+
+<BaseLayout
+  title='About | Khari Johnson'
+  description='Learn more about myself and my background'
+>
+  <main class='about flex flex-col gap-20 max-w-3xl mx-auto px-4'>
+    <Hero
+      title='About'
+      tagline='Thanks for stopping by. Read below to learn more about myself and my background.'
+    >
+      <img width='1553' height='873' {...SITE.assets.profile} />
+    </Hero>
+
+    <section class='prose w-full'>
+      <h2 class='section-title'>Background</h2>
+      <div class='content'>
+        <p>Hi, I'm Khari Johnson, a Software Engineer with a passion for:</p>
+
+        <ul>
+          <li>building things people love to use</li>
+          <li>automating all the things along the way</li>
+        </ul>
+
+        <p>
+          In my journey, I've had the pleasure of being part of some exciting
+          projects, including:
+        </p>
+        <ul>
+          <li>
+            <a href='https://timemaching.love' target='_blank'>Time Machine</a>
+            - A simple, non-addictive app that brings hope into people's lives.
+          </li>
+          <li>
+            <a href='https://theqube.app' target='_blank'>The Qube</a> - Discover
+            the best music & podcasts by BIPOC & QTPOC creators
+          </li>
+        </ul>
+
+        <p>
+          I've contributed to these projects by handling various aspects, such
+          as:
+        </p>
+        <ul>
+          <li>Backend architcture, implementation, and orchestration</li>
+          <li>Frontend implementation, testing, and performance</li>
+          <li>System Design, Workflow Automation, and Technical Support</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class='prose w-full'>
+      <h2 class='section-title'>Education</h2>
+      <div class='content'>
+        <p>Lassiter High School, 2017<p></p></p>
+
+        <section>
+          <h2 class='section-title'>Skills</h2>
+          <div class='content'>
+            <p>{SITE.owner.skills.map(([id]) => id).join(', ')}</p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    margin-top: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--gray-200);
+  }
+
+  .section-title {
+    grid-column-start: 1;
+    font-size: var(--text-xl);
+    color: var(--gray-0);
+  }
+
+  .content {
+    grid-column: 2 / 4;
+  }
+
+  @media (min-width: 50em) {
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 60% 1fr;
+    }
+
+    .about > :global(:first-child) {
+      grid-column-start: 2;
+    }
+
+    section {
+      display: contents;
+      font-size: var(--text-lg);
+    }
+  }
+</style>

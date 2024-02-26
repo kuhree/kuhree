@@ -1,52 +1,38 @@
 ---
-import Hr from "./Hr.astro";
-import LinkButton from "./LinkButton.astro";
-import Socials from "./Socials.astro";
-
-const currentYear = new Date().getFullYear();
-
-export interface Props {
-  noMarginTop?: boolean;
-}
-
-const { noMarginTop = false } = Astro.props;
+import { SITE } from '../config'
+import Icon from './ui/Icon.astro'
+const currentYear = new Date().getFullYear()
+const siteOwnerName = SITE.owner.name
+const siteOwnerSocials = SITE.owner.socials
 ---
 
-<footer class={`${noMarginTop ? "" : "mt-auto"}`}>
-  <Hr noPadding />
-  <div class="footer-wrapper">
-    <Socials centered />
-    <div class="copyright-wrapper">
-      <span>Copyright &#169; {currentYear}</span>
-      <span class="separator">&nbsp;|&nbsp;</span>
-      <span>All rights reserved.</span>
-    </div>
-
-    <div class="copyright-wrapper">
-      <LinkButton href="/about/resume" ariaLabel="resume" title="Resume">
-        Resume
-      </LinkButton>
-    </div>
+<footer
+  class='flex flex-col gap-12 text-sm text-gray-400 mt-12 py-12 pt-8 text-center'
+>
+  <div class='group flex flex-col gap-2'>
+    <p>
+      Designed & Developed in Portland with <a href='https://astro.build/'
+        >Astro</a
+      >
+      <Icon icon='rocket-launch' size='1.2em' />
+    </p>
+    <p>&copy; {currentYear} {siteOwnerName}</p>
   </div>
-</footer>
 
-<style>
-  footer {
-    @apply w-full;
-  }
-  .footer-wrapper {
-    @apply py-6 sm:py-4 flex flex-col sm:flex-row-reverse justify-between items-center;
-  }
-  .link-button {
-    @apply p-2 my-1 hover:rotate-6;
-  }
-  .link-button svg {
-    @apply scale-125;
-  }
-  .copyright-wrapper {
-    @apply my-2 flex flex-col sm:flex-row items-center whitespace-nowrap;
-  }
-  .separator {
-    @apply hidden sm:inline;
-  }
-</style>
+  <p class='socials flex justify-center gap-4 flex-wrap'>
+    {
+      siteOwnerSocials.map(([id, social]) => (
+        <a
+          href={social.url}
+          class='hover:text-primary-700 dark:hover:text-primary-300 transition-colors ease-in-out'
+        >
+          <Icon
+            icon={`${id.toLowerCase()}-logo` as `${typeof id}-logo`}
+            size='1.2em'
+          />
+          {`${social.usernamePrefix}${social.username}`}
+        </a>
+      ))
+    }
+  </p>
+</footer>

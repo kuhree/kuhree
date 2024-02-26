@@ -1,0 +1,78 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+
+import BaseLayout from '../../layouts/Default.astro'
+
+import Hero from '../../components/ui/Hero.astro'
+import Pill from '../../components/ui/Pill.astro'
+import Breadcrumbs from '../../components/Breadcrumbs.astro'
+import { sortContent } from 'src/lib/content'
+
+interface Props {
+  entry: CollectionEntry<'work'>
+}
+
+// This is a dynamic route that generates a page for every Markdown file in src/content/
+// Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
+// https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
+export async function getStaticPaths() {
+  const work = await getCollection('work')
+
+  return work.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <header class='pb-6 px-4 max-w-3xl mx-auto'>
+    <Breadcrumbs />
+
+    <Hero title={entry.data.title} align='start'>
+      <div class='details'>
+        <p class='description text-md mb-4'>{entry.data.description}</p>
+
+        <div
+          class='flex flex-wrap gap-2 justify-start w-full mx-0 px-0 text-xs'
+        >
+          {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+        </div>
+      </div>
+    </Hero>
+  </header>
+
+  <main class='content flex flex-col gap-10 prose px-4 max-w-3xl'>
+    {
+      entry.data.img && (
+        <img src={entry.data.img} alt={entry.data.img_alt || ''} />
+      )
+    }
+
+    <Content />
+  </main>
+</BaseLayout>
+
+<style>
+  header {
+    padding-bottom: 2.5rem;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .description {
+    max-width: 54ch;
+  }
+
+  .content {
+    margin-inline: auto;
+  }
+</style>

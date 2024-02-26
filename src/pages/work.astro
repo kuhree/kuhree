@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content'
+
+import BaseLayout from '../layouts/Default.astro'
+
+import PortfolioPreview from '../components/ContentPreview.astro'
+import Hero from '../components/ui/Hero.astro'
+import Grid from '../components/ui/Grid.astro'
+import { SITE } from '../config'
+
+const siteOwnerName = SITE.owner.name
+
+const work = (await getCollection('work')).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+)
+---
+
+<BaseLayout
+  title={`My Work | ${siteOwnerName}`}
+  description={`Learn about ${siteOwnerName}'s most recent projects`}
+>
+  <main class='flex flex-col gap-8 max-w-3xl mx-auto px-4'>
+    <Hero
+      title='My Work'
+      tagline='See my most recent projects below to get an idea of my past experience.'
+      align='start'
+    />
+
+    <Grid variant='offset'>
+      {
+        work.map((project) => (
+          <li>
+            <PortfolioPreview project={project} />
+          </li>
+        ))
+      }
+    </Grid>
+  </main>
+</BaseLayout>

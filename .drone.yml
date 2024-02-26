@@ -5,6 +5,10 @@ name: default
 trigger:
   branch:
     - main
+  event:
+    include:
+    - push
+    - pull_request
 
 steps:
   - name: test
@@ -40,13 +44,6 @@ steps:
     privileged: true
     depends_on:
        - test
-    environment:
-      USERNAME:
-        from_secret: gitea_username
-      PASSWORD:
-        from_secret: gitea_password
-      GITEA_BASE_URL:
-        from_secret: gitea_base_url
     settings:
       tags: latest
       auto_tag: true

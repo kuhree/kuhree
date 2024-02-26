@@ -1,12 +1,45 @@
-// 1. Import utilities from `astro:content`
-import { defineCollection } from "astro:content";
+import { defineCollection, z, type CollectionEntry } from 'astro:content'
 
-// `_` prefix required by Astro. Do NOT rename.
-import { PostFrontmatter } from "./_schemas";
+import { SITE } from '../config'
 
-// 3. Export a single `collections` object to register your collection(s)
+// Define schemas for each collection you'd like to validate.
+
+export type WorkFrontmatter = z.infer<typeof WorkFrontmatter>
+export const WorkFrontmatter = z.object({
+  title: z.string(),
+  company: z.string().optional(),
+  role: z.string().optional(),
+  description: z.string(),
+  publishedAt: z.coerce.date(),
+  tags: z.array(z.string()),
+  img: z.string(),
+  img_alt: z.string().optional()
+})
+
+export type PostFrontmatter = z.infer<typeof PostFrontmatter>
+export const PostFrontmatter = z.object({
+  isDraft: z.boolean().default(true),
+  isFeatured: z.boolean().default(false),
+  publishedAt: z.date().or(z.string().transform((str) => new Date(str))),
+  author: z.string().default(SITE.owner.name),
+
+  banner: z.string().min(1).default(SITE.assets.logo.src),
+  banner_alt: z.string().min(1).default(SITE.assets.logo.alt),
+  aliases: z.string().array().min(1),
+  description: z.string().optional(),
+  tags: z.array(z.string()).optional(),
+  footnote: z.string().optional()
+})
+
+export type Frontmatter = CollectionEntry<'posts' | 'work'>
+
 export const collections = {
-  posts: defineCollection({
-    schema: PostFrontmatter,
+  work: defineCollection({
+    type: 'content',
+    schema: WorkFrontmatter
   }),
-};
+  posts: defineCollection({
+    type: 'content',
+    schema: PostFrontmatter
+  })
+}

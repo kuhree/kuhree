@@ -1,0 +1,96 @@
+---
+import { SITE } from '../config'
+import '../styles/base.css'
+
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION
+
+interface Props {
+  title?: string | undefined
+  description?: string | undefined
+  author?: string | undefined
+  ogImage?: string | undefined
+}
+
+const {
+  author = SITE.meta.author,
+  title = SITE.meta.title,
+  description = SITE.meta.description,
+  ogImage = SITE.meta.ogImage
+} = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const socialImageURL = new URL(ogImage ?? SITE.meta.ogImage, Astro.url.origin)
+  .href
+const fallbackImageURL = new URL(SITE.meta.ogImage, Astro.url.origin).href
+---
+
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width' />
+<link rel='canonical' href={canonicalURL} />
+<meta name='generator' content={Astro.generator} />
+<link rel='sitemap' href='/sitemap-index.xml' />
+
+<!-- General Meta Tags -->
+<title>{title}</title>
+<meta name='description' property='og:description' content={description} />
+<meta name='author' content={author} />
+<link rel='icon' type='image/svg+xml' href='/favicon/favicon.ico' />
+
+<!-- Open Graph / Facebook -->
+<meta property='og:title' content={title} />
+<meta property='og:description' content={description} />
+<meta property='og:url' content={canonicalURL} />
+<meta property='og:image' content={socialImageURL} />
+
+<!-- Twitter -->
+<meta property='twitter:card' content='summary_large_image' />
+<meta property='twitter:url' content={canonicalURL} />
+<meta property='twitter:title' content={title} />
+<meta property='twitter:description' content={description} />
+<meta
+  property='twitter:image'
+  content={socialImageURL.endsWith('.svg') ? fallbackImageURL : socialImageURL}
+/>
+
+<!-- Google Font -->
+<link rel='preconnect' href='https://fonts.googleapis.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link
+  href='https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap'
+  rel='stylesheet'
+/>
+
+{
+  // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
+  // include google-site-verification tag in the heading
+  // Learn more: https://support.google.com/webmasters/answer/9008080#meta_tag_verification&zippy=%2Chtml-tag
+  googleSiteVerification && (
+    <meta name='google-site-verification' content={googleSiteVerification} />
+  )
+}
+
+<script is:inline>
+  // This code is inlined in the head to make dark mode instant & blocking.
+  const getThemePreference = () => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme')
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'
+  }
+  const isDark = getThemePreference() === 'dark'
+  document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
+
+  if (typeof localStorage !== 'undefined') {
+    // Watch the document element and persist user preference when it changes.
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains('dark')
+      localStorage.setItem('theme', isDark ? 'dark' : 'light')
+    })
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
+  }
+</script>

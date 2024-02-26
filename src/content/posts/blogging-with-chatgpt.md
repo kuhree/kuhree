@@ -1,14 +1,14 @@
 ---
-id: "00-inbox/ideas-from-chatgpt.md"
-banner: "https://cdn.openai.com/research-covers/openai-charter/2x-no-mark.jpg"
-banner_alt: "Abstract image of a cylinder, sphere, and cone merging into each other from top to bottom"
+id: '00-inbox/ideas-from-chatgpt.md'
+banner: 'https://cdn.openai.com/research-covers/openai-charter/2x-no-mark.jpg'
+banner_alt: 'Abstract image of a cylinder, sphere, and cone merging into each other from top to bottom'
 aliases:
   - Blogging with ChatGPT
 description:
   ChatGPT is all the rage right now and I want to understand it a bit better.
   Here's my attempt at getting it to suggest content ideas for this very blog,
   as well as some exploration into what a LLM is.
-author: "Khari Johnson"
+author: 'Khari Johnson'
 isDraft: false
 isFeatured: false
 publishedAt: 2023-01-31:12:30.000Z

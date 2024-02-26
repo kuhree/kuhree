@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string
+  tagline?: string
+  align?: 'start' | 'center'
+}
+
+const { align = 'center', tagline, title } = Astro.props
+---
+
+<div
+  class:list={[
+    'hero flex flex-col gap-4 text-xl text-center',
+    { 'text-start items-start': align === 'start' }
+  ]}
+>
+  <div
+    class:list={[
+      'flex flex-col gap-2 text-slate-800 dark:text-slate-200',
+      { 'mx-0': align === 'start', 'mx-auto': align === 'center' }
+    ]}
+  >
+    <h1
+      class:list={[
+        'title text-3xl lg:text-5xl font-bold',
+        { 'mx-0': align === 'start' }
+      ]}
+    >
+      {title}
+    </h1>
+
+    {
+      tagline && (
+        <p
+          class:list={[
+            'tagline text-sm lg:text-lg',
+            { 'mx-0': align === 'start' }
+          ]}
+        >
+          {tagline}
+        </p>
+      )
+    }
+  </div>
+
+  <slot />
+</div>

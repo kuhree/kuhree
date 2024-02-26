@@ -56,8 +56,8 @@ tags:
   - some
   - example
   - tags
-banner: ""
-banner_alt: ""
+banner: ''
+banner_alt: ''
 description: This is the example description of the example post.
 ---
 ```

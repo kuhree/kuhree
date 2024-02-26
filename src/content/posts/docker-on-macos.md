@@ -1,10 +1,10 @@
 ---
 isDraft: false
-isFeatured: true
+isFeatured: false
 author: Khari Johnson
 publishedAt: 2023-01-27:12:30.000Z
 
-banner: "https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"
+banner: 'https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png'
 banner_alt: "Docker's Logo"
 aliases:
   - Running Docker on MacOS
@@ -204,12 +204,17 @@ could've used the other solutions to solve my needs, but I like that...
 Sure, I could disable menubars icons, determine runtime specs in Docker Desktop,
 and go from there, but I really enjoy the terminal only workflow.
 
-[rancher-desktop]: https://rancherdesktop.io/
-[docker-desktop]: https://www.docker.com/products/docker-desktop/
-[docker-extensions]: https://docs.docker.com/desktop/extensions/
-[podman]: https://podman.io/
+## Update: 2024-01-30
+
+[Orbstack][orbstack] has entered the scene and quickly becomes a contender for a colima replacement.
+
+[rancher-desktop]: https://rancherdesktop.io
+[docker-desktop]: https://www.docker.com/products/docker-desktop
+[docker-extensions]: https://docs.docker.com/desktop/extensions
+[podman]: https://podman.io
 [colima]: https://github.com/abiosoft/colima
-[remote-host]: https://www.docker.com/blog/how-to-deploy-on-remote-docker-hosts-with-docker-compose/
-[minikube]: https://minikube.sigs.k8s.io/docs/
+[remote-host]: https://www.docker.com/blog/how-to-deploy-on-remote-docker-hosts-with-docker-compose
+[minikube]: https://minikube.sigs.k8s.io/docs
 [lazydocker]: https://github.com/jesseduffield/lazydocker
-[ctop]: https://ctop.sh/
+[ctop]: https://ctop.sh
+[orbstack]: https://orbstack.dev

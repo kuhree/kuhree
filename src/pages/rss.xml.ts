@@ -1,24 +1,23 @@
-import rss from "@astrojs/rss";
+import rss from '@astrojs/rss'
 
-import { SITE } from "@config";
-import extractTitle from "@utils/extractTitle";
-import { slugify } from "@utils/slugify";
-import { getCollection } from "astro:content";
+import { SITE } from '../config'
+import { extractTitle, slugify, sortContent } from 'src/lib/content'
+import { getCollection } from 'astro:content'
+import type { APIRoute } from 'astro'
 
-export async function get() {
-  const posts = await getCollection("posts");
+export const GET: APIRoute = async () => {
+  const posts = await getCollection('posts')
+  const work = await getCollection('work')
 
   return rss({
-    title: SITE.title,
-    description: SITE.description,
-    site: SITE.website,
-    items: posts
-      .filter(({ data }) => !data.isDraft)
-      .map((post) => ({
-        link: `posts/${slugify(post)}`,
-        title: extractTitle(post.data),
-        description: post.data.description,
-        pubDate: new Date(post.data.publishedAt),
-      })),
-  });
+    title: SITE.meta.title,
+    description: SITE.meta.description,
+    site: SITE.meta.canonical,
+    items: sortContent([...posts, ...work]).map((entry) => ({
+      link: `${entry.collection}/${slugify(entry)}`,
+      title: extractTitle(entry.data),
+      description: entry.data.description,
+      pubDate: new Date(entry.data.publishedAt)
+    }))
+  })
 }

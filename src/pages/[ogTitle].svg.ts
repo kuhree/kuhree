@@ -1,28 +1,30 @@
-import type { APIRoute } from "astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import type { APIRoute } from 'astro'
+import { getCollection } from 'astro:content'
 
-import extractTitle from "@utils/extractTitle";
-import generateOgImage from "@utils/generateOgImage";
+import { extractTitle } from '../lib/content'
+import { generateOgImage } from '../lib/og-image'
 
-export const get: APIRoute = async ({ params }) => ({
-  body: await generateOgImage(params.ogTitle),
-});
+export const GET: APIRoute = async ({ params }) => {
+  return new Response(await generateOgImage(params.ogTitle))
+}
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection(
-    "posts",
-    (post): post is CollectionEntry<"posts"> => {
-      const { data } = post;
+  const allPosts = await getCollection('posts', (post) => {
+    const { data } = post
 
-      return (
-        data.isDraft === false &&
-        typeof data.banner === "string" &&
-        data.banner.length >= 1
-      );
-    }
-  );
+    return (
+      data.isDraft === false &&
+      typeof data.banner === 'string' &&
+      data.banner.length >= 1
+    )
+  })
 
-  return allPosts.map(({ data }) => ({
-    params: { ogTitle: extractTitle(data) },
-  }));
+  const allWork = await getCollection('work', (project) => {
+    const { data } = project
+    return data.publishedAt
+  })
+
+  return [...allPosts, ...allWork].map(({ data }) => ({
+    params: { ogTitle: extractTitle(data) }
+  }))
 }
