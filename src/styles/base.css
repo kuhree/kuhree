@@ -37,11 +37,12 @@
   }
 
   .prose {
-    @apply prose-slate prose-sm dark:prose-invert;
+    @apply prose-stone prose-sm md:prose-base dark:prose-invert
+    prose-img:rounded-xl prose-headings:underline prose-a:text-primary-600;
   }
 
   .prose a {
-    @apply prose-purple;
+    @apply font-bold;
   }
 }
 

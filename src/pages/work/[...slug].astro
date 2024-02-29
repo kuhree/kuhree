@@ -1,12 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content'
 
-import BaseLayout from '../../layouts/Default.astro'
-
-import Hero from '../../components/ui/Hero.astro'
-import Pill from '../../components/ui/Pill.astro'
-import Breadcrumbs from '../../components/Breadcrumbs.astro'
-import { sortContent } from 'src/lib/content'
+import ContentLayout from '../../layouts/Content.astro'
 
 interface Props {
   entry: CollectionEntry<'work'>
@@ -25,36 +20,9 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { Content } = await entry.render()
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
-  <header class='pb-6 px-4 max-w-3xl mx-auto'>
-    <Breadcrumbs />
-
-    <Hero title={entry.data.title} align='start'>
-      <div class='details'>
-        <p class='description text-md mb-4'>{entry.data.description}</p>
-
-        <div
-          class='flex flex-wrap gap-2 justify-start w-full mx-0 px-0 text-xs'
-        >
-          {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
-        </div>
-      </div>
-    </Hero>
-  </header>
-
-  <main class='content flex flex-col gap-10 prose px-4 max-w-3xl'>
-    {
-      entry.data.img && (
-        <img src={entry.data.img} alt={entry.data.img_alt || ''} />
-      )
-    }
-
-    <Content />
-  </main>
-</BaseLayout>
+<ContentLayout entry={entry} />
 
 <style>
   header {

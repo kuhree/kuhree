@@ -3,16 +3,15 @@ import { getCollection } from 'astro:content'
 
 import BaseLayout from '../layouts/Default.astro'
 
-import PortfolioPreview from '../components/ContentPreview.astro'
+import ContentPreview from '../components/ContentPreview.astro'
 import Hero from '../components/ui/Hero.astro'
 import Grid from '../components/ui/Grid.astro'
 import { SITE } from '../config'
+import { sortContent } from '../lib/content'
 
 const siteOwnerName = SITE.owner.name
 
-const posts = (await getCollection('posts'))
-  .filter((post) => !post.data.isDraft)
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+const posts = sortContent(await getCollection('posts'))
 ---
 
 <BaseLayout
@@ -28,9 +27,9 @@ const posts = (await getCollection('posts'))
 
     <Grid variant='offset'>
       {
-        posts.map((post) => (
+        posts.map((entry) => (
           <li>
-            <PortfolioPreview project={post} />
+            <ContentPreview entry={entry} />
           </li>
         ))
       }

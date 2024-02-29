@@ -1,0 +1,59 @@
+---
+import BaseLayout from './Default.astro'
+
+import type { Frontmatter } from 'src/content/config'
+import Hero from '../components/ui/Hero.astro'
+import { extractTitle, slugify } from '../lib/content'
+
+interface Props {
+  entry: Frontmatter
+}
+
+const { entry } = Astro.props
+const { Content: MxContent } = await entry.render()
+
+const { description, tags, banner, banner_alt } = entry.data,
+  title = extractTitle(entry.data)
+---
+
+<BaseLayout title={title} description={description}>
+  <main
+    class:list={[
+      'w-full px-12',
+      'flex flex-col gap-12 items-center justify-start mx-auto max-w-screen-2xl'
+    ]}
+  >
+    <Hero title={title} tagline={description} align='start'>
+      <ul class:list={['tags flex flex-wrap gap-2 justify-center']}>
+        {
+          tags?.map((t) => (
+            <li
+              class:list={[
+                'tag py-1 px-3 rounded-full text-sm',
+                'border-2 border-solid border-primary-700 dark:border-primary-300'
+              ]}
+            >
+              <a href={`/tags/${slugify(t)}`} class:list={['tag']}>
+                {t}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      {
+        banner && banner !== '' && (
+          <img
+            src={banner}
+            alt={banner_alt}
+            class='object-center object-cover h-full w-full max-w-3xl rounded-xl'
+          />
+        )
+      }
+    </Hero>
+
+    <section class='content gap-10 prose max-w-3xl mx-auto px-0'>
+      <MxContent />
+    </section>
+  </main>
+</BaseLayout>

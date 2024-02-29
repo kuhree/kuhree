@@ -1,4 +1,6 @@
 ---
+import Breadcrumbs from '../Breadcrumbs.astro'
+
 interface Props {
   title: string
   tagline?: string
@@ -16,10 +18,11 @@ const { align = 'center', tagline, title } = Astro.props
 >
   <div
     class:list={[
-      'flex flex-col gap-2 text-slate-800 dark:text-slate-200',
+      'flex flex-col gap-2',
       { 'mx-0': align === 'start', 'mx-auto': align === 'center' }
     ]}
   >
+    <Breadcrumbs />
     <h1
       class:list={[
         'title text-3xl lg:text-5xl font-bold',
@@ -33,7 +36,7 @@ const { align = 'center', tagline, title } = Astro.props
       tagline && (
         <p
           class:list={[
-            'tagline text-sm lg:text-lg',
+            'tagline text-sm lg:text-lg max-w-[54ch]',
             { 'mx-0': align === 'start' }
           ]}
         >

@@ -1,70 +1,54 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import { extractTitle } from 'src/lib/content'
+import { extractTitle, slugify, truncate } from '../lib/content'
 
 interface Props {
-  project: CollectionEntry<'work' | 'posts'>
+  entry: CollectionEntry<'work' | 'posts'>
 }
 
-const { data, slug, collection } = Astro.props.project
+const { data, slug, collection } = Astro.props.entry
+const { description = '', publishedAt, banner, banner_alt, tags } = data,
+  title = extractTitle(data),
+  descriptionTruncated = truncate(description),
+  url = `/${collection}/${slug}`
 ---
 
-<a class='card' href={`/${collection}/${slug}`}>
-  <span class='title'>{extractTitle(data)}</span>
-  <img
-    src={'img' in data ? data.img : data.banner}
-    alt={('img' in data ? data.img_alt : data.banner_alt) || ''}
-    loading='lazy'
-    decoding='async'
-  />
-</a>
+<article>
+  <a
+    class='img-container rounded-xl rounded-b-none aspect-1 h-32 md:h-48 w-32 md:w-48 overflow-hidden'
+    href={url}
+  >
+    <img
+      src={banner}
+      alt={banner_alt || title}
+      loading='lazy'
+      decoding='async'
+      class='object-cover object-center h-full w-full rounded-t-xl'
+    />
+  </a>
 
-<style>
-  .card {
-    display: grid;
-    grid-template: auto 1fr / auto 1fr;
-    height: 11rem;
-    background: var(--gradient-subtle);
-    border: 1px solid var(--gray-800);
-    border-radius: 0.75rem;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    text-decoration: none;
-    font-family: var(--font-brand);
-    font-size: var(--text-lg);
-    font-weight: 500;
-    transition: box-shadow var(--theme-transition);
-  }
-
-  .card:hover {
-    box-shadow: var(--shadow-md);
-  }
-
-  .title {
-    grid-area: 1 / 1 / 2 / 2;
-    z-index: 1;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: var(--gray-999);
-    color: var(--gray-200);
-    border-radius: 0.375rem;
-  }
-
-  img {
-    grid-area: 1 / 1 / 3 / 3;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  @media (min-width: 50em) {
-    .card {
-      height: 22rem;
-      border-radius: 1.5rem;
+  <section
+    class='flex flex-col px-4 py-2 bg-stone-200 dark:bg-stone-800 rounded-xl rounded-t-none'
+  >
+    <span class='date text-sm font-extralight mb-1'
+      >{publishedAt.toLocaleDateString()}</span
+    >
+    <a href={url} class='prose title text-xl font-semibold mb-0'>
+      {title}
+    </a>
+    {
+      description ? (
+        <span class='description prose mb-4'>{descriptionTruncated}</span>
+      ) : null
     }
-
-    .title {
-      border-radius: 0.9375rem;
-    }
-  }
-</style>
+    <ul class='flex flex-wrap gap-2'>
+      {
+        tags?.slice(0, 4).map((tag) => (
+          <li class='text-sm font-light border-2 border-solid border-primary-300 rounded-xl px-2 py-1'>
+            <a href={`/tags/${slugify(tag)}`}>{tag}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</article>

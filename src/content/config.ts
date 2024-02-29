@@ -12,8 +12,8 @@ export const WorkFrontmatter = z.object({
   description: z.string(),
   publishedAt: z.coerce.date(),
   tags: z.array(z.string()),
-  img: z.string(),
-  img_alt: z.string().optional()
+  banner: z.string(),
+  banner_alt: z.string().optional()
 })
 
 export type PostFrontmatter = z.infer<typeof PostFrontmatter>

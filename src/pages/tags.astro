@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content'
+
+import BaseLayout from '../layouts/Default.astro'
+import Hero from '../components/ui/Hero.astro'
+import Grid from '../components/ui/Grid.astro'
+import type { Frontmatter } from '../content/config'
+import { SITE } from '../config'
+import {
+  extractTitle,
+  groupContentByTag,
+  slugify,
+  sortContent
+} from '../lib/content'
+
+const siteOwnerName = SITE.owner.name
+
+const contentPromises = [getCollection('posts'), getCollection('work')],
+  contentResult = await Promise.allSettled(contentPromises),
+  content: Frontmatter[] = []
+
+for (const result of contentResult) {
+  if (result.status === 'fulfilled') {
+    content.push(...result.value)
+  } else {
+    throw result.reason
+  }
+}
+
+const contentByTag = groupContentByTag(content)
+---
+
+<BaseLayout
+  title={`Tags | ${siteOwnerName}`}
+  description={`Learn about ${siteOwnerName}'s tags`}
+>
+  <main class='flex flex-col gap-8 max-w-3xl mx-auto px-4'>
+    <Hero
+      title='Tags'
+      tagline='Click a tag to see related works.'
+      align='start'
+    />
+
+    <Grid variant='small'>
+      {
+        contentByTag.map(([tag, entries]) => (
+          <details class='prose'>
+            <summary class='flex'>
+              <h2>{tag}</h2>
+            </summary>
+
+            <ul>
+              {sortContent(entries).map((entry) => (
+                <li>
+                  <a href={`${entry.collection}/${entry.slug}`}>
+                    {extractTitle(entry.data)}
+                  </a>
+                </li>
+              ))}
+
+              <li>
+                <a href={`/tags/${slugify(tag)}`}>See All</a>
+              </li>
+            </ul>
+          </details>
+        ))
+      }
+    </Grid>
+  </main>
+</BaseLayout>

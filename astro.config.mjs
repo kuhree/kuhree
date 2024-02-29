@@ -6,6 +6,9 @@ import robotsTxt from 'astro-robots-txt'
 import sentry from '@sentry/astro'
 import preact from '@astrojs/preact'
 import vercel from '@astrojs/vercel/serverless'
+import remarkToc from 'remark-toc'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +17,16 @@ export default defineConfig({
   publicDir: 'public',
   output: 'hybrid',
   plugins: [tailwindTypography],
+  markdown: {
+    // Applied to .md and .mdx files
+    remarkPlugins: [remarkToc],
+    rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]],
+    shikiConfig: {
+      // Choose from Shiki's built-in themes (or add your own)
+      // https://github.com/shikijs/shiki/blob/main/docs/themes.md
+      theme: 'github-dark'
+    }
+  },
   integrations: [
     preact({
       compat: true

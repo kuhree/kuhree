@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content'
+
+import { SITE } from '../../config'
+import type { Frontmatter } from '../../content/config'
+import { groupContentByTag, slugify } from '../../lib/content'
+import BaseLayout from '../../layouts/Default.astro'
+import ContentPreview from '../../components/ContentPreview.astro'
+import Hero from '../../components/ui/Hero.astro'
+import Grid from '../../components/ui/Grid.astro'
+
+const siteOwnerName = SITE.owner.name
+
+interface Props {
+  tag: string
+  entries: Frontmatter[]
+}
+
+export async function getStaticPaths() {
+  const contentPromises = [getCollection('posts'), getCollection('work')],
+    contentResult = await Promise.allSettled(contentPromises),
+    content: Frontmatter[] = []
+
+  for (const result of contentResult) {
+    if (result.status === 'fulfilled') {
+      content.push(...result.value)
+    } else {
+      throw result.reason
+    }
+  }
+
+  return groupContentByTag(content).map(([tag, entries]) => ({
+    params: { slug: slugify(tag) },
+    props: { tag, entries }
+  }))
+}
+
+const { tag, entries } = Astro.props
+---
+
+<BaseLayout
+  title={`${tag} | ${siteOwnerName}`}
+  description={`Learn about things related to "${tag}"`}
+>
+  <main class='flex flex-col gap-8 max-w-3xl mx-auto px-4'>
+    <Hero
+      title={tag}
+      tagline={`All things related to "${tag}"`}
+      align='start'
+    />
+
+    <Grid>
+      {
+        entries.map((entry) => (
+          <li>
+            <ContentPreview entry={entry} />
+          </li>
+        ))
+      }
+    </Grid>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  h1 {
+    text-transform: capitalize;
+  }
+</style>

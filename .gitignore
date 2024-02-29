@@ -15,7 +15,8 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
-.env.sentry*
+.env.sentry_build_plugin
 
 # macOS-specific files
 .DS_Store
+.vercel

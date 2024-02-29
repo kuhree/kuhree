@@ -9,25 +9,33 @@ const breadcrumbList = currentUrlPath.split('/').slice(1)
 
 <nav class='breadcrumb' aria-label='breadcrumb'>
   <ul>
-    <li>
-      <a href='/'>Home</a>
-      <span aria-hidden='true'>&#62;</span>
-    </li>
     {
-      breadcrumbList.map((breadcrumb, index) =>
-        index + 1 === breadcrumbList.length ? (
+      breadcrumbList.length ? (
+        <>
           <li>
-            <span class={`${index > 0 ? 'lowercase' : ''}`} aria-current='page'>
-              {breadcrumb}
-            </span>
-          </li>
-        ) : (
-          <li>
-            <a href={`/${breadcrumb}`}>{breadcrumb}</a>
+            <a href='/'>Home</a>
             <span aria-hidden='true'>&#62;</span>
           </li>
-        )
-      )
+
+          {breadcrumbList.map((breadcrumb, index) =>
+            index + 1 === breadcrumbList.length ? (
+              <li>
+                <span
+                  class={`${index > 0 ? 'lowercase' : ''}`}
+                  aria-current='page'
+                >
+                  {breadcrumb}
+                </span>
+              </li>
+            ) : (
+              <li>
+                <a href={`/${breadcrumb}`}>{breadcrumb}</a>
+                <span aria-hidden='true'>&#62;</span>
+              </li>
+            )
+          )}
+        </>
+      ) : null
     }
   </ul>
 </nav>
@@ -38,6 +46,7 @@ const breadcrumbList = currentUrlPath.split('/').slice(1)
   }
   .breadcrumb ul li {
     display: inline;
+    white-space: nowrap;
   }
   .breadcrumb ul li a,
   .breadcrumb ul li span {

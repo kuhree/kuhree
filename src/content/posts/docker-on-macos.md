@@ -14,7 +14,7 @@ description:
   for the docker CLI to talk to.
 tags:
   - docker
-  - macos
+  - MacOS
 ---
 
 ## Table of contents
