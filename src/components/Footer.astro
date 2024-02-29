@@ -2,8 +2,9 @@
 import { SITE } from '../config'
 import Icon from './ui/Icon.astro'
 const currentYear = new Date().getFullYear()
-const siteOwnerName = SITE.owner.name
-const siteOwnerSocials = SITE.owner.socials
+const siteOwnerName = SITE.owner.name,
+  siteOwnerLocation = SITE.owner.location,
+  siteOwnerSocials = SITE.owner.socials
 ---
 
 <footer
@@ -11,7 +12,7 @@ const siteOwnerSocials = SITE.owner.socials
 >
   <div class='group flex flex-col gap-2'>
     <p>
-      Designed & Developed in {SITE.owner.location} with <a
+      Designed & Developed in {siteOwnerLocation} with <a
         href='https://astro.build/'>Astro</a
       >
       <Icon icon='rocket-launch' size='1.2em' />
