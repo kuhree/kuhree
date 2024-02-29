@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import { extractTitle, slugify, truncate } from '../lib/content'
+import { extractTitle, slugify } from '../lib/content'
 
 interface Props {
   entry: CollectionEntry<'work' | 'posts'>
@@ -9,11 +9,10 @@ interface Props {
 const { data, slug, collection } = Astro.props.entry
 const { description = '', publishedAt, banner, banner_alt, tags } = data,
   title = extractTitle(data),
-  descriptionTruncated = truncate(description),
   url = `/${collection}/${slug}`
 ---
 
-<article>
+<article class='content-preview shadow-md dark:shadow-lg rounded-xl p-4'>
   <a
     class='img-container rounded-xl rounded-b-none aspect-1 h-32 md:h-48 w-32 md:w-48 overflow-hidden'
     href={url}
@@ -23,13 +22,11 @@ const { description = '', publishedAt, banner, banner_alt, tags } = data,
       alt={banner_alt || title}
       loading='lazy'
       decoding='async'
-      class='object-cover object-center h-full w-full rounded-t-xl'
+      class='object-contain object-center h-full w-full rounded-xl'
     />
   </a>
 
-  <section
-    class='flex flex-col px-4 py-2 bg-stone-200 dark:bg-stone-800 rounded-xl rounded-t-none'
-  >
+  <section class='flex flex-col rounded-xl rounded-t-none p-0 mt-6'>
     <span class='date text-sm font-extralight mb-1'
       >{publishedAt.toLocaleDateString()}</span
     >
@@ -38,7 +35,7 @@ const { description = '', publishedAt, banner, banner_alt, tags } = data,
     </a>
     {
       description ? (
-        <span class='description prose mb-4'>{descriptionTruncated}</span>
+        <span class='description prose mb-4 line-clamp-3'>{description}</span>
       ) : null
     }
     <ul class='flex flex-wrap gap-2'>

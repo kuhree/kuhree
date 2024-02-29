@@ -37,7 +37,7 @@
   }
 
   .prose {
-    @apply prose-stone prose-sm md:prose-base dark:prose-invert
+    @apply prose-gray prose-sm md:prose-base dark:prose-invert
     prose-img:rounded-xl prose-headings:underline prose-a:text-primary-600;
   }
 

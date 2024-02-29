@@ -6,9 +6,29 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        primary: colors.purple
-      }
+      colors: ({ colors }) => ({
+        // Theme
+        primary: colors.purple,
+        secondary: colors.fuchsia,
+        tertiary: colors.violet,
+
+        // Defaults
+        gray: colors.stone,
+
+        // Statuses
+        success: colors.green,
+        error: colors.red,
+        warning: colors.amber,
+        info: colors.blue
+      }),
+
+      fontFamily: () => ({
+        sans: 'sans-serif',
+        serif: 'serif',
+        mono: 'monospace',
+        title: '"Press Start 2P", monospace',
+        cursive: 'Damion, cursive'
+      })
     }
   },
   plugins: [
