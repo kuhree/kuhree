@@ -9,9 +9,8 @@ banner_alt: "Docker's Logo"
 aliases:
   - Running Docker on MacOS
 description:
-  Running `docker` on MacOS is NOT the same as running it natively on linux.
-  This is because MacOS requires a Linux VM (or some other virtualizaation solution)
-  for the docker CLI to talk to.
+  Running `docker` on MacOS is fun. This is because MacOS requires a Linux 
+  VM of some sort for to actually run the containers.
 tags:
   - docker
   - MacOS
@@ -21,9 +20,8 @@ tags:
 
 ## The "Problem"
 
-Running `docker` on MacOS is NOT the same as running it natively on linux.
-This is because MacOS requires a Linux VM (or some other virtualizaation solution)
-for the docker CLI to talk to.
+Running `docker` on MacOS is fun. This is because MacOS requires a Linux 
+  VM of some sort for to actually run the containers.
 
 This isn't my favorite thing, but as far as I can tell there's just no
 way to get around that. The VM is required and causes some slowdown in
@@ -35,11 +33,6 @@ I'm not the first and definitely not the last to come to this conclusion.
 - https://news.ycombinator.com/item?id=34098367
 - https://www.reddit.com/r/docker/comments/vwq724/wtf_is_up_with_docker_desktop_on_macos/
 - https://medium.com/homullus/beating-some-performance-into-docker-for-mac-f5d1e732032c
-
-> **My Solution**
->
-> - [Remote Docker Host](#remote-docker-host) on my local network
-> - [colima](#colima) on my local machine
 
 ## Solutions
 
