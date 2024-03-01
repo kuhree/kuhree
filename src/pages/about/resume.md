@@ -45,7 +45,7 @@ title: 'Resume'
 
 **Technologies Used:**
 
-- HTML/CSS/JS, React.js (Preact), Java (Groovy), Github Actions, Asana, Zendesk
+- SCSS, Javascript, React.js (Preact), Java (Groovy), Github Actions, Asana, Zendesk
 
 ### E3 RADIO <small class="font-light">- Chicago, Illinois (Remote) | March, 2021 - April 2023</small>
 
