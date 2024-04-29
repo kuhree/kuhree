@@ -24,7 +24,9 @@ title: 'Resume'
 
 <hr class="my-2" />
 
-#### **Technical Support Engineer**
+#### **Technical Support Engineer II** <small class="font-light">(April, 2024 - Present)</small>
+
+#### **Technical Support Engineer I** <small class="font-light">(April, 2023 - April, 2024)</small>
 
 **What I Do:**
 
@@ -64,7 +66,9 @@ Built and maintained a podcast directory platform that now boasts over 100 podca
 
 <hr class="my-2" />
 
-#### **Software Engineer**
+#### **Software Engineer II** <small class="font-light">(February, 2021 - August, 2022)</small>
+
+#### **Software Engineer I** <small class="font-light">(February, 2020 - February, 2021)</small>
 
 First Engineering hire for a web app that records messages from users to themselves, resulting in improved positive self-talk.
 
