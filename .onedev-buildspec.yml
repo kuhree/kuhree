@@ -31,11 +31,7 @@ jobs:
     runInContainer: true
     image: oven/bun
     interpreter: !DefaultInterpreter
-      commands: |
-        bun install
-        export CI=TRUE
-        bunx prettier --write  "**/*.{js,jsx,ts,tsx,md,mdx,astro}" && eslint --fix "src/**/*.{js,ts,jsx,tsx,astro}"
-        bunx astro check && astro build
+      commands: "bun install --frozen-lockfile \n\nexport CI=TRUE\n\nbunx prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" \\\n\t&& bunx eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"\n\t\nbunx astro check \\\n\t&& bunx astro build\n"
     useTTY: true
     condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
   triggers:
