@@ -17,7 +17,7 @@ const breadcrumbList = currentUrlPath.split('/').slice(1)
             <span aria-hidden='true'>&#62;</span>
           </li>
 
-          {breadcrumbList.map((breadcrumb, index, self) =>
+          {breadcrumbList.map((breadcrumb, index) =>
             index + 1 === breadcrumbList.length ? (
               <li>
                 <span aria-current='page' class='font-bold'>
