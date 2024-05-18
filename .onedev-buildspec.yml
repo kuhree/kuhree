@@ -29,13 +29,13 @@ jobs:
   - !CommandStep
     name: build & test
     runInContainer: true
-    image: node
+    image: oven/bun
     interpreter: !DefaultInterpreter
       commands: |
-        npm install
+        bun install
         export CI=TRUE
-        npx prettier --write  "**/*.{js,jsx,ts,tsx,md,mdx,astro}" && eslint --fix "src/**/*.{js,ts,jsx,tsx,astro}"
-        npx astro check && astro build
+        bunx prettier --write  "**/*.{js,jsx,ts,tsx,md,mdx,astro}" && eslint --fix "src/**/*.{js,ts,jsx,tsx,astro}"
+        bunx astro check && astro build
     useTTY: true
     condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
   triggers:
