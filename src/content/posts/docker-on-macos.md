@@ -9,7 +9,7 @@ banner_alt: "Docker's Logo"
 aliases:
   - Running Docker on MacOS
 description:
-  Running `docker` on MacOS is fun. This is because MacOS requires a Linux 
+  Running `docker` on MacOS is fun. This is because MacOS requires a Linux
   VM of some sort for to actually run the containers.
 tags:
   - docker
@@ -20,8 +20,8 @@ tags:
 
 ## The "Problem"
 
-Running `docker` on MacOS is fun. This is because MacOS requires a Linux 
-  VM of some sort for to actually run the containers.
+Running `docker` on MacOS is fun. This is because MacOS requires a Linux
+VM of some sort for to actually run the containers.
 
 This isn't my favorite thing, but as far as I can tell there's just no
 way to get around that. The VM is required and causes some slowdown in
