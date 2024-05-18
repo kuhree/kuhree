@@ -1,43 +1,57 @@
 version: 33
 jobs:
-  - name: astro ci
-    steps:
-      - !CheckoutStep
-        name: checkout code
-        cloneCredential: !DefaultCredential {}
-        withLfs: false
-        withSubmodules: false
-        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
-      - !GenerateChecksumStep
-        name: generate package checksum
-        files: package-lock.json yarn.lock
-        targetFile: checksum
-        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
-      - !SetupCacheStep
-        name: set up npm cache
-        key: node_modules_@file:checksum@
-        loadKeys:
-          - node_modules
-        paths:
-          - node_modules
-        uploadStrategy: UPLOAD_IF_NOT_HIT
-        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
-      - !SetBuildVersionStep
-        name: set build version
-        buildVersion: "@script:builtin:node:determine-project-version@"
-        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
-      - !CommandStep
-        name: build & test
-        runInContainer: true
-        image: oven/bun
-        interpreter: !DefaultInterpreter
-          commands: "bun install --frozen-lockfile \n\nexport CI=TRUE\n\nbunx prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" \\\n\t&& bunx eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"\n\t\nbunx astro check \\\n\t&& bunx astro build\n"
-        useTTY: true
-        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
-    triggers:
-      - !BranchUpdateTrigger
-        branches: main
-    retryCondition: never
-    maxRetries: 3
-    retryDelay: 30
-    timeout: 3600
+- name: astro ci
+  steps:
+  - !CheckoutStep
+    name: checkout code
+    cloneCredential: !DefaultCredential {}
+    withLfs: false
+    withSubmodules: false
+    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  - !GenerateChecksumStep
+    name: generate package checksum
+    files: package-lock.json yarn.lock
+    targetFile: checksum
+    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  - !SetupCacheStep
+    name: set up npm cache
+    key: node_modules_@file:checksum@
+    loadKeys:
+    - node_modules
+    paths:
+    - node_modules
+    uploadStrategy: UPLOAD_IF_NOT_HIT
+    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  - !SetBuildVersionStep
+    name: set build version
+    buildVersion: '@script:builtin:node:determine-project-version@'
+    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  - !CommandStep
+    name: build & test
+    runInContainer: true
+    image: oven/bun
+    interpreter: !DefaultInterpreter
+      commands: "set -e\napt update\napt install -y jq\n\nbun install --frozen-lockfile \n\nexport CI=TRUE\n\nbunx prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" \\\n\t&& bunx eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"\n\t\nbunx astro check \\\n\t&& bunx astro build\n\n# parse and store package version into a file which \n# will be used later to tag docker image\njq -r '.version' package.json > version.txt\n"
+    useTTY: true
+    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  - !BuildImageStep
+    name: build docker image
+    output: !OCIOutput
+      destPath: oci
+    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  - !PushImageStep
+    name: push docker image
+    srcPath: oci
+    destImage: git.littlevibe.net/kuhree/www@file:version.txt@
+    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  - !CreateTagStep
+    name: create a tag
+    tagName: ci-@file:version.txt@
+    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  triggers:
+  - !BranchUpdateTrigger
+    branches: main
+  retryCondition: never
+  maxRetries: 3
+  retryDelay: 30
+  timeout: 3600
