@@ -34,7 +34,7 @@ jobs:
   - !PushImageStep
     name: push docker image
     srcPath: oci
-    destImage: git.littlevibe.net/kuhree/www:@file:version.txt@
+    destImage: git.littlevibe.net/kuhree/www@file:version.txt@
     condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
   - !CreateTagStep
     name: create a tag
