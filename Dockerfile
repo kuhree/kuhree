@@ -1,20 +1,25 @@
-FROM node as builder
-WORKDIR /data/app
+FROM oven/bun as base
+WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
+FROM base as deps
 
-RUN npm install -g pnpm && pnpm install --frozen-lockfile
+COPY package.json bun.lockb ./
+RUN bun install --production --frozen-lockfile
 
+FROM deps as builder
+
+RUN bun install --frozen-lockfile
 COPY . .
 
-RUN pnpm build
+ENV ASTRO_ADAPTER=node
+RUN bun --bun run build
 
-FROM ubuntu as runner
+FROM deps as runner
+WORKDIR /app
 
-RUN apt-get update
-RUN apt-get install nginx -y
+COPY --from=builder /app/dist ./dist
 
-COPY --from=builder /data/app/.vercel/output/static /var/www/html/
-
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+ENV HOST=0.0.0.0
+ENV PORT=4321
+EXPOSE ${PORT:?}
+CMD bun ./dist/server/entry.mjs

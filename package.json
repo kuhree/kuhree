@@ -8,7 +8,7 @@
     "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "preview:cloudflare": "bun build && wrangler pages dev ./dist",
+    "preview:cloudflare": "bun run build && wrangler pages dev ./dist",
     "astro": "astro"
   },
   "overrides": {
