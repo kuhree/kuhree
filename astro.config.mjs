@@ -6,9 +6,12 @@ import robotsTxt from 'astro-robots-txt'
 import sentry from '@sentry/astro'
 import preact from '@astrojs/preact'
 import vercel from '@astrojs/vercel/serverless'
+import node from '@astrojs/node'
 import remarkToc from 'remark-toc'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+
+const ADAPTER = process.env.ASTRO_ADAPTER?.toLowerCase()
 
 // https://astro.build/config
 export default defineConfig({
@@ -50,7 +53,12 @@ export default defineConfig({
       }
     })
   ],
-  adapter: vercel({
-    webAnalytics: { enabled: true }
-  })
+  adapter:
+    ADAPTER === 'node'
+      ? node({
+          mode: 'standalone'
+        })
+      : vercel({
+          webAnalytics: { enabled: true }
+        })
 })
