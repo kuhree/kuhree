@@ -7,4 +7,3 @@ cmds = ["ASTRO_ADAPTER=node bun astro build"]
 
 [start]
 cmd = "bun --bun ./dist/server/entry.mjs"
-runImage = 'oven/bun:distroless'
