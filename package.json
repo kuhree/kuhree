@@ -1,5 +1,5 @@
 {
-  "name": "@kuhree/www",
+  "name": "kuhree/www",
   "type": "module",
   "version": "3.0.1",
   "scripts": {
