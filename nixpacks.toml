@@ -1,0 +1,10 @@
+[variables]
+NODE_ENV = 'production'
+ASTRO_ADAPTER = 'node'
+
+[phases.build]
+cmds = ["ASTRO_ADAPTER=node bun --bun astro build"]
+
+[start]
+cmd = ["bun --bun ./dist/server/entry.mjs"]
+runImage = 'oven/bun:distroless'

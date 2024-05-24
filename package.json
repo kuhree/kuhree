@@ -4,7 +4,7 @@
   "version": "3.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "bun --bun ./dist/server/entry.mjs",
     "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix",
     "build": "astro check && astro build",
     "preview": "astro preview",
