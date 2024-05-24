@@ -23,8 +23,8 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            name/app
-            ghcr.io/username/app
+            kuhree/www
+            git.littlevibe.net/kuhree/www
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
@@ -48,11 +48,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Login to GHCR
+      - name: Login to Gitea Container Registry
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
-          registry: git.littlevibe.net
+          registry: ${{ secrets.CONTAINER_REGISTRY_DOMAIN }
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
 
@@ -62,4 +62,4 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          labels: ${{ steps.meta.outputs.labels }}I
