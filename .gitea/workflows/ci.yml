@@ -23,7 +23,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            # kuhree/www
+            kuhree/www
             git.littlevibe.net/kuhree/www
           # generate Docker tags based on the following events/attributes
           tags: |
