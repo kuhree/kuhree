@@ -3,6 +3,8 @@ import { type CollectionEntry, getCollection } from 'astro:content'
 
 import ContentLayout from '../../layouts/Content.astro'
 
+export const prerender = true;
+
 interface Props {
   entry: CollectionEntry<'posts'>
 }

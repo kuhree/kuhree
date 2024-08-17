@@ -1,0 +1,16 @@
+# Railway config file
+# See: https://docs.railway.app/reference/config-as-code#configurable-settings
+
+[build]
+builder = "NIXPACKS" 
+## ORRR
+# builder = "DOCKERFILE" 
+# dockerFilePath = "Dockerfile"
+
+[deploy]
+runtime = "v2"
+numReplicas = 1
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5
+healthcheckPath = "/"
+sleepApplication = false

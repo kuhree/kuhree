@@ -5,6 +5,7 @@ title: 'Resume'
 
 # Khari Johnson
 
+[ Remote US / Atlanta, GA ] . [[ kuhree.com ](https://kuhree.com)] . [ [ hi@kuhree.com ](mailto:hi+resume@kuhree.com) ]
 
 <hr class="my-4" />
 

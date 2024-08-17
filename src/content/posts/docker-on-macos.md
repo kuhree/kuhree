@@ -13,17 +13,19 @@ description:
   VM of some sort for to actually run the containers.
 tags:
   - docker
-  - MacOS
+  - macos
 ---
 
 ## Table of contents
 
 ## The "Problem"
 
-Running `docker` on MacOS is fun. This is because MacOS requires a Linux
-VM of some sort for to actually run the containers.
+Running `docker` on MacOS is _not_ fun. This is because MacOS (and probably Windows?) requires a Linux
+VM of some sort for to actually run the containers. This is because Docker runs on top of Linux's LXC capabilities.
 
-This isn't my favorite thing, but as far as I can tell there's just no
+House of cards? Or, Shoulders of the Giants?
+
+This isn't my favorite thing, but as far as I can tell there's no
 way to get around that. The VM is required and causes some slowdown in
 comparison with a "bare-metal" runtime on Linux.
 
@@ -39,6 +41,10 @@ I'm not the first and definitely not the last to come to this conclusion.
 I've used all of the following in some capacity over the years and
 here are my thoughts.
 
+## Update: 2024-01-30
+
+[Orbstack][orbstack] has entered the scene and quickly becomes a contender for a colima replacement.
+
 ### [Docker Desktop](docker-desktop)
 
 Docker Desktop is the standard way to install Docker on MacOS.
@@ -46,21 +52,11 @@ It's probably the most familiar and just works OOTB.
 It also gives you access to docker extensions as well as a nice
 GUI for reading and managing your containers.
 
-#### Pros
-
-- Access to [extensions](docker-extensions)
-- First-class support
-
-#### Cons
-
-- Hate having to start a GUI to load the VM
-- Licensing and subscriptions? HA!
-- Hate the menubar icon
-
 #### Setup
 
 - Install docker - `brew install docker`
 - Install docker-desktop - `brew install --cask docker`
+- Launch `Docker Desktop`
 
 ### [Rancher Desktop](rancher-desktop)
 
@@ -77,7 +73,6 @@ but makes up for it in their K8s support.
 
 #### Cons
 
-- Still hate the menubar icon
 - No `docker-compose` support OOTB
 - No `docker-buildx` support OOTB
 
@@ -88,19 +83,19 @@ but makes up for it in their K8s support.
 ### [Colima](colima)
 
 Colima is a CLI only docker runtime. It still has a VM but gives you
-control over it's specs. You can make multiple VMs with different specs
+control over it's specs ia config files. You can make multiple VMs with different specs
 and only run the ones you need when you need them.
 
 Have a small web-server? Run it with 2 CPUs and 2gb of RAM and 10gb of storage.
-Training a LLM? Run it with 8 CPUs, 8gb of RAM, and 100GB of storage.
+Training an LLM? Run it with 8 CPUs, 16gb of RAM, and 100GB of storage.
 
 Those scenarios are 100% made-up, but do you get the idea.
 
-I can scale the docker runtime for the project I'm currently working on.
+I like that I can scale the docker runtime for the project I'm currently working on.
 
 #### Pros
 
-- No GUI or menubar icon
+- Easily configure multiple VMs
 - Can run K8s
 
 #### Cons
@@ -118,7 +113,7 @@ I can scale the docker runtime for the project I'm currently working on.
 Why run a Linux VM if you can run it on Linux natively?
 
 A while back I converted my old Linux desktop
-(year of the Linux desktop anyone?) to a "server"
+(year of the Linux desktop? no.) to a "server"
 (by unplugging peripherals and put it by the router) that runs a number
 of docker services. A self-hosted "homelab" if you will.
 
@@ -137,11 +132,11 @@ of docker services. A self-hosted "homelab" if you will.
 
 #### Setup
 
-- Setup docker on another machine
-- Install docker - `brew install docker`
+- [Setup docker](https://docs.docker.com/engine/install/) on another machine
+- Install docker on your mac - `brew install docker`
 - SSH into the machine to establish keys
 - Create a context - `docker context create remote --description "Remote Machine" --docker "host=ssh://username@remote-machine"`
-  - Choose one of the following depending on you situation
+  - Choose one of the following to tell docker to use the new context. Which one depends on your situation
     - Set `DOCKER_HOST=ssh://username@remote-machine`
     - Set `DOCKER_CONTEXT=remote`
     - Run `docker context use remote`
@@ -196,10 +191,6 @@ could've used the other solutions to solve my needs, but I like that...
 
 Sure, I could disable menubars icons, determine runtime specs in Docker Desktop,
 and go from there, but I really enjoy the terminal only workflow.
-
-## Update: 2024-01-30
-
-[Orbstack][orbstack] has entered the scene and quickly becomes a contender for a colima replacement.
 
 [rancher-desktop]: https://rancherdesktop.io
 [docker-desktop]: https://www.docker.com/products/docker-desktop

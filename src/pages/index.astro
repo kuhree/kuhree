@@ -1,44 +1,66 @@
 ---
-import { SITE } from '../config'
+import { getCollection } from 'astro:content'
+import { sortContent } from 'src/lib/content'
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from '../layouts/Default.astro'
+import BaseLayout from 'src/layouts/Default.astro'
 
 // Component Imports
-import Hero from '../components/ui/Hero.astro'
+import ContentPreview from 'src/components/ContentPreview.astro'
 
-const siteOwnerName = SITE.owner.name,
-  siteOwnerDescription = SITE.owner.description,
-  siteLogo = SITE.assets.logo
+const maxWorkCount = 5,
+  allWork = await getCollection('work').then(sortContent),
+  featuredWork = allWork.filter((e) => e.data.isFeatured).slice(0, maxWorkCount)
+  
+const maxPostCount = 3,
+  allPosts = await getCollection('posts').then(sortContent),
+  featuredPosts = allPosts.filter((e) => e.data.isFeatured).slice(0, maxWorkCount)
+  
 ---
 
 <BaseLayout>
-  <main class='flex flex-col gap-8 lg:gap-20 h-full'>
-    <header class='px-4'>
-      <img width='360' height='360' {...siteLogo} />
+  <main
+    class:list={[
+      'flex flex-col gap-8 h-full',
+      'xl:flex-row justify-center xl:px-12'
+    ]}
+  >
+    <section class='flex flex-col gap-8 max-w-3xl'>
+      <h2 class='text-2xl'>
+        <a href='/posts' class='underline'> Some of the things I've written about... </a>
+      </h2>
 
-      <Hero
-        title={siteOwnerName}
-        tagline={siteOwnerDescription}
-        align='center'
-      />
-    </header>
+      <ul class:list={[
+        'flex flex-col gap-12'
+      ]}>
+        {
+          featuredPosts.map((entry) => (
+            <li>
+              <ContentPreview entry={entry} variant='row' />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class='flex flex-col gap-8 max-w-3xl'>
+      <h2 class='text-2xl'>
+        <a href='/posts' class='underline'>
+          Some of the things I've worked on...
+        </a>
+      </h2>
+
+      <ul class:list={[
+        'flex flex-col gap-12'
+      ]}>
+        {
+          featuredWork.map((entry) => (
+            <li>
+              <ContentPreview entry={entry} variant={'row'} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
   </main>
 </BaseLayout>
-
-<style>
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .hero img {
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 100%;
-    box-shadow: var(--shadow-md);
-  }
-</style>

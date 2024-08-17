@@ -12,18 +12,32 @@ interface Props {
 const { entry } = Astro.props
 const { Content: MxContent } = await entry.render()
 
-const { description, tags, banner, banner_alt } = entry.data,
+const { description, tags, links, banner, bannerAlt } = entry.data,
   title = extractTitle(entry.data)
 ---
 
 <BaseLayout title={title} description={description}>
   <main
     class:list={[
-      'w-full px-12',
-      'flex flex-col gap-12 items-center justify-start mx-auto max-w-screen-2xl'
+      'w-full',
+      'flex flex-col gap-12 px-12 items-center justify-start mx-auto max-w-screen-2xl'
     ]}
   >
     <Hero title={title} tagline={description} align='start'>
+      <ul class:list={['tags flex flex-wrap gap-2 justify-center']}>
+        {
+          links?.map(({ name, url }) => (
+            <li
+              class:list={['tag py-1 px-3 rounded-full text-sm', 'underline']}
+            >
+              <a href={url} class:list={['tag']}>
+                {name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
       <ul class:list={['tags flex flex-wrap gap-2 justify-center']}>
         {
           tags?.map((t) => (
@@ -40,19 +54,21 @@ const { description, tags, banner, banner_alt } = entry.data,
           ))
         }
       </ul>
-
-      {
-        banner && banner !== '' && (
-          <img
-            src={banner}
-            alt={banner_alt}
-            class='object-center object-cover h-full w-full max-w-3xl rounded-xl'
-          />
-        )
-      }
     </Hero>
 
-    <section class='content gap-10 prose max-w-3xl mx-auto px-0'>
+    {
+      banner && banner !== '' && (
+        <div class='container--banner max-w-xl w-full'>
+          <img
+            src={banner}
+            alt={bannerAlt}
+            class='object-center object-cover h-full w-full rounded-xl'
+          />
+        </div>
+      )
+    }
+
+    <section class='content prose prose-pre:leading-5 prose-pre:text-xs'>
       <MxContent />
     </section>
   </main>

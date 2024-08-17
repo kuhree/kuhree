@@ -9,7 +9,7 @@ const siteOwnerName = SITE.owner.name,
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
-  { label: 'Home', href: '/' },
+  // { label: 'Home', href: '/' },
   { label: 'Work', href: '/work/' },
   { label: 'Posts', href: '/posts/' },
   { label: 'About', href: '/about/' }
@@ -20,7 +20,11 @@ const textLinks: { label: string; href: string }[] = [
   <div class='menu-header'>
     <a href='/' class='site-title'>
       <img {...siteLogo} height='32' width='32' />
-      {`${siteOwnerName[0]}${siteOwnerName.split(' ').pop()?.[0]}`}
+      {
+        siteOwnerName.split(' ').length > 1
+          ? `${siteOwnerName[0]}${siteOwnerName.split(' ').pop()?.[0]}`
+          : siteOwnerName
+      }
     </a>
     <menu-button>
       <template>

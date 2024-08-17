@@ -1,6 +1,6 @@
 ---
 isDraft: false
-isFeatured: true
+isFeatured: false
 author: Khari Johnson
 publishedAt: 2024-02-27:12:30.000Z
 
@@ -25,7 +25,7 @@ We've moved back to Georgia! It feels good to be home and there's so much I miss
 
 ### Work
 
-I've found a new job doing [Software Support](/work/software-support). It's been great to utilize my skills with a faster pace and lower responsibilities. Providing customer satisfaction has always been a key thing to me. In my role, I get to sit in the middle of all the different effort from engineering+, marketing, leadership and observe how it affects our customers and their experience. It's been one hell of a learning experience so far.
+I've found a new job doing [Software Support](/work/searchspring). It's been great to utilize my skills with a faster pace and lower responsibilities. Providing customer satisfaction has always been a key thing to me. In my role, I get to sit in the middle of all the different effort from engineering+, marketing, leadership and observe how it affects our customers and their experience. It's been one hell of a learning experience so far.
 
 ### Gaming
 

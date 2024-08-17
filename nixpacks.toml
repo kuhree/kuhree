@@ -1,9 +1,6 @@
-[variables]
-NODE_ENV = 'production'
-ASTRO_ADAPTER = 'node'
-
 [phases.build]
-cmds = ["ASTRO_ADAPTER=node bun astro build"]
+cmds = [ "bunx astro build" ]
 
 [start]
-cmd = "bun --bun ./dist/server/entry.mjs"
+runImage = "oven/bun"
+cmd = "bun run --bun --smol ./dist/server/entry.mjs"

@@ -14,13 +14,20 @@ description: Next.JS comes with a useful feature out of the box, api routes.
   rather than a page. Instead of exporting a React component to display
   your UI, you can export a function returning, say, a JSON response.
 tags:
-  - Next.js
-  - snippet
+  - next.js
+  - snippets
+  - javascript
 ---
 
 ## Table of contents
 
 ## Usage
+
+> Next has mostly moved on to the [App Router](https://nextjs.org/docs/app). Please check out [the docs](https://nextjs.org/docs/app) for the most up-to-date way to fetch data.
+> When I build an App Router site, I'll update the docs.
+>
+> If you're still using the [Pages router](https://nextjs.org/docs/pages), most of this still applies. Checkout the docs:
+> https://nextjs.org/docs/pages/building-your-application/routing/api-routes
 
 Next.JS comes with a useful feature out of the box, api routes. Files created in the `pages/api/` folder are treated as an endpoint rather than a page. Instead of exporting a React component to display your UI, you can export a function returning, say, a JSON response.
 

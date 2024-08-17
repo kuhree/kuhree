@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  :root {
+  }
+
+  :root.dark {
+  }
+
+  body {
+    @apply min-h-screen flex flex-col;
+  }
+
+  section {
+    @apply max-w-3xl mx-auto px-4;
+  }
+
+  svg {
+    @apply w-6 h-6 inline-block;
+  }
+  svg.icon-tabler {
+    @apply w-6 h-6 scale-125 sm:scale-110 opacity-90 
+    inline-block fill-transparent stroke-2 stroke-current 
+    group-hover:fill-transparent;
+  }
+
+  /* ===== scrollbar ===== */
+  html {
+    overflow-y: scroll;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-3;
+  }
+
+  .prose {
+    @apply prose-gray prose-sm md:prose-base dark:prose-invert
+    prose-img:rounded-xl prose-headings:no-underline;
+  }
+
+  a.prose, .prose a {
+    @apply hover:text-primary-700 dark:hover:text-primary-300 transition-colors;
+  }
+}
+
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+@layer components {
+  .display-none {
+    @apply hidden;
+  }
+
+  .focus-outline {
+    @apply outline-offset-1 outline-2 focus-visible:outline-dashed focus-visible:no-underline;
+  }
+}

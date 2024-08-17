@@ -9,21 +9,26 @@ import Grid from '../components/ui/Grid.astro'
 import { SITE } from '../config'
 import { sortContent } from 'src/lib/content'
 
-const siteOwnerName = SITE.owner.name
+const siteOwnerName = SITE.owner.name,
+  pageTitle = `Work History`,
+  pageDescription = 'Past, present, and future work and projects.'
 
 const work = sortContent(await getCollection('work'))
 ---
 
 <BaseLayout
-  title={`My Work | ${siteOwnerName}`}
-  description={`Learn about ${siteOwnerName}'s most recent projects`}
+  title={`${pageTitle} | ${siteOwnerName}`}
+  description={pageDescription}
 >
   <main class='flex flex-col gap-8 max-w-3xl mx-auto px-4'>
-    <Hero
-      title='My Work'
-      tagline='See my most recent projects below to get an idea of my past experience.'
-      align='start'
-    />
+    <Hero title={pageTitle} tagline={pageDescription} align='start'>
+      <span class='prose text-sm max-w-[54ch]'>
+        Have ideas? I'm always curious in new (to me) and exciting projects.
+        View my <a href='/about/resume'>Resume</a> or shoot an email to <code
+          >hi[at]kuhree[dot]com</code
+        >
+      </span>
+    </Hero>
 
     <Grid variant='offset'>
       {

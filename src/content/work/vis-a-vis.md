@@ -1,28 +1,22 @@
 ---
+isDraft: false
+isFeatured: false
 title: VIS-À-VIS
 company: The Institute for Love and Time
 role: Frontend Engineer
-publishedAt: 2021-03-04 00:00:00
+publishedAt: 2022-03-04 00:00:00
+endedAt: 2022-08-01 00:00:00
 banner: /assets/visavis-7.png
-banner_alt: The Time Machine homepage background (a time-machine, a tent and campfire, and a garden) sit along a narrow river) on a laptop and mobile devices
+banner_alt: The Vis-A-Vis homepage
 description: |
   An unconditional love and time travel application for worldwide benefit.
+links:
+  - name: Company Site
+    url: https://loveandtime.org/vis-a-vis
 tags:
-  - Frontend
   - Typescript
+  - React
   - Mediapipe
-  - React.js
   - Redux
+  - Frontend
 ---
-
-## Table of Contents
-
-## Context
-
-## Goals and Requirements
-
-## Implementation
-
-## Current status
-
-## Lessons Learned

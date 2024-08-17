@@ -1,25 +1,24 @@
-FROM oven/bun as base
+FROM oven/bun AS base
 WORKDIR /app
 
-FROM base as deps
-
+FROM base AS deps
 COPY package.json bun.lockb ./
-RUN bun install --production --frozen-lockfile
+RUN apt-get update \
+  && apt-get install -y ca-certificates \
+  && bun install --production --frozen-lockfile
 
-FROM deps as builder
-
-RUN bun install --frozen-lockfile
+FROM deps AS builder
 COPY . .
+RUN bun install --frozen-lockfile \
+  && bunx astro build
 
-ENV ASTRO_ADAPTER=node
-RUN bun --bun run build
-
-FROM deps as runner
-WORKDIR /app
-
+FROM deps AS runner
 COPY --from=builder /app/dist ./dist
 
-ENV HOST=0.0.0.0
+ENV HOST="0.0.0.0"
 ENV PORT=4321
+ENV PUBLIC_SENTRY_DSN=""
+ENV PUBLIC_UMAMI_ID=""
+ENV PUBLIC_UMAMI_HOST="https://umami.littlevibe.net"
 EXPOSE ${PORT:?}
-CMD bun ./dist/server/entry.mjs
+CMD [ "bun", "run", "--bun", "--smol", "./dist/server/entry.mjs" ]

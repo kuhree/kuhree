@@ -10,16 +10,6 @@ const siteOwnerName = SITE.owner.name,
 <footer
   class='flex flex-col gap-12 text-sm text-gray-400 mt-12 py-12 pt-8 text-center'
 >
-  <div class='group flex flex-col gap-2'>
-    <p>
-      Designed & Developed in {siteOwnerLocation} with <a
-        href='https://astro.build/'>Astro</a
-      >
-      <Icon icon='rocket-launch' size='1.2em' />
-    </p>
-    <p>&copy; {currentYear} {siteOwnerName}</p>
-  </div>
-
   <p class='socials flex justify-center gap-4 flex-wrap'>
     {
       siteOwnerSocials.map(([id, social]) => (
@@ -36,4 +26,14 @@ const siteOwnerName = SITE.owner.name,
       ))
     }
   </p>
+
+  <div class='group flex flex-col gap-2'>
+    <p>
+      Designed & Developed in {siteOwnerLocation} with <a
+        href='https://astro.build/'>Astro</a
+      >
+      <Icon icon='rocket-launch' size='1.2em' />
+    </p>
+    <p>&copy; {currentYear} {siteOwnerName}</p>
+  </div>
 </footer>

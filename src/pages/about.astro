@@ -3,74 +3,84 @@ import BaseLayout from '../layouts/Default.astro'
 
 import Hero from '../components/ui/Hero.astro'
 import { SITE } from '../config'
+
+const siteOwnerName = SITE.owner.name,
+  pageTitle = `Hi! I'm ${siteOwnerName}.`,
+  pageDescription = `Software Engineer, Wannabe Mechanic, Gamer.`
 ---
 
 <BaseLayout
-  title='About | Khari Johnson'
-  description='Learn more about myself and my background'
+  title={`${pageTitle} | ${siteOwnerName}`}
+  description={pageDescription}
 >
   <main class='about flex flex-col gap-20 max-w-3xl mx-auto px-4'>
-    <Hero
-      title='About'
-      tagline='Thanks for stopping by. Read below to learn more about myself and my background.'
-      align='start'
-    >
-      <p class='prose text-sm'>
-        View my <a href='/about/resume'> Resume </a>
-      </p>
-      <img width='1553' height='873' {...SITE.assets.profile} />
+    <Hero title={pageTitle} tagline={pageDescription} align='start'>
+      <div class='img-container max-w-xl mx-auto overflow-hidden'>
+        <!-- <img
+          class='w-full h-full object-cover object-center'
+          width='1553'
+          height='873'
+          {...SITE.assets.profile}
+        /> -->
+      </div>
     </Hero>
 
-    <section class='prose w-full'>
-      <h2 class='section-title'>Background</h2>
-      <div class='content'>
-        <p>Hi, I'm Khari Johnson, a Software Engineer with a passion for:</p>
+    <div class='prose w-full content'>
+      <h2>
+        Software Engineer 
+        <span class="block text-sm">
+          with a passion for...
+        </span>
+      </h2>
 
-        <ul>
-          <li>building things people love to use</li>
-          <li>automating all the things along the way</li>
-        </ul>
+      <ul>
+        <li>solving my own problems</li>
+        <li>exploring the process</li>
+      </ul>
 
-        <p>
-          In my journey, I've had the pleasure of being part of some exciting
-          projects, including:
-        </p>
-        <ul>
-          <li>
-            <a href='https://timemaching.love' target='_blank'>Time Machine</a>
-            - A simple, non-addictive app that brings hope into people's lives.
-          </li>
-          <li>
-            <a href='https://theqube.app' target='_blank'>The Qube</a> - Discover
-            the best music & podcasts by BIPOC & QTPOC creators
-          </li>
-        </ul>
+      <p>
+        I've been lucky to take on different roles like designing systems,
+        handling DevOps tasks, providing tech support, coding the front end,
+        testing stuff out, improving performance, working on the back end, and
+        making sure everything runs smoothly.
+      </p>
+      
+      <p class='text-lg'>
+        I've had some amazing opportunities to work on some exciting projects,
+        such as:
+      </p>
+      <ul>
+        <li>
+          <a href='https://timemaching.love' target='_blank'>Time Machine</a>
+          - A simple, non-addictive app that brings hope into people's lives.
+        </li>
+        <li>
+          <a href='https://theqube.app' target='_blank'>The Qube</a> - Discover the
+          best music & podcasts by BIPOC & QTPOC creators
+        </li>
+      </ul>
+      <p class="text-xs">
+        View my <a href='/about/resume' target='_blank'>resume</a>
+      </p>
 
-        <p>
-          I've contributed to these projects by handling various aspects, such
-          as:
-        </p>
-        <ul>
-          <li>Backend architcture, implementation, and orchestration</li>
-          <li>Frontend implementation, testing, and performance</li>
-          <li>System Design, Workflow Automation, and Technical Support</li>
-        </ul>
-      </div>
-    </section>
+      <h2 class='text-xl'>
+        When I'm not coding, 
+        <span class="block text-sm">
+          you can catch me...
+        </span>
+      </h2>
 
-    <section class='prose w-full'>
-      <h2 class='section-title'>Education</h2>
-      <div class='content'>
-        <p>Lassiter High School, 2017<p></p></p>
-
-        <section>
-          <h2 class='section-title'>Skills</h2>
-          <div class='content'>
-            <p>{SITE.owner.skills.map(([id]) => id).join(', ')}</p>
-          </div>
-        </section>
-      </div>
-    </section>
+      <ul>
+        <li>
+          gaming on <a href='/about/steam'>steam</a>, exploring worlds and
+          checking out the systems
+        </li>
+        <li>
+          tinkering on the latest project car/bike/server/??? I found on
+          Marketplace/eBay
+        </li>
+      </ul>
+    </div>
   </main>
 </BaseLayout>
 
@@ -82,10 +92,12 @@ import { SITE } from '../config'
     margin-bottom: 1.5rem;
   }
 
-  img {
-    margin-top: 1.5rem;
-    border-radius: 1.5rem;
-    box-shadow: var(--shadow-md);
+  .img-container {
+    img {
+      margin-top: 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
   }
 
   section {
@@ -96,28 +108,7 @@ import { SITE } from '../config'
   }
 
   .section-title {
-    grid-column-start: 1;
     font-size: var(--text-xl);
     color: var(--gray-0);
-  }
-
-  .content {
-    grid-column: 2 / 4;
-  }
-
-  @media (min-width: 50em) {
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 60% 1fr;
-    }
-
-    .about > :global(:first-child) {
-      grid-column-start: 2;
-    }
-
-    section {
-      display: contents;
-      font-size: var(--text-lg);
-    }
   }
 </style>

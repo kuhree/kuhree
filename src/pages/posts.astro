@@ -9,25 +9,24 @@ import Grid from '../components/ui/Grid.astro'
 import { SITE } from '../config'
 import { sortContent } from '../lib/content'
 
-const siteOwnerName = SITE.owner.name
+const siteOwnerName = SITE.owner.name,
+  pageTitle = 'All Posts',
+  pageDescription = 'Snippets, rants, and the occasional coherent thought.'
 
-const posts = sortContent(await getCollection('posts'))
+const allPosts = await getCollection('posts'),
+  sortedPosts = sortContent(allPosts)
 ---
 
 <BaseLayout
-  title={`Posts | ${siteOwnerName}`}
-  description={`Learn about ${siteOwnerName}'s most recent posts`}
+  title={`${pageTitle} | ${siteOwnerName}`}
+  description={pageDescription}
 >
   <main class='flex flex-col gap-8 max-w-3xl mx-auto px-4'>
-    <Hero
-      title='Posts'
-      tagline='See my most recent thoughts below.'
-      align='start'
-    />
+    <Hero title={pageTitle} tagline={pageDescription} align='start' />
 
     <Grid variant='offset'>
       {
-        posts.map((entry) => (
+        sortedPosts.map((entry) => (
           <li>
             <ContentPreview entry={entry} />
           </li>

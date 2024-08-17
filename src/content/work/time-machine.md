@@ -1,19 +1,31 @@
 ---
+isDraft: false
+isFeatured: true
 title: Time Machine
 company: The Institute for Love and Time
 role: Software Engineer
 publishedAt: 2020-03-04 00:00:00
+endedAt: 2022-08-01 00:00:00
 banner: https://uploads-ssl.webflow.com/604159f85010be62003fe6a3/6184c9afa5a864ca119837d3_Mocks%402x.png
-banner_alt: The Time Machine homepage background (a time-machine, a tent and campfire, and a garden) sit along a narrow river) on a laptop and mobile devices
+bannerAlt: |
+  The Time Machine homepage background (a time-machine, a tent and campfire, and a garden) sit along a narrow river) on a laptop and mobile devices
 description: |
   An unconditional love and time travel application for worldwide benefit.
+links:
+  - name: View the App
+    url: https://app.timemachine.love
+  - name: Marketing Site
+    url: https://timemachine.love
+  - name: Company Site
+    url: https://loveandtime.org
 tags:
-  - Full-Stack
-  - Customer Support
   - Typescript
   - Next.js
-  - Firebase
   - Google Cloud
+  - React
+  - Firebase
+  - Full-Stack
+  - Customer Support
 ---
 
 ## Table of Contents
@@ -22,11 +34,13 @@ tags:
 
 The Institute for Love and Time (TILT) is an organization focused on creating unconditional love and time travel applications for worldwide benefit. You can read more about unconditional love and time travel on their [FAQ](https://www.loveandtime.org/faq).
 
-TILT came to us with the need for a completely custom PWA application. The application was to be used to study the effectiveness of the time travel method the application used to help someone connect with themselves and gain more hope in their lives. With a focus on people with experience in incarceratin, addiction, sexual assault, and other traumas we set out to build **Time Machine 1** (TM1)**.**
+TILT came had a need for a custom PWA application. The application was to be used to study the effectiveness of the time travel method the application used to help someone connect with themselves and gain more hope in their lives. With a focus on people with experience in incarceratin, addiction, sexual assault, and other traumas.
+
+We set out to build **Time Machine 1** (TM1)**.**
 
 Some notable focus points of TM1:
 
-- PWA for maximum cross-compatability
+- PWA for maximum distribution and speed of development.
 - Ability for user log in with a user ID and password. Option to stay logged in on their phone.
 - Ability for user to hear a pre-recorded audio message.
 - Ability for users with a certain status to be prompted to record a message on their phone that they will be able to listen to later.
@@ -34,8 +48,6 @@ Some notable focus points of TM1:
 - Ability to track user’s progress through several status levels and send to URL for a survey at certain pre-arranged status levels.
 
 ## Goals and Requirements
-
-Given the context, what were the goals and requirements? These are likely to be more specific than the vision, mission and values of the organisation and have some link to the use of free software.
 
 With the requests (and a few others) in place, we set out the stack for the app to function.
 

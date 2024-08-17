@@ -2,18 +2,17 @@ export const SITE = {
   meta: {
     title: 'Khari Johnson | Software Engineer',
     description: '',
+    author: 'Khari Johnson <hi[at]kuhree[dot]com>',
     ogImage: '/public/assets/profile.jpg',
-    canonical: 'https://kharijohnson.dev'
+    canonical: 'https://kuhree.com'
   },
   owner: {
     name: 'Khari Johnson',
-    description: 'Builder, Explorer, *Nix Enthusiast',
+    email: 'hi@kuhree.com',
+    description: `
+    Sharing results or ranting about process. Welcome to my slice of the web.
+    `.trim(),
     location: 'Atlanta, GA',
-    roles: [
-      ['Engineer', { icon: 'code' }],
-      ['Learner', { icon: 'rocket-launch' }],
-      ['Contributor', { icon: 'pencil-line' }]
-    ],
     socials: [
       [
         'twitter',
@@ -32,43 +31,25 @@ export const SITE = {
         }
       ],
       [
-        'twitch',
+        'youtube',
         {
           username: 'kuhree',
+          usernamePrefix: '@',
+          url: 'https://www.youtube.com/channel/UC0BxrQOvIVestnid26kyGmQ'
+        }
+      ],
+      [
+        'twitch',
+        {
+          username: 'kuhreed',
           usernamePrefix: 'ttv/',
-          url: 'https://twitch.com/kuhree'
-        }
-      ]
-    ],
-    interests: [
-      ['Technology', { icon: 'code', description: '' }],
-      ['Travel', { icon: 'code', description: '' }],
-      ['Gaming', { icon: 'code', description: '' }],
-      ['Finances', { icon: 'code', description: '' }]
-    ],
-    skills: [
-      [
-        'Full Stack',
-        {
-          icon: 'terminal-window',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in neque euismod, ultrices quam sit amet, scelerisque leo.'
+          url: 'https://twitch.com/kuhreed'
         }
       ],
       [
-        'Collaboration',
+        'steam',
         {
-          icon: 'code',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in neque euismod, ultrices quam sit amet, scelerisque leo.'
-        }
-      ],
-      [
-        'Customer Support',
-        {
-          icon: 'code',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in neque euismod, ultrices quam sit amet, scelerisque leo.'
+          usernamePrefix: '',
         }
       ]
     ]
@@ -122,16 +103,13 @@ export const SITE = {
     'discord-logo': `<circle stroke="none" cx="96" cy="144" r="12"/><circle stroke="none" cx="160" cy="144" r="12"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M74 80a175 175 0 0 1 54-8 175 175 0 0 1 54 8m0 96a175 175 0 0 1-54 8 175 175 0 0 1-54-8"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m155 182 12 24a8 8 0 0 0 9 4c25-6 46-16 61-30a8 8 0 0 0 3-8L206 59a8 8 0 0 0-5-5 176 176 0 0 0-30-9 8 8 0 0 0-9 5l-8 24m-53 108-12 24a8 8 0 0 1-9 4c-25-6-46-16-61-30a8 8 0 0 1-3-8L50 59a8 8 0 0 1 5-5 176 176 0 0 1 30-9 8 8 0 0 1 9 5l8 24"/>`,
     'linkedin-logo': `<rect width="184" height="184" x="36" y="36" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" rx="8"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M120 112v64m-32-64v64m32-36a28 28 0 0 1 56 0v36"/><circle stroke="none" cx="88" cy="80" r="12"/>`,
     'instagram-logo': `<circle cx="128" cy="128" r="40" fill="none" stroke-miterlimit="10" stroke-width="16"/><rect width="184" height="184" x="36" y="36" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" rx="48"/><circle cx="180" cy="76" r="12" stroke="none" />`,
-    'tiktok-logo': `<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M168 106a96 96 0 0 0 56 18V84a56 56 0 0 1-56-56h-40v128a28 28 0 1 1-40-25V89a68 68 0 1 0 80 67Z"/>`
+    'tiktok-logo': `<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M168 106a96 96 0 0 0 56 18V84a56 56 0 0 1-56-56h-40v128a28 28 0 1 1-40-25V89a68 68 0 1 0 80 67Z"/>`,
+    'steam-logo': `<rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="156" cy="108" r="28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="100" cy="164" r="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="84.57" y1="151.28" x2="134.39" y2="90.19" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="112.72" y1="179.43" x2="173.81" y2="129.61" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="85.86" y1="149.86" x2="36.11" y2="100.11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>`
   }
 } as const
 
 /* Export Types */
 export type Site = typeof SITE
-export type InterestId = Site['owner']['interests'][number][0]
-export type InterestValue = Site['owner']['interests'][number][1]
 export type SocialId = Site['owner']['socials'][number][0]
 export type SocialValue = Site['owner']['socials'][number][1]
-export type AttributeId = Site['owner']['roles'][number][0]
-export type AttributeValue = Site['owner']['roles'][number][1]
 export type IconId = keyof Site['icons']

@@ -1,8 +1,11 @@
 ---
 import { SITE } from '../config'
-import '../styles/base.css'
+import '../styles/global.css'
 
-const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION ?? process.env.PUBLIC_GOOGLE_SITE_VERIFICATION
+const umamiId = import.meta.env.PUBLIC_UMAMI_ID ?? process.env.PUBLIC_UMAMI_ID
+const umamiHost = import.meta.env.PUBLIC_UMAMI_HOST ?? process.env.PUBLIC_UMAMI_HOST ?? 'https://umami.littlevibe.net'
+const umamiSrc = `${umamiHost}/script.js`
 
 interface Props {
   title?: string | undefined
@@ -67,6 +70,12 @@ const fallbackImageURL = new URL(SITE.meta.ogImage, Astro.url.origin).href
   googleSiteVerification && (
     <meta name='google-site-verification' content={googleSiteVerification} />
   )
+}
+
+{
+  // If UMAMI_ID is set in the environment variable,
+  // include umami tracking code in the heading
+  umamiId && <script is:inline defer src={umamiSrc} data-website-id={umamiId} />
 }
 
 <script is:inline>

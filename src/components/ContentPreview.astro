@@ -4,45 +4,86 @@ import { extractTitle, slugify } from '../lib/content'
 
 interface Props {
   entry: CollectionEntry<'work' | 'posts'>
+  variant?: 'column' | 'row'
 }
+const { variant, entry } = Astro.props
 
-const { data, slug, collection } = Astro.props.entry
-const { description = '', publishedAt, banner, banner_alt, tags } = data,
+const { data, slug, collection } = entry
+const { description = '', publishedAt, banner, bannerAlt, links, tags } = data,
   title = extractTitle(data),
   url = `/${collection}/${slug}`
+
+const endedAt = 'endedAt' in data ? data.endedAt : undefined
 ---
 
-<article class='content-preview shadow-md dark:shadow-lg rounded-xl p-4'>
+<article
+  class:list={[
+    'content-preview rounded-lg p-8 prose border-2 border-gray-700 shadow-lg',
+    variant === 'row' ? 'flex align-stretch gap-4' : ''
+  ]}
+>
   <a
-    class='img-container rounded-xl rounded-b-none aspect-1 h-32 md:h-48 w-32 md:w-48 overflow-hidden'
+    class:list={[
+      'img-container block aspect-1 h-32 md:h-48 overflow-hidden',
+      variant === 'row'
+        ? 'w-32 md:w-48 basis-1/3 grow-0 shrink-0'
+        : 'w-full md:w-full'
+    ]}
     href={url}
   >
     <img
       src={banner}
-      alt={banner_alt || title}
+      alt={bannerAlt || title}
       loading='lazy'
       decoding='async'
-      class='object-contain object-center h-full w-full rounded-xl'
+      class='inline-block object-contain object-center h-full w-full rounded-md m-0'
     />
   </a>
 
-  <section class='flex flex-col rounded-xl rounded-t-none p-0 mt-6'>
-    <span class='date text-sm font-extralight mb-1'
-      >{publishedAt.toLocaleDateString()}</span
-    >
-    <a href={url} class='prose title text-xl font-semibold mb-0'>
+  <section
+    class:list={[
+      'flex flex-col rounded-xl p-0',
+      variant === 'row' ? 'py-6' : 'mt-6'
+    ]}
+  >
+    <span class='date text-xs font-semibold text-gray-500 my-1'>
+      {publishedAt.toLocaleDateString()}
+      {
+        collection !== 'posts'
+          ? `- ${endedAt ? new Date(endedAt).toLocaleDateString() : 'Present'}`
+          : null
+      }
+    </span>
+
+    <a href={url} class='prose title text-2xl font-semibold mb-2'>
       {title}
     </a>
+
     {
       description ? (
-        <span class='description prose mb-4 line-clamp-3'>{description}</span>
+        <span class='description prose line-clamp-3'>{description}</span>
       ) : null
     }
-    <ul class='flex flex-wrap gap-2'>
+
+    <ul class='flex flex-wrap gap-2 list-none pl-0 my-2'>
+      {
+        links?.slice(0, 3).map(({ name, url }) => (
+          <li class='block text-sm font-light pl-0'>
+            <a href={url} class='inline-block h-full w-full rounded-xl pr-2'>
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <ul class='flex flex-wrap gap-2 list-none pl-0 my-0'>
       {
         tags?.slice(0, 4).map((tag) => (
-          <li class='text-sm font-light border-2 border-solid border-primary-300 rounded-xl px-2 py-1'>
-            <a href={`/tags/${slugify(tag)}`}>{tag}</a>
+          <li class='text-xs font-light border-2 border-solid border-gray-600 rounded-sm px-2 py-1'>
+            <a href={`/tags/${slugify(tag)}`} class='no-underline'>
+              {tag}
+            </a>
           </li>
         ))
       }
