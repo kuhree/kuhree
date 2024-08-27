@@ -70,8 +70,13 @@ export function truncate(input: string, wordLimit = 32) {
 
 export function sortContent(content: Frontmatter[]) {
   return content
-    .filter((entry) =>
-      'isDraft' in entry.data ? !entry.data.isDraft : entry.data.publishedAt
+    .filter((entry) => {
+      if (import.meta.env.DEV) {
+        return true
+      }
+
+      return 'isDraft' in entry.data ? !entry.data.isDraft : false
+    }
     )
     .sort((a, b) => {
       const aDate = 'publishedAt' in a.data ? a.data.publishedAt : new Date()

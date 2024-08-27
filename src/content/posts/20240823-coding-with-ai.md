@@ -4,8 +4,6 @@ isFeatured: false
 author: Khari Johnson
 publishedAt: 2024-08-23:12:30.000Z
 
-banner: ''
-banner_alt: ''
 aliases:
   - Coding with AI
   - AI in development
@@ -31,7 +29,6 @@ Here are my findings.
 - Servers: ollama (preferred), LmStudio, LocalAI
 - Clients: Open-WebUI/LibreChat/SillyTavern
 
-
 ## Usecases
 
 ## Life
@@ -49,3 +46,5 @@ Here are my findings.
 ### Coding Assistant
 
 ### Image generation
+
+## Conclusion
