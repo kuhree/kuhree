@@ -1,7 +1,13 @@
 ---
 import { SITE } from 'src/config'
 import BaseLayout from 'src/layouts/Default.astro'
-import { makeSteamAPI, STEAM_ID, unixToDate } from 'src/lib/steam'
+import {
+  makeSteamAPI,
+  STEAM_ID,
+  STEAM_IDS,
+  printUnixDate,
+  getProfilesFromSteamIds
+} from 'src/lib/steam'
 
 import type {
   GetOwnedGamesResponse,
@@ -16,45 +22,22 @@ const siteOwnerName = SITE.owner.name,
   pageTitle = 'Game Library',
   pageDescription = ''
 
-const steam = makeSteamAPI()
+const steam = makeSteamAPI(),
+  steamIds = STEAM_IDS?.split(',').length ? STEAM_IDS.split(',') : [STEAM_ID]
 
-const playerSummaries = await steam.GetPlayerSummaries([STEAM_ID]),
-  myProfile = playerSummaries.response.players.at(0)
-
-const ownedGamesResponse = await steam.GetOwnedGames(myProfile?.steamid ?? ''),
-  ownedGames = ownedGamesResponse.response.games
-
-// ownedGames.sort((a, b) => (a.playtime_forever < b.playtime_forever ? 1 : -1)) // sortbyplaytime
-ownedGames.sort((a, b) => (a.rtime_last_played < b.rtime_last_played ? 1 : -1)) // sortbylastplayed
-
-const enhancementLimit = import.meta.env.PROD ? 25 : 5 // limit the number of games to enhance, useful for larger libraries
-const enhancedGamesPromises = ownedGames
-  .slice(0, enhancementLimit >= 0 ? enhancementLimit : undefined)
-  .map((g) =>
-    myProfile ? steam.EnhanceGame(myProfile.steamid, g) : Promise.resolve(g)
-  )
-
-const enhancedGames = await Promise.allSettled(enhancedGamesPromises).then(
-  (results) =>
-    results.filter((g) => g.status === 'fulfilled').map((g) => g.value)
-)
-
-const myGames = [
-  ...enhancedGames,
-  ...ownedGames.slice(enhancementLimit >= 0 ? enhancementLimit : undefined)
-]
+const profiles = await getProfilesFromSteamIds(steamIds, { steam })
 
 function newProfileClient(
   p?: GetPlayerSummariesResponse['response']['players'][number]
 ) {
   return {
     data: p,
+    PrintAvatar: () => (p ? p.avatarfull : 'N/A'),
     PrintUsername: () => (p ? p.personaname : 'N/A'),
     PrintRealname: () => (p ? p.realname : 'N/A'),
-    PrintLastLogoff: () =>
-      p ? unixToDate(p.lastlogoff).toLocaleDateString() : 'N/A',
-    PrintMemberSince: () =>
-      p ? unixToDate(p.timecreated).toLocaleDateString() : 'N/A',
+    PrintProfileUrl: () => (p ? p.profileurl : 'N/A'),
+    PrintLastLogoff: () => printUnixDate(p?.lastlogoff),
+    PrintMemberSince: () => printUnixDate(p?.timecreated),
     PrintStatus: () => {
       return p
         ? {
@@ -68,7 +51,9 @@ function newProfileClient(
           }[p.personastate]
         : 'N/A'
     },
-    PrintCurrentGame: (gamesList: GetOwnedGamesResponse['response']['games']) => {
+    PrintCurrentGame: (
+      gamesList: GetOwnedGamesResponse['response']['games']
+    ) => {
       if (!p) return 'N/A'
 
       return gamesList.find((g) => g.appid === +p.gameid)
@@ -99,9 +84,7 @@ function newGameClient(g?: GetOwnedGamesResponse['response']['games'][number]) {
 
       return `Achievements are currently unavailable. Please try again later.`
     },
-    PrintLastPlayed: () => {
-      return g ? unixToDate(g.rtime_last_played).toLocaleDateString() : 'N/A'
-    },
+    PrintLastPlayed: () => printUnixDate(g?.rtime_last_played),
     PrintPlaytime: (minutes: number = g ? g.playtime_forever : 0) => {
       return `${(minutes / 60).toFixed(2)} hours`
     }
@@ -115,9 +98,7 @@ function newAchievementClient(
     data: a,
     Print: () =>
       `${a.apiname} ${
-        a.achieved === 0
-          ? 'Locked'
-          : `on ${a.achieved ? unixToDate(a.unlocktime).toLocaleDateString() : 'n/a'}`
+        a.achieved === 0 ? 'Locked' : `on ${printUnixDate(a.achieved)}`
       }`
   }
 }
@@ -130,8 +111,6 @@ function newStatClient(
     Print: () => `${stat.name}=${stat.value}`
   }
 }
-
-const profileClient = newProfileClient(myProfile)
 ---
 
 <BaseLayout
@@ -142,170 +121,175 @@ const profileClient = newProfileClient(myProfile)
     <section class='px-6 lg:px-12 prose w-full max-w-full'>
       <Breadcrumbs />
 
-      <ul class='container--grid w-full'>
-        <li
-          class='full-width-item flex items-center gap-12 pb-12 border-b-2 border-primary-300'
-        >
-          <div class='img-container basis-1/3 grow-0 shrink-0'>
-            <img
-              src={myProfile?.avatarfull}
-              height='128'
-              width='128'
-              class='h-full w-full object-cover object-center rounded-md'
-            />
-          </div>
+      {
+        profiles.map((profile) => {
+          const profileClient = newProfileClient(profile.profile)
+          const profileGames = profile.games
 
-          <div>
-            <h2 class='text-4xl no-underline my-0'>
-              {profileClient.PrintRealname()}
-            </h2>
-
-            <span class='text-xs font-light'>
-              (a.k.a
-              <span class='text-lg font-semibold'
-                >{profileClient.PrintUsername() ?? 'N/A'}</span
-              >,
-              <span class='text-lg font-semibold'>kujoid</span>,
-              <span class='text-lg font-semibold'>kujroid</span>,
-              <span class='text-lg font-semibold'>kuhreee</span>,
-              <span class='text-lg font-semibold'>kuhreed</span>, and a few more
-              usernames somewhere)
-            </span>
-
-            <ul>
-              <li class='font-semibold'>
-                Status: 
-                <span class='font-normal'>{profileClient.PrintStatus()}</span>
-                <span class='font-normal'>{profileClient.PrintCurrentGame(myGames)}</span>
-              </li>
-
-              <li class='font-semibold'>
-                Last Seen: <span class='font-normal'
-                  >{profileClient.PrintLastLogoff()}</span
-                >
-              </li>
-
-              <li class='font-semibold'>
-                Catalog:
-                <span class='font-normal'>
-                  {myGames.length} games
-                </span>
-              </li>
-
-              <li class='font-semibold'>
-                Joined: <span class='font-normal'
-                  >{profileClient.PrintMemberSince()}</span
-                >
-              </li>
-
-              <li class='font-semibold list-none mt-8'>
-                {
-                  myProfile ? (
-                    <a
-                      href={myProfile.profileurl}
-                      class:list={[
-                        'no-underline px-8 py-2 rounded-md bg-primary-700 text-primary-50 hover:bg-primary-900 hover:text-primary-100 transition-colors',
-                        'dark:bg-primary-200 dark:text-slate-900 dark:hover:bg-primary-400 dark:hover:text-slate-900'
-                      ]}
-                    >
-                      View on <Icon icon='steam-logo' />
-                    </a>
-                  ) : null
-                }
-              </li>
-            </ul>
-          </div>
-        </li>
-
-        {
-          myGames.map((g) => {
-            const gameClient = newGameClient(g)
-
-            return (
-              <li
-                class:list={[
-                  'container--game',
-                  'flex flex-col items-start p-6 m-0',
-                  'border-b-2 border-gray-700'
-                ]}
-              >
-                <div class='container--image grow-0 shrink-0'>
+          return (
+            <ul class='container--grid w-full'>
+              <li class='full-width-item flex items-center gap-12 pb-12 border-b-2 border-primary-300'>
+                <div class='img-container basis-1/3 grow-0 shrink-0'>
                   <img
-                    src={gameClient.GetHeaderSrc()}
-                    class='m-0 p-0 inline-block h-full w-full object-contain object-center'
+                    src={profileClient.PrintAvatar()}
+                    height='128'
+                    width='128'
+                    class='h-full w-full object-cover object-center rounded-md'
                   />
                 </div>
 
-                <div class='flex-1 w-full'>
-                  <h3 class='text-xl'>{gameClient.PrintName()}</h3>
+                <div>
+                  <h2 class='text-4xl no-underline my-0'>
+                    {profileClient.PrintRealname()}
+                  </h2>
+
+                  <span class='text-xs font-light'>
+                    (a.k.a
+                    <span class='text-lg font-semibold'>
+                      {profileClient.PrintUsername() ?? 'N/A'}
+                    </span>
+                    )
+                  </span>
 
                   <ul>
-                    <li class='font-semibold text-gray-400 m-0'>
-                      Last Played: {gameClient.PrintLastPlayed()}
+                    <li class='font-semibold'>
+                      Status:
+                      <span class='font-normal'>
+                        {profileClient.PrintStatus()}
+                      </span>
+                      <span class='font-normal'>
+                        {profileClient.PrintCurrentGame(profileGames)}
+                      </span>
                     </li>
-                    <li class='font-semibold text-gray-400 m-0'>
-                      Playtime: {gameClient.PrintPlaytime()}
+
+                    <li class='font-semibold'>
+                      Last Seen:{' '}
+                      <span class='font-normal'>
+                        {profileClient.PrintLastLogoff()}
+                      </span>
+                    </li>
+
+                    <li class='font-semibold'>
+                      Catalog:
+                      <span class='font-normal'>
+                        {profileGames.length} games
+                      </span>
+                    </li>
+
+                    <li class='font-semibold'>
+                      Joined:{' '}
+                      <span class='font-normal'>
+                        {profileClient.PrintMemberSince()}
+                      </span>
+                    </li>
+
+                    <li class='font-semibold list-none mt-8'>
+                      <a
+                        href={profileClient.PrintProfileUrl()}
+                        class:list={[
+                          'no-underline px-8 py-2 rounded-md bg-primary-700 text-primary-50 hover:bg-primary-900 hover:text-primary-100 transition-colors',
+                          'dark:bg-primary-200 dark:text-slate-900 dark:hover:bg-primary-400 dark:hover:text-slate-900'
+                        ]}
+                      >
+                        View on <Icon icon='steam-logo' />
+                      </a>
                     </li>
                   </ul>
-
-                  {g && 'achievements' in g && g.achievements ? (
-                    <details>
-                      <summary>{gameClient.PrintAchievementSummary()}</summary>
-
-                      <pre
-                        set:html={g.achievements
-                          .filter((a) => a.achieved != 0)
-                          .map((a) => newAchievementClient(a).Print())
-                          .join('\n')}
-                      />
-                    </details>
-                  ) : null}
-
-                  {g && 'stats' in g && g.stats ? (
-                    <details>
-                      <summary>Total Stats {g.statsCount}</summary>
-                      <pre
-                        set:html={g.stats
-                          .map((s) => newStatClient(s).Print())
-                          .join('\n')}
-                      />
-                    </details>
-                  ) : null}
-
-                  {g && 'news' in g && g.news ? (
-                    <details>
-                      <summary>Total Articles {g.newsCount}</summary>
-
-                      {g.news.map((a) => (
-                        <article class='p-4 border-2 border-gray-600 rounded-sm my-2'>
-                          <h5>{a.title}</h5>
-
-                          <ul class='text-xs'>
-                            <li>{unixToDate(a.date).toLocaleDateString()}</li>
-                            <li>By {a.author}</li>
-                            <li>From {a.feedlabel}</li>
-                          </ul>
-
-                          <details>
-                            <summary>View Excerpt</summary>
-
-                            <pre
-                              class='whitespace-break-spaces'
-                              set:html={a.contents.slice(0, 1000) + ' ...'}
-                            />
-                          </details>
-
-                          <a href={a.url}>View Article</a>
-                        </article>
-                      ))}
-                    </details>
-                  ) : null}
                 </div>
               </li>
-            )
-          })
-        }
-      </ul>
+
+              {profileGames.map((g) => {
+                const gameClient = newGameClient(g)
+
+                return (
+                  <li
+                    class:list={[
+                      'container--game',
+                      'flex flex-col items-start p-6 m-0',
+                      'border-b-2 border-gray-700'
+                    ]}
+                  >
+                    <div class='container--image grow-0 shrink-0'>
+                      <img
+                        src={gameClient.GetHeaderSrc()}
+                        class='m-0 p-0 inline-block h-full w-full object-contain object-center'
+                      />
+                    </div>
+
+                    <div class='flex-1 w-full'>
+                      <h3 class='text-xl'>{gameClient.PrintName()}</h3>
+
+                      <ul>
+                        <li class='font-semibold text-gray-400 m-0'>
+                          Last Played: {gameClient.PrintLastPlayed()}
+                        </li>
+                        <li class='font-semibold text-gray-400 m-0'>
+                          Playtime: {gameClient.PrintPlaytime()}
+                        </li>
+                      </ul>
+
+                      {g && 'achievements' in g && g.achievements ? (
+                        <details>
+                          <summary>
+                            {gameClient.PrintAchievementSummary()}
+                          </summary>
+
+                          <pre
+                            set:html={g.achievements
+                              .filter((a) => a.achieved != 0)
+                              .map((a) => newAchievementClient(a).Print())
+                              .join('\n')}
+                          />
+                        </details>
+                      ) : null}
+
+                      {g && 'stats' in g && g.stats ? (
+                        <details>
+                          <summary>Total Stats {g.statsCount}</summary>
+                          <pre
+                            set:html={g.stats
+                              .map((s) => newStatClient(s).Print())
+                              .join('\n')}
+                          />
+                        </details>
+                      ) : null}
+
+                      {g && 'news' in g && g.news ? (
+                        <details>
+                          <summary>Total Articles {g.newsCount}</summary>
+
+                          {g.news.map((a) => (
+                            <article class='p-4 border-2 border-gray-600 rounded-sm my-2'>
+                              <h5>{a.title}</h5>
+
+                              <ul class='text-xs'>
+                                <li>{printUnixDate(a.date)}</li>
+                                <li>By {a.author}</li>
+                                <li>From {a.feedlabel}</li>
+                              </ul>
+
+                              <details>
+                                <summary>View Excerpt</summary>
+
+                                <pre
+                                  class='whitespace-break-spaces'
+                                  set:html={a.contents.slice(0, 1000) + ' ...'}
+                                />
+                              </details>
+
+                              <a href={a.url}>View Article</a>
+                            </article>
+                          ))}
+                        </details>
+                      ) : null}
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          )
+        })
+      }
     </section>
   </main>
 </BaseLayout>

@@ -1,4 +1,5 @@
 export const STEAM_ID = import.meta.env.STEAM_ID ?? process.env.STEAM_ID
+export const STEAM_IDS = import.meta.env.STEAM_IDS ?? process.env.STEAM_IDS
 export const STEAM_API_KEY = import.meta.env.STEAM_API_KEY ?? process.env.STEAM_API_KEY
 
 // Steam API Reference - https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_.28v0002.29
@@ -153,10 +154,6 @@ interface SteamAPI {
     count?: number,
     maxlength?: number
   ) => Promise<GetNewsForAppResponse>
-  EnhanceGame: (
-    steamId: string,
-    game: GetOwnedGamesResponse['response']['games'][number]
-  ) => Promise<GetOwnedGamesResponse['response']['games'][number]>
 }
 
 export function makeSteamAPI(
@@ -167,7 +164,7 @@ export function makeSteamAPI(
   authUrl.searchParams.set('key', apiKey)
 
   const self: SteamAPI = {
-    GetPlayerSummaries: (steamIds) => {
+    GetPlayerSummaries: async (steamIds) => {
       const url = new URL(authUrl)
       url.pathname = BASE_PATHS.GetPlayerSummaries
       url.searchParams.set('steamids', steamIds.join(','))
@@ -179,7 +176,7 @@ export function makeSteamAPI(
       });
     },
 
-    GetOwnedGames: (steamId) => {
+    GetOwnedGames: async (steamId) => {
       const url = new URL(authUrl)
       url.pathname = BASE_PATHS.GetOwnedGames
       url.searchParams.set('steamid', steamId)
@@ -193,7 +190,7 @@ export function makeSteamAPI(
       })
     },
 
-    GetNewsForApp: (appId, count = 5, maxlength = 1000) => {
+    GetNewsForApp: async (appId, count = 5, maxlength = 1000) => {
       const url = new URL(authUrl)
       url.pathname = BASE_PATHS.GetNewsForApp
       url.searchParams.set('appid', appId.toString())
@@ -207,7 +204,7 @@ export function makeSteamAPI(
       })
     },
 
-    GetFriendList(steamId, relationship = 'friend') {
+    GetFriendList: async (steamId, relationship = 'friend') => {
       const url = new URL(authUrl)
       url.pathname = BASE_PATHS.GetFriendList
       url.searchParams.set('steamid', steamId)
@@ -220,7 +217,7 @@ export function makeSteamAPI(
       })
     },
 
-    GetPlayerAchievements: (steamId, appId) => {
+    GetPlayerAchievements: async (steamId, appId) => {
       const url = new URL(authUrl)
       url.pathname = BASE_PATHS.GetPlayerAchievements
       url.searchParams.set('appid', appId.toString())
@@ -232,7 +229,7 @@ export function makeSteamAPI(
       })
     },
 
-    GetUserStatsForGame: (steamId, appId) => {
+    GetUserStatsForGame: async (steamId, appId) => {
       const url = new URL(authUrl)
       url.pathname = BASE_PATHS.GetUserStatsForGame
       url.searchParams.set('appId', appId.toString())
@@ -243,51 +240,116 @@ export function makeSteamAPI(
         return { playerstats: { gameName: 'N/A', stats: [], success: false, steamID: 'N/A' } }
       })
     },
-
-    EnhanceGame: async (steamId, game) => {
-      const statResults = await self.GetUserStatsForGame(steamId, game.appid)
-      const aResults = await self.GetPlayerAchievements(steamId, game.appid)
-      const stats = statResults.playerstats.stats
-      const statsCount = stats.length
-
-      const achievements = aResults.playerstats.achievements
-      achievements.sort((a, b) => (a.unlocktime < b.unlocktime ? 1 : -1))
-
-      const totalCount = achievements.length
-      const achievedCount = achievements.filter((a) => a.achieved != 0).length
-      const achievedPercentNum = ((achievedCount / totalCount) * 100)
-      const achievedPercent = isNaN(achievedPercentNum) ? "0" : achievedPercentNum.toFixed(2)
-
-      // adding stub bc not yet implemented
-      // const newsResults = { appnews: { newsitems: [] } } ?? await self.GetNewsForApp(game.appid)
-      const newsResults = await self.GetNewsForApp(game.appid)
-      const news = newsResults['appnews']['newsitems']
-      const newsCount = news.length
-
-      return {
-        ...game,
-        enhanced: true,
-
-        stats: stats,
-        statsCount: statsCount,
-
-        news: news,
-        newsCount,
-
-        achievements: achievements,
-        achievementsCountTotal: totalCount,
-        achievementsCountAchieved: achievedCount,
-        achievementsCountPercent: achievedPercent
-      }
-    }
   }
 
   return self
 }
 
-export function unixToDate(unix: number): Date {
-  const date = new Date(unix * 1000)
-  return date
+async function enhanceGame(
+  steamId: string,
+  game: GetOwnedGamesResponse['response']['games'][number], srv: { steam: SteamAPI }
+) {
+  const { steam } = srv
+
+}
+
+export async function getProfilesFromSteamIds(steamIds: Array<string>, srv: { steam: SteamAPI }) {
+  const { steam } = srv
+
+  const playerSummariesResponse = await steam.GetPlayerSummaries(steamIds),
+    playerSummaries = playerSummariesResponse.response.players
+
+  const getProfileGames = async (
+    profile: GetPlayerSummariesResponse['response']['players'][number]
+  ) => {
+    const ownedGamesResponse = await steam.GetOwnedGames(profile?.steamid ?? ''),
+      ownedGames = ownedGamesResponse.response.games
+
+    ownedGames.sort((a, b) => (a.playtime_forever < b.playtime_forever ? 1 : -1)) // sortbyplaytime
+    // ownedGames.sort((a, b) =>
+    //   a.rtime_last_played < b.rtime_last_played ? 1 : -1
+    // ) // sortbylastplayed
+
+    const enhancementLimit = import.meta.env.PROD ? 25 : 5 // limit the number of games to enhance, useful for larger libraries
+    const enhancedGamesPromises = ownedGames
+      .slice(0, enhancementLimit >= 0 ? enhancementLimit : undefined)
+      .map(async (g) => {
+        if (!profile) {
+          return Promise.resolve(g)
+        }
+
+        const steamId = profile.steamid,
+          appId = g.appid
+
+
+        const statResults = await steam.GetUserStatsForGame(steamId, appId)
+        const aResults = await steam.GetPlayerAchievements(steamId, appId)
+        const stats = statResults.playerstats.stats
+        const statsCount = stats.length
+
+        const achievements = aResults.playerstats.achievements
+        achievements.sort((a, b) => (a.unlocktime < b.unlocktime ? 1 : -1))
+
+        const totalCount = achievements.length
+        const achievedCount = achievements.filter((a) => a.achieved != 0).length
+        const achievedPercentNum = ((achievedCount / totalCount) * 100)
+        const achievedPercent = isNaN(achievedPercentNum) ? "0" : achievedPercentNum.toFixed(2)
+
+        const newsResults = await steam.GetNewsForApp(appId)
+        const news = newsResults['appnews']['newsitems']
+        const newsCount = news.length
+
+        return {
+          ...g,
+          enhanced: true,
+
+          stats: stats,
+          statsCount: statsCount,
+
+          news: news,
+          newsCount,
+
+          achievements: achievements,
+          achievementsCountTotal: totalCount,
+          achievementsCountAchieved: achievedCount,
+          achievementsCountPercent: achievedPercent
+        }
+      }
+        // profile ? enhanceGame(profile.steamid, g, srv) : Promise.resolve(g)
+      )
+
+    const enhancedGames = await Promise.allSettled(enhancedGamesPromises).then(
+      (results) =>
+        results.filter((g) => g.status === 'fulfilled').map((g) => g.value)
+    )
+
+    return {
+      profile,
+      games: [
+        ...enhancedGames,
+        ...ownedGames.slice(enhancementLimit >= 0 ? enhancementLimit : undefined)
+      ]
+    }
+  }
+
+
+  const steamProfilePromises = playerSummaries.map(getProfileGames),
+    steamProfiles = await Promise.allSettled(steamProfilePromises).then(
+      (results) =>
+        results.filter((g) => g.status === 'fulfilled').map((g) => g.value)
+    )
+
+  return steamProfiles
+
+}
+
+export function printUnixDate(t: unknown): string {
+  if (t && typeof t === 'number' && t > 0) {
+    const date = new Date(t * 1000)
+    return date.toLocaleDateString()
+  }
+
+  return "N/A"
 }
 
 async function handleFetch<T = unknown>(url: string): Promise<T> {
