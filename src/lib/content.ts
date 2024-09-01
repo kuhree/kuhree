@@ -3,11 +3,11 @@ import { slug as slugger } from 'github-slugger'
 import type { Frontmatter } from 'src/content/config'
 
 /**
- * Extract N items from a posts frontmatter to use as a title
+ * Extract N items from a notes frontmatter to use as a title
  */
 export function extractTitle(
   entry:
-    | Pick<CollectionEntry<'posts'>['data'], 'aliases'>
+    | Pick<CollectionEntry<'notes'>['data'], 'aliases'>
     | Pick<CollectionEntry<'work'>['data'], 'title'>,
   limit = 1,
   joint = ', '
@@ -48,8 +48,8 @@ export function slugifyMany(list: SlugInput[]) {
   return list.map(slugify)
 }
 
-export function getPageNumbers(numberOfPosts: number) {
-  const numberOfPages = numberOfPosts / Number(4)
+export function getPageNumbers(numberOfNotes: number) {
+  const numberOfPages = numberOfNotes / Number(4)
 
   let pageNumbers: number[] = []
   for (let i = 1; i <= Math.ceil(numberOfPages); i++) {
@@ -70,14 +70,7 @@ export function truncate(input: string, wordLimit = 32) {
 
 export function sortContent(content: Frontmatter[]) {
   return content
-    .filter((entry) => {
-      if (import.meta.env.DEV) {
-        return true
-      }
-
-      return 'isDraft' in entry.data ? !entry.data.isDraft : false
-    }
-    )
+    .filter(filterContentEntry)
     .sort((a, b) => {
       const aDate = 'publishedAt' in a.data ? a.data.publishedAt : new Date()
       const bDate = 'publishedAt' in b.data ? b.data.publishedAt : new Date()
@@ -89,8 +82,19 @@ export function sortContent(content: Frontmatter[]) {
     })
 }
 
-export function getContentByTag(posts: Frontmatter[], tag: string) {
-  return posts.filter((post) => {
+function filterContentEntry(entry: Frontmatter): boolean {
+  if (import.meta.env.DEV) {
+    return true
+  }
+
+  return 'isDraft' in entry.data ? !entry.data.isDraft : false
+
+}
+
+export function getContentByTag(notes: Frontmatter[], tag: string) {
+  return notes
+    .filter(filterContentEntry)
+    .filter((post) => {
     const { tags } = post.data
 
     if (tags) {
@@ -103,8 +107,15 @@ export function getContentByTag(posts: Frontmatter[], tag: string) {
 
 export function getUniqueTags(content: Frontmatter[]) {
   let tags: string[] = []
-  const filteredContent = content.filter((entry) =>
-    'isDraft' in entry.data ? !entry.data.isDraft : entry.data.publishedAt
+  const filteredContent = content
+    .filter(filterContentEntry)
+    .filter((entry) => {
+      if ('isDraft' in entry.data) {
+        return !entry.data.isDraft
+      }
+
+      return true
+    }
   )
 
   filteredContent.forEach((post) => {
@@ -120,7 +131,9 @@ export function getUniqueTags(content: Frontmatter[]) {
 }
 
 export function groupContentByTag(content: Frontmatter[]) {
-  const contentByTag: Array<[string, Frontmatter[]]> = content.reduce(
+  const contentByTag: Array<[string, Frontmatter[]]> = content
+    .filter(filterContentEntry)
+    .reduce(
     (prev, curr) => {
       const tags = getUniqueTags([curr])
 

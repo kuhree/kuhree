@@ -6,7 +6,7 @@ publishedAt: 2023-02-01:12:30.000Z
 
 aliases:
   - Changelog - 1
-description: Welcome to the changelog! I've decided to start a series of posts
+description: Welcome to the changelog! I've decided to start a series of notes
   tagged 'changelog' that let me share the things I've been enjoying recently.
 tags:
   - changelog
@@ -17,9 +17,9 @@ tags:
 ## Introduction
 
 Inspired my [Tom MacWright](macwright.com), [Polly Washburn](codyssia.com),
-and a few other developers that I've seen do something similar; I've decided to start a series of posts tagged `#changelog`. This allows for a few things:
+and a few other developers that I've seen do something similar; I've decided to start a series of notes tagged `#changelog`. This allows for a few things:
 
-- gives me a place to share things that aren't focused enough to warrant a blog posts
+- gives me a place to share things that aren't focused enough to warrant a blog notes
 - holds me accountable for some of the things I'd like to track
 
 ## Updates

@@ -15,7 +15,7 @@ import {
 
 const siteOwnerName = SITE.owner.name
 
-const contentPromises = [getCollection('posts'), getCollection('work')],
+const contentPromises = [getCollection('notes'), getCollection('work')],
   contentResult = await Promise.allSettled(contentPromises),
   content: Frontmatter[] = []
 

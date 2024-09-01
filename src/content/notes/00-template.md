@@ -5,15 +5,17 @@ isFeatured: false
 isDraft: true
 
 aliases:
-  - Adding new posts
+  - Template
 description:
-  Some rules & recommendations for creating or adding new posts using AstroPaper
+  Some rules & recommendations for creating or adding new notes using AstroPaper
   theme.
 tags:
-  - docs
+  - template
+banner: 'https://placehold.co/600x400'
+banner_alt: 'White background with black text that show the dimensions'
 ---
 
-Here are some rules/recommendations, tips & ticks for creating new posts in AstroPaper theme.
+Here are some rules/recommendations, tips & ticks for creating new notes in AstroPaper theme.
 
 ## Table of contents
 
@@ -39,7 +41,7 @@ Here is the list of frontmatter property for each post.
 
 Title is the title of the post and it is very important for search engine optimization (SEO).
 
-`slug` is the unique identifier of the url. Thus, `slug` must be unique and different from other posts. The whitespace of `slug` needs to be separated with `-` or `_` but `-` is recommended. If slug is not specified, the slugified title of the post will be used as slug.
+`slug` is the unique identifier of the url. Thus, `slug` must be unique and different from other notes. The whitespace of `slug` needs to be separated with `-` or `_` but `-` is recommended. If slug is not specified, the slugified title of the post will be used as slug.
 
 Here is the sample frontmatter for the post.
 
@@ -75,7 +77,7 @@ For instance, if you want to place your table of contents just under the intro p
 # some frontmatter
 ---
 
-Here are some recommendations, tips & ticks for creating new posts in AstroPaper theme.
+Here are some recommendations, tips & ticks for creating new notes in AstroPaper theme.
 
 ## Table of contents
 
@@ -84,7 +86,7 @@ Here are some recommendations, tips & ticks for creating new posts in AstroPaper
 
 ## Headings
 
-There's one thing to note about headings. The AstroPaper posts use title (title in the frontmatter) as the main heading of the post. Therefore, the rest of the heading in the post should be using h2 \~ h6.
+There's one thing to note about headings. The AstroPaper notes use title (title in the frontmatter) as the main heading of the post. Therefore, the rest of the heading in the post should be using h2 \~ h6.
 
 This rule is not mandatory, but highly recommended for visual, accessibility and SEO purposes.
 

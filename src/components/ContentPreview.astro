@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content'
 import { extractTitle, slugify } from '../lib/content'
 
 interface Props {
-  entry: CollectionEntry<'work' | 'posts'>
+  entry: CollectionEntry<'work' | 'notes'>
   variant?: 'column' | 'row'
 }
 const { variant, entry } = Astro.props
@@ -49,7 +49,7 @@ const endedAt = 'endedAt' in data ? data.endedAt : undefined
     <span class='date text-xs font-semibold text-gray-500 my-1'>
       {publishedAt.toLocaleDateString()}
       {
-        collection !== 'posts'
+        collection !== 'notes'
           ? `- ${endedAt ? new Date(endedAt).toLocaleDateString() : 'Present'}`
           : null
       }

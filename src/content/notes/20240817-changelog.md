@@ -6,7 +6,7 @@ publishedAt: 2024-08-17:12:30.000Z
 
 aliases:
   - Changelog - 3
-description: Welcome to the changelog! A series of posts tagged 'changelog' that let me share the things I've been enjoying recently.
+description: Welcome to the changelog! A series of notes tagged 'changelog' that let me share the things I've been enjoying recently.
 tags:
   - changelog
 ---
@@ -17,7 +17,7 @@ tags:
 
 ### MoreAI
 
-In the last `#changelog`, I integrated AI into my weekly life. Today, it's updated to pretty much daily. (Most of this is thanks to the new home lab, it's pretty cool [check it out](/posts/homelab)). It's hit or miss some of the time, but it definitely comes in handy for 75% of use-cases I throw at it (code-gen, summarizing, improving writing). I'm fine tuing the models I use and the prompts.
+In the last `#changelog`, I integrated AI into my weekly life. Today, it's updated to pretty much daily. (Most of this is thanks to the new home lab, it's pretty cool [check it out](/notes/homelab)). It's hit or miss some of the time, but it definitely comes in handy for 75% of use-cases I throw at it (code-gen, summarizing, improving writing). I'm fine tuing the models I use and the prompts.
 
 Here's most of the tools I'm using to make this happen.
 
@@ -31,7 +31,7 @@ Here's most of the tools I'm using to make this happen.
 
 I'm still working as a [Technical Support Engineer II](/work/searchspring). Learning a lot and growing. Not much to report here as I've kind of just kept my head down. Some things are changing though, positions opening up, schedules are changing, that kinda thing. I'm also coming up on that 1.5yr mark and at yr 2 I'll be looking to make some changes. Preparing for all that.
 
-I started [learning go](/posts/20240818-learning-go). Which, if I had to say (which I don't but I want to), brings my tech "stack" kinda goes like this:
+I started [learning go](/notes/20240818-learning-go). Which, if I had to say (which I don't but I want to), brings my tech "stack" kinda goes like this:
 
 ```
 local -> infra -> prototypes -> production -> comfort

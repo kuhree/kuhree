@@ -9,7 +9,7 @@ import ContentPreview from '../../components/ContentPreview.astro'
 import Hero from '../../components/ui/Hero.astro'
 import Grid from '../../components/ui/Grid.astro'
 
-export const prerender = true;
+export const prerender = true
 
 const siteOwnerName = SITE.owner.name
 
@@ -19,7 +19,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const contentPromises = [getCollection('posts'), getCollection('work')],
+  const contentPromises = [getCollection('notes'), getCollection('work')],
     contentResult = await Promise.allSettled(contentPromises),
     content: Frontmatter[] = []
 
