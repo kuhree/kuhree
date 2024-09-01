@@ -11,11 +11,12 @@ import ContentPreview from 'src/components/ContentPreview.astro'
 const maxWorkCount = 5,
   allWork = await getCollection('work').then(sortContent),
   featuredWork = allWork.filter((e) => e.data.isFeatured).slice(0, maxWorkCount)
-  
+
 const maxPostCount = 3,
-  allPosts = await getCollection('posts').then(sortContent),
-  featuredPosts = allPosts.filter((e) => e.data.isFeatured).slice(0, maxWorkCount)
-  
+  allNotes = await getCollection('notes').then(sortContent),
+  featuredNotes = allNotes
+    .filter((e) => e.data.isFeatured)
+    .slice(0, maxWorkCount)
 ---
 
 <BaseLayout>
@@ -27,14 +28,14 @@ const maxPostCount = 3,
   >
     <section class='flex flex-col gap-8 max-w-3xl'>
       <h2 class='text-2xl'>
-        <a href='/posts' class='underline'> Some of the things I've written about... </a>
+        <a href='/notes' class='underline'>
+          Some of the things I've written about...
+        </a>
       </h2>
 
-      <ul class:list={[
-        'flex flex-col gap-12'
-      ]}>
+      <ul class:list={['flex flex-col gap-12']}>
         {
-          featuredPosts.map((entry) => (
+          featuredNotes.map((entry) => (
             <li>
               <ContentPreview entry={entry} variant='row' />
             </li>
@@ -45,14 +46,12 @@ const maxPostCount = 3,
 
     <section class='flex flex-col gap-8 max-w-3xl'>
       <h2 class='text-2xl'>
-        <a href='/posts' class='underline'>
+        <a href='/notes' class='underline'>
           Some of the things I've worked on...
         </a>
       </h2>
 
-      <ul class:list={[
-        'flex flex-col gap-12'
-      ]}>
+      <ul class:list={['flex flex-col gap-12']}>
         {
           featuredWork.map((entry) => (
             <li>

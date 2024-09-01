@@ -6,7 +6,7 @@ publishedAt: 2024-02-27:12:30.000Z
 
 aliases:
   - Changelog - 2
-description: Welcome to the changelog! A series of posts tagged 'changelog' that let me share the things I've been enjoying recently.
+description: Welcome to the changelog! A series of notes tagged 'changelog' that let me share the things I've been enjoying recently.
 tags:
   - changelog
 ---

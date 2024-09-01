@@ -6,14 +6,14 @@ import { getCollection } from 'astro:content'
 import type { APIRoute } from 'astro'
 
 export const GET: APIRoute = async () => {
-  const posts = await getCollection('posts')
+  const notes = await getCollection('notes')
   const work = await getCollection('work')
 
   return rss({
     title: SITE.meta.title,
     description: SITE.meta.description,
     site: SITE.meta.canonical,
-    items: sortContent([...posts, ...work]).map((entry) => ({
+    items: sortContent([...notes, ...work]).map((entry) => ({
       link: `${entry.collection}/${slugify(entry)}`,
       title: extractTitle(entry.data),
       description: entry.data.description,

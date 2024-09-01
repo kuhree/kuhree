@@ -50,14 +50,14 @@ export const PostFrontmatter = z.object({
     .optional()
 })
 
-export type Frontmatter = CollectionEntry<'posts' | 'work'>
+export type Frontmatter = CollectionEntry<'notes' | 'work'>
 
 export const collections = {
   work: defineCollection({
     type: 'content',
     schema: WorkFrontmatter
   }),
-  posts: defineCollection({
+  notes: defineCollection({
     type: 'content',
     schema: PostFrontmatter
   })
