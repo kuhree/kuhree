@@ -1,6 +1,6 @@
 # kuhree/www
 
-Personal website. Contains notes, portfolio, and random expirements with web APIs. Most likely live at [kuhree.com](kuhree).
+Personal website with notes, my work, and random expirements with web APIs. Most likely live at [kuhree.com](kuhree).
 
 Built on Astro for the flexibility. One day it'll be a proper website, but until then, consider it a personal playground.
 
