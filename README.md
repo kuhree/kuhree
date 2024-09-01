@@ -4,9 +4,12 @@ Personal website. Contains notes, portfolio, and random expirements with web API
 
 Built on Astro for the flexibility. One day it'll be a proper website, but until then, consider it a personal playground.
 
-Credit where credit's dues, some parts were ripped from [AstroPaper] and [Astro's Portfolio].
+Giving credit where credit is due, cheers to
+ - [AstroPaper]
+ - [Astro's Portfolio]
 
-Other libraries in use:
+
+and the other libraries in use:
 
 - [typescript]
 - [react.js]
