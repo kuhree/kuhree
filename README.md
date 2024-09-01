@@ -6,7 +6,7 @@ Built on Astro for the flexibility. One day it'll be a proper website, but until
 
 Giving credit where credit is due, cheers to
  - [AstroPaper]
- - [Astro's Portfolio]
+ - [Astro's Portfolio Template]
 
 
 and the other libraries in use:
@@ -84,7 +84,7 @@ MIT License, see [LICENSE](LICENSE) for more details.
 [github-repo]: https://github.com/kuhree/www
 [astro]: https://astro.build
 [AstroPaper]: https://github.com/satnaing/astro-paper
-[Astro's Portfolio]: https://github.com/withastro/astro/tree/main/examples/portfolio
+[Astro's Portfolio Template]: https://github.com/withastro/astro/tree/main/examples/portfolio
 [typescript]: https://www.typescriptlang.org
 [reactjs]: https://reactjs.org
 [tailwind]: https://tailwindcss.com
