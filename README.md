@@ -50,7 +50,7 @@ MIT License, see [LICENSE](LICENSE) for more details.
   - [Gitea Actions]
   - [Coolify Staging]
 
-2. Changes will be synced `upstream` automatically.
+2. Changes will be synced to `upstream` automatically.
   - [Github Actions]
   - [Railway Dashboard]
 
