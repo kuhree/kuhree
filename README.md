@@ -1,4 +1,4 @@
-# [@kuhree/www](github-repo)
+# kuhree/www
 
 Personal website. Contains notes, portfolio, and random expirements with web APIs. Most likely live at [kuhree.com](kuhree).
 
