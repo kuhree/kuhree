@@ -27,7 +27,7 @@ title: 'Resume'
 
 #### **Software Support Engineer II** <small class="font-light">(April, 2024 - Present)</small>
 
-#### **Software Support Engineer I** <small class="font-light">(April, 2023 - April, 2024)</small>
+#### **Software Support Engineer I** <small class="font-light">(March, 2023 - April, 2024)</small>
 
 **What I Do:**
 
