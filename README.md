@@ -59,17 +59,18 @@ MIT License, see [LICENSE](LICENSE) for more details.
 - [x] Landing Page - `/`
 - [x] About Page(s) - `/about`
   - [x] Resume - `/about/resume`
-- [ ] Stats Page(s) - `/about/stats`
-  - [ ] Game Stats
-    - [x] Steam - `/about/stats/steam`
-    - [ ] Xbox
-    - [ ] Playstation
-  - [ ] TV/Movie/Music/Anime Stats
-    - [ ] Trakt
-    - [ ] AniList
-    - [ ] Deezer
-    - [ ] Youtube Music
-    - [ ] Spotify
+  - [x] Uses - `/about/uses`
+  - [ ] Stats Page(s) - `/about/stats`
+    - [ ] Game Stats
+      - [x] Steam - `/about/steam`
+      - [ ] Xbox
+      - [ ] Playstation
+    - [ ] TV/Movie/Music/Anime Stats
+      - [ ] Trakt
+      - [ ] AniList
+      - [ ] Deezer
+      - [ ] Youtube Music
+      - [ ] Spotify
 - [x] Content Page(s)
   - [x] Blog as "Notes" - `/notes`
   - [x] Projects as "Work" - `/work`

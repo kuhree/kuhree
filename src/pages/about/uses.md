@@ -15,9 +15,9 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 
 - Internet
     - Google Fiber 1G @ $70/month
-- Cell 
+- Cell
     - Visible @ $25/month
-- Electricity 
+- Electricity
     - Georgia Power @ $0.20/kWh
 - DNS + Domains
     - Cloudflare @ ~$50/yr
@@ -32,18 +32,18 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 ### Phone(s)
 
 - Apple iPhone Xs
-- OnePlus 7 Pro 
+- OnePlus 7 Pro
 - OnePlus N200
 
 ### Laptop(s)
 
 - Personal
-    - Model: 2019 15" Macbook Pro 
+    - Model: 2019 15" Macbook Pro
     - CPU: 6-Core i7 @ 2.6GHz
     - RAM: 16GB
     - STORAGE: 512GB SSD
 - Work
-    - Model: 2022 13" Macbook Pro 
+    - Model: 2022 13" Macbook Pro
     - CPU: Apple M2
     - RAM: 16GB
     - STORAGE: 256GB
@@ -53,12 +53,12 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 - Personal
     - CPU: 8-Core AMD R7 5800X3D @ 3.4GHz
     - GPU: NVIDIA RTX 3070 8GB
-    - RAM: 32GB 
+    - RAM: 32GB
     - STORAGE: 512GB SATA + 1TB NVME M.2 SSD
 
 ### "Server(s)"
 
-- NAS (TrueNAS)  
+- NAS (TrueNAS)
     - CPU: Intel i5 5930K @ 3.5GHz
     - GPU: AMD R7 250 2GB
     - RAM: 48GB RAM
@@ -71,7 +71,7 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 - Router (pfSense)
     - CPU: Intel i7 4790 @ ?? GHz
     - GPU: Integrated
-    - RAM: 12GB 
+    - RAM: 12GB
     - STORAGE: 256GB SSD + 1TB HDD
 - Offsite Backups (Dietpi)
     - CPU: Broadcom BCM2837B0 @ 1.4GHz
@@ -144,7 +144,7 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 - fzf
 - zsh
 - ripgrep
-- imagemagick 
+- imagemagick
 
 #### TUIs
 
@@ -169,8 +169,8 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 
 ### Text Editor(s)
 
-- Neovim 
-- VSCode 
+- Neovim
+- VSCode
 - Zed
 - Cursor
 
@@ -191,42 +191,18 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 - Obsidian
 - 1Password / Bitwarden
 
-### OS-specific Utilities
+### OS Specific Utilities
 
-#### MacOS 
+#### MacOS
 
 - Raycast
 - Bartender
 - Homebrew
 
-#### Windows 
+#### Windows
 
 - ...
 
-#### Linux 
+#### Linux
 
-- Timeshift 
-
-### LLM(s) and Image Generation
-
-- Ollama + Open-WebUI
-    - Gollama
-- ComfyUI/SwarmUI
-
-#### Chat Models
-
-- llama3.1
-- phi3
-
-#### Code Models
-
-- starcoder2
-- openhermes
-- deepseek-coder-v2
-
-#### Image Generation Models
-
-- stable-diffusion
-    - v1.5
-    - XL
-    - XL Turbo
+- Timeshift
