@@ -50,11 +50,9 @@ MIT License, see [LICENSE](LICENSE) for more details.
   - [Gitea Actions]
   - [Coolify Staging]
 
-2. Changes will be synced to `upstream` automatically.
-
-   - Wait for the production pipeline to deploy the site.
-     - [Github Actions]
-     - [Railway Dashboard]
+2. Changes will be synced `upstream` automatically.
+  - [Github Actions]
+  - [Railway Dashboard]
 
 ## Features
 
