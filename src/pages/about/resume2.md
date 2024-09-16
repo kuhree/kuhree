@@ -51,10 +51,17 @@ Innovative Full Stack Software Engineer with 5+ years of experience in developin
 **Provide technical support to Searchspring customers**, proactively seeking innovative solutions to their problems.
 
 - **Reduced APAC support queue by 80%** through proactive issue resolution and process improvements, significantly enhancing regional customer satisfaction.
+<<<<<<< HEAD
 - **Voted "Searchspring Superstar" within 12 months of hire**, recognizing exceptional performance and contributions to the Support team.
 - **Resolved an average of 50+ complex technical issues per month**, maintaining a 98% customer satisfaction rate.
 - **Developed and implemented 100+ custom JavaScript solutions for e-commerce clients**, improving search functionality and user experience.
 <!-- - **Collaborated with cross-functional teams** to troubleshoot and resolve critical platform issues. -->
+=======
+- **Voted "Searchspring Superstar" within 12 months of hire**, recognizing exceptional performance and contributions to the support team.
+- **Resolved an average of 50+ complex technical issues per week**, maintaining a 98% customer satisfaction rate.
+- **Developed and implemented 100+ custom JavaScript solutions for e-commerce clients**, improving search functionality and user experience.
+- **Collaborated with cross-functional teams** to troubleshoot and resolve critical platform issues.
+>>>>>>> 51fc50d (new resume)
 
 <div class="flex justify-between">
     <h3 class="my-0">E3 Radio</h3>
@@ -75,6 +82,7 @@ Innovative Full Stack Software Engineer with 5+ years of experience in developin
     <span class="font-light">Docker, Github Actions, Railway.app</span>
 </div>
 
+<<<<<<< HEAD
 **Spearheaded development for a scalable podcast directory platform,** growing it to host over 100 podcasts and 10,000+ episodes within 18 months.
 
 - **Architected and implemented a secure, scalable, backend**, supporting features such as user authentication, audio streaming, and RSS Sync.
@@ -84,6 +92,19 @@ Innovative Full Stack Software Engineer with 5+ years of experience in developin
 <!-- - **Reduced infrastructure costs by 30%** through strategic use of cloud resources and implementation of efficient caching mechanisms. -->
 
 <div class="flex justify-between items-center">
+=======
+**Architected and developed a scalable podcast directory platform**, growing it to host over 100 podcasts and 10,000+ episodes within 18 months.
+
+- **Led a team of 2+ frontend developers**, conducting 10+ code reviews per month and implementing best practices, resulting in a 50% increase in team productivity.
+- **Integrated data analytics tools (Google Analytics)**, providing actionable insights that drove a 35% increase in user retention.
+- **Collaborated with stakeholders to define and prioritize feature roadmap**, delivering 15 major updates over 2 years.
+- **Reduced infrastructure costs by 30%** through strategic use of cloud resources and implementation of efficient caching mechanisms.
+- **Provided technical leadership to a team of 2 frontend developers**, conducting code reviews and coaching on best practices, leading to a 50% increase in their productivity.
+- **Worked closely with internal teams and stakeholders** to deliver a seamless user experience, making use of data-driven insights to drive platform improvement.
+
+
+<div class="flex justify-between">
+>>>>>>> 51fc50d (new resume)
     <h3 class="my-0">The Institute for Love and Time (TILT)</h3>
     <strong class="font-light">Sebastopol, California (Remote)</strong>
 </div>
@@ -110,11 +131,19 @@ Innovative Full Stack Software Engineer with 5+ years of experience in developin
 
 **Spearheaded development as the first engineering hire** for a web app focused on improving self-love through user-recorded messages.
 
+<<<<<<< HEAD
 - **Architected and implemented a secure, scalable, and serverless backend using GCP**, supporting features such as user authentication, scheduled notifications, and real-time updates.
 - **Reduced audio processing time by 40%** through optimization of live audio encoding processes.
 - **Improved frontend performance by 30%**, resulting in enhanced user experience and increased user retention.
 - **Establishee robust CI/CD pipelines** using Github Actions, reducing deployment time by 50%.
 <!-- - **Led weekly technical meetings with stakeholders**, aligning development efforts with business goals. -->
+=======
+- **Architected and implemented a secure, scalable backend using GCP**, supporting features such as user authentication, scheduled notifications, and real-time updates.
+- **Reduced audio processing time by 40%** through optimization of live audio encoding processes.
+- **Improved frontend performance by 30%**, resulting in enhanced user experience and increased user retention.
+- **Establishee robust CI/CD pipelines** using Github Actions, reducing deployment time by 50%.
+- **Led weekly technical meetings with stakeholders**, aligning development efforts with business goals.
+>>>>>>> 51fc50d (new resume)
 
 <h2 class="mt-4 mb-0">Projects</h2>
 
@@ -140,7 +169,13 @@ Innovative Full Stack Software Engineer with 5+ years of experience in developin
     <span class="font-light">Docker, Github Actions, Railway.app</span>
 </div>
 
+<<<<<<< HEAD
 Developed and maintain a high-performance URL shortening service and link tree alternative using Go and HTMX.
+=======
+- Developed and maintain a high-performance URL shortening service and link tree alternative, processing over 10,000 link creations per month.
+- Implemented a serverless architecture using Go and HTMX, resulting in 99.9% uptime and sub-100ms response times.
+- Continuously improve the platform based on user feedback to roll out new features.
+>>>>>>> 51fc50d (new resume)
 
 <div class="flex justify-between mt-4">
 </div>
@@ -155,10 +190,18 @@ Developed and maintain a high-performance URL shortening service and link tree a
     <span class="font-light">Squarespace, Shopify, Wordpress, HTML/CSS/JS, Git</span>
 </div>
 
+<<<<<<< HEAD
 Drove full-cycle development process for a number of brochure and ecommerce sites, including ideation, design, implementation, and maintenance.
 Built strong client relationships with online brands nationwide, resulting in a 30% increase in project referrals. 
 
 <h2 class="mt-4 mb-0">Skills</h2>
+=======
+- Drove full-cycle development process for a number of brochure and ecommerce sites, including ideation, design, implementation, and maintenance.
+- Advised client leadership on technical implementations, Pay-Per-Click advertising, and product ownership.
+- Built strong client relationships with online brands nationwide, resulting in a 30% increase in project referrals. 
+
+<h2 class="mt-4 mb-0">Key Skills</h2>
+>>>>>>> 51fc50d (new resume)
 
 <hr class="mb-2" />
 
@@ -169,6 +212,7 @@ Built strong client relationships with online brands nationwide, resulting in a 
     Go,
     Python,
     Java (Groovy)
+<<<<<<< HEAD
 
 **Libraries/Frameworks**:
     React + Next.js/Remix.js/Astro,
@@ -177,11 +221,23 @@ Built strong client relationships with online brands nationwide, resulting in a 
     HTMX
     
 **Frontend**:
+=======
+    
+**Frontend**:
+    React,
+    Next.js/Remix.js,
+    Astro,
+    HTMX,
+>>>>>>> 51fc50d (new resume)
     Design Systems,
     State Management,
     Accessibility
     
 **Backend**:
+<<<<<<< HEAD
+=======
+    Node.js + Express/Fastify,
+>>>>>>> 51fc50d (new resume)
     System Design,
     RESTful APIs,
     GraphQL
@@ -191,11 +247,20 @@ Built strong client relationships with online brands nationwide, resulting in a 
     NoSQL (MongoDB, Firestore)
 
 **DevOps & Cloud**:
+<<<<<<< HEAD
     Linux,
     Docker,
     AWS,
     GCP/Firebase,
     Github Actions,
+=======
+    Docker,
+    AWS,
+    GCP,
+    Firebase,
+    Github Actions,
+    Linux,
+>>>>>>> 51fc50d (new resume)
     Ansible
 
 **Tools**:
@@ -223,6 +288,7 @@ Built strong client relationships with online brands nationwide, resulting in a 
 <hr class="mb-2" />
 
 <div class="flex justify-between">
+<<<<<<< HEAD
     <h3 class="my-0">The Odin Project</h3>
     <strong class="font-light">Remote</strong>
 </div>
@@ -233,6 +299,8 @@ Built strong client relationships with online brands nationwide, resulting in a 
 </div>
 
 <div class="flex justify-between">
+=======
+>>>>>>> 51fc50d (new resume)
     <h3 class="my-0">Lassiter High School</h3>
     <strong class="font-light">Marietta, Georgia</strong>
 </div>
@@ -247,3 +315,15 @@ Built strong client relationships with online brands nationwide, resulting in a 
     <em class="font-light">August, 2015 – May, 2016</em>
 </div>
 
+<<<<<<< HEAD
+=======
+<div class="flex justify-between mt-4">
+    <h3 class="my-0">The Odin Project</h3>
+    <strong class="font-light">Remote</strong>
+</div>
+
+<div class="flex justify-between">
+    <em>Web Development Bootcamp</em>
+    <em class="font-light">August, 2018 – February, 2019</em>
+</div>
+>>>>>>> 51fc50d (new resume)
