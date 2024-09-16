@@ -15,14 +15,20 @@ const { frontmatter } = Astro.props
     id='main-content'
     class='text-sm print:text-xs p-1/5 px-12 pb-12 prose max-w-3xl prose-img:border-0 mx-auto'
   >
-    <Breadcrumbs />
     <slot />
   </main>
 </BaseLayout>
 
 <style is:global>
-  .breadcrumb ul {
-    padding-left: 0px;
+  main {
+    width: 100%;
+  }
+
+  .skill-summary {
+    > * {
+      margin: 0;
+      line-height: 1.75;
+    }
   }
 
   footer {
@@ -30,8 +36,12 @@ const { frontmatter } = Astro.props
   }
 
   @media print {
-    nav {
+    footer, nav {
       display: none !important;
+    }
+
+    body {
+      font-size: 8px;
     }
   }
 </style>
