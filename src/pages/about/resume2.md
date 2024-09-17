@@ -16,7 +16,6 @@ Innovative Full Stack Software Engineer with 5+ years of experience in developin
 </p>
 -->
 
-
 <h2 class="mt-4 mb-0">Experience</h2>
 
 <hr class="mb-2" />
