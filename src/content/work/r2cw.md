@@ -18,5 +18,3 @@ tags:
   - React
   - Operations
 ---
-
-## Table of Contents

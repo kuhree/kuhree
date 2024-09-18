@@ -74,14 +74,13 @@ Innovative Full Stack Software Engineer with 5+ years of experience in developin
     <span class="font-light">Docker, Github Actions, Railway.app</span>
 </div>
 
-**Architected and developed a scalable podcast directory platform**, growing it to host over 100 podcasts and 10,000+ episodes within 18 months.
+**Spearheaded development for a scalable podcast directory platform,** growing it to host over 100 podcasts and 10,000+ episodes within 18 months.
 
 - **Architected and implemented a secure, scalable, backend**, supporting features such as user authentication, audio streaming, and RSS Sync.
 - **Led a team of 2+ frontend developers**, conducting 10+ code reviews per month and implementing best practices, resulting in a 50% increase in team productivity.
 - **Collaborated with internal teams and stakeholders to define and prioritize feature roadmap**, delivering 15 major updates over 2 years.
 <!-- - **Integrated data analytics tools**, providing actionable insights that drove a 35% increase in user retention. -->
 <!-- - **Reduced infrastructure costs by 30%** through strategic use of cloud resources and implementation of efficient caching mechanisms. -->
-
 
 <div class="flex justify-between items-center">
     <h3 class="my-0">The Institute for Love and Time (TILT)</h3>
@@ -140,9 +139,6 @@ Innovative Full Stack Software Engineer with 5+ years of experience in developin
     <span class="font-light">Docker, Github Actions, Railway.app</span>
 </div>
 
-- Developed and maintain a high-performance URL shortening service and link tree alternative, processing over 10,000 link creations per month.
-- Implemented a serverless architecture using Go and HTMX, resulting in 99.9% uptime and sub-100ms response times.
-- Continuously improve the platform based on user feedback to roll out new features.
 Developed and maintain a high-performance URL shortening service and link tree alternative using Go and HTMX.
 
 <div class="flex justify-between mt-4">
@@ -157,7 +153,6 @@ Developed and maintain a high-performance URL shortening service and link tree a
     <em>Technologies</em>
     <span class="font-light">Squarespace, Shopify, Wordpress, HTML/CSS/JS, Git</span>
 </div>
-
 
 Drove full-cycle development process for a number of brochure and ecommerce sites, including ideation, design, implementation, and maintenance.
 Built strong client relationships with online brands nationwide, resulting in a 30% increase in project referrals. 
@@ -186,7 +181,6 @@ Built strong client relationships with online brands nationwide, resulting in a 
     Accessibility
     
 **Backend**:
-    Node.js + Express/Fastify,
     System Design,
     RESTful APIs,
     GraphQL
@@ -228,16 +222,6 @@ Built strong client relationships with online brands nationwide, resulting in a 
 <hr class="mb-2" />
 
 <div class="flex justify-between">
-    <h3 class="my-0">The Odin Project</h3>
-    <strong class="font-light">Remote</strong>
-</div>
-
-<div class="flex justify-between">
-    <em>Web Development Curriculum</em>
-    <em class="font-light">August, 2018 – February, 2019</em>
-</div>
-
-<div class="flex justify-between">
     <h3 class="my-0">Lassiter High School</h3>
     <strong class="font-light">Marietta, Georgia</strong>
 </div>
@@ -252,12 +236,3 @@ Built strong client relationships with online brands nationwide, resulting in a 
     <em class="font-light">August, 2015 – May, 2016</em>
 </div>
 
-<div class="flex justify-between mt-4">
-    <h3 class="my-0">The Odin Project</h3>
-    <strong class="font-light">Remote</strong>
-</div>
-
-<div class="flex justify-between">
-    <em>Web Development Bootcamp</em>
-    <em class="font-light">August, 2018 – February, 2019</em>
-</div>

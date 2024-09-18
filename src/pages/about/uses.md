@@ -5,11 +5,11 @@ title: 'Uses'
 
 # Uses
 
-I've been a fan of technology for as long as I can remember. Building computers before knowing what a lego was. Browsing Github for years before undersanding what source-code was.
+I've been a fan of technology for as long as I can remember. I tried building computers long before my first lego. I remember browsing GitHub _years_ before undersanding source code was.
 
 Along the way, I've built, found, or paid for some exceptional tech. Here's a list of them that I use day-to-day and why. There's also some highlights from days past.
 
-This page is a bit verbose beacuse it doubles as a way for me to keep track of some of these things I own.
+This page is a bit verbose beacuse it doubles as a way for me to keep track of some of these things I own. Bear with me.
 
 ## Utilities
 

@@ -12,7 +12,7 @@ const { frontmatter } = Astro.props
 <BaseLayout title={`${frontmatter.title} | ${SITE.meta.title}`}>
   <main
     id='main-content'
-    class='text-sm print:text-xs p-1/5 px-12 pb-12 prose max-w-3xl prose-img:border-0 mx-auto'
+    class='text-sm print:text-xs print:prose-xs px-6 p-1/5 pb-12 prose max-w-3xl prose-img:border-0 mx-auto'
   >
     <slot />
   </main>
@@ -20,6 +20,8 @@ const { frontmatter } = Astro.props
 
 <style is:global>
   main {
+    padding-left: 0;
+    padding-right: 0;
     width: 100%;
   }
 
@@ -28,6 +30,15 @@ const { frontmatter } = Astro.props
       margin: 0;
       line-height: 1.75;
     }
+  }
+
+  .detail {
+    @apply flex flex-col sm:flex-row justify-between sm:items-start;
+
+    @media print {
+      @apply flex-row items-start;
+    }
+
   }
 
   footer {

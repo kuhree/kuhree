@@ -18,6 +18,10 @@ export default defineConfig({
   output: 'server',
   adapter: node({ mode: 'standalone' }),
   server: { host: "0.0.0.0" },
+  redirects: {
+    '/about': "/",
+    // '/work': "/about/resume",
+  },
   plugins: [tailwindTypography],
   markdown: {
     // Applied to .md and .mdx files

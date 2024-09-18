@@ -11,10 +11,6 @@ import Hero from 'src/components/ui/Hero.astro'
 // Component Imports
 import ContentPreview from 'src/components/ContentPreview.astro'
 
-const maxWorkCount = 5,
-  allWork = await getCollection('work').then(sortContent),
-  featuredWork = allWork.filter((e) => e.data.isFeatured).slice(0, maxWorkCount)
-
 const siteOwnerName = SITE.owner.name,
   pageTitle = `Hi! I'm ${siteOwnerName}.`,
   pageDescription = `Software Engineer, Wannabe Mechanic, Gamer.`
@@ -49,35 +45,8 @@ const siteOwnerName = SITE.owner.name,
         <li>sharing/automating the process</li>
       </ul>
 
-      <p>
-        I've been lucky to take on different roles like designing systems,
-        handling DevOps tasks, providing tech support, coding the front end,
-        testing stuff out, improving performance, working on the back end, and
-        making sure everything runs smoothly.
-      </p>
-      
-      <p class='text-lg'>
-        I've had some amazing opportunities to work on some exciting projects,
-        such as:
-      </p>
-      <ul>
-        <li>
-          <a href='https://timemaching.love' target='_blank'>Time Machine</a>
-          - A simple, non-addictive app that brings hope into people's lives.
-        </li>
-        <li>
-          <a href='https://theqube.app' target='_blank'>The Qube</a> - Discover the
-          best music & podcasts by BIPOC & QTPOC creators
-        </li>
-      </ul>
-
-      <p>
-        To learn more about my profressional history, take a look at my
-        <a href='/about/resume' target='_blank'>resume</a>.
-      </p>
-
       <h2 class='text-xl'>
-        When I'm not coding, 
+        When I'm not working, 
         <span class="block text-sm">
           you can catch me...
         </span>
@@ -85,14 +54,36 @@ const siteOwnerName = SITE.owner.name,
 
       <ul>
         <li>
-          gaming on <a href='/about/steam'>steam</a>, exploring worlds and
+          gaming on , exploring worlds and
           checking out the systems
         </li>
         <li>
-          tinkering on the latest interest from Facebook Marketplace/eBay
+          tinkering with my latest find on Facebook Marketplace/eBay
         </li>
         <li>
-          walking to anywhere
+          thinking/writing/reading anywhere and about anything, in a hammock
+        </li>
+      </ul>
+
+      <h3>
+        Other things on this site
+        <span class="block text-sm">
+          WARNING: Uncharted territory...
+        </span>
+      </h3>
+
+      <ul>
+        <li>
+          The tech and equipment I
+          <a href="/about/uses">use</a>
+        </li>
+        <li>
+          All of the things I've 
+          <a href="/about/resume3">worked on</a>
+        </li>
+        <li>
+          All my stats from
+          <a href='/about/steam'>steam</a>
         </li>
       </ul>
     </div>
