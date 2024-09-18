@@ -9,44 +9,47 @@ const breadcrumbList = currentUrlPath.split('/').slice(1)
 
 <nav class='breadcrumb' aria-label='breadcrumb'>
   <ul class='text-sm'>
+      <li>
+        <a href='/'>Home</a>
+        {breadcrumbList.length ? (
+          <span aria-hidden='true'>&#8250;</span>
+        ): null}
+      </li>
     {
-      breadcrumbList.length ? (
-        <>
-          <li>
-            <a href='/'>Home</a>
-            <span aria-hidden='true'>&#62;</span>
-          </li>
-
-          {breadcrumbList.map((breadcrumb, index) =>
-            index + 1 === breadcrumbList.length ? (
-              <li>
-                <span aria-current='page' class='font-bold'>
-                  {breadcrumb}
-                </span>
-              </li>
-            ) : (
-              <li>
-                <a href={`/${breadcrumb}`}>{breadcrumb}</a>
-                <span aria-hidden='true'>&#62;</span>
-              </li>
-            )
-          )}
-        </>
-      ) : null
+      breadcrumbList.length ?
+        breadcrumbList.map((breadcrumb, index) =>
+          index + 1 === breadcrumbList.length ? (
+            <li>
+              <span aria-current='page'>
+                {breadcrumb}
+              </span>
+            </li>
+          ) : (
+            <li>
+              <a href={`/${breadcrumb}`}>{breadcrumb}</a>
+              <span aria-hidden='true'>&#8250;</span>
+            </li>
+          )
+        )
+        : null
     }
   </ul>
 </nav>
 
 <style>
-  .breadcrumb {
-    margin-bottom: 1rem;
+  .breadcrumb ul {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
   }
   .breadcrumb ul li {
-    display: inline;
+    display: inline-block;
     white-space: nowrap;
   }
   .breadcrumb ul li a,
   .breadcrumb ul li span {
+    display: inline-block;
     opacity: 0.7;
     text-transform: capitalize;
   }

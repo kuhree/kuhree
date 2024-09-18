@@ -16,7 +16,6 @@ import type {
   GetPlayerSummariesResponse
 } from 'src/lib/steam'
 import Icon from 'src/components/ui/Icon.astro'
-import Breadcrumbs from 'src/components/Breadcrumbs.astro'
 
 const siteOwnerName = SITE.owner.name,
   pageTitle = 'Game Library',
@@ -119,7 +118,6 @@ function newStatClient(
 >
   <main class:list={['flex flex-col gap-8 lg:gap-20 h-full px-6 lg:px-12']}>
     <section class='px-6 lg:px-12 prose w-full max-w-full'>
-      <Breadcrumbs />
 
       {
         profiles.map((profile) => {

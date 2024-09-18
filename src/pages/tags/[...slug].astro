@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content'
 
 import { SITE } from '../../config'
 import type { Frontmatter } from '../../content/config'
-import { groupContentByTag, slugify } from '../../lib/content'
+import { groupContentByTag, slugify, sortContent } from '../../lib/content'
 import BaseLayout from '../../layouts/Default.astro'
 import ContentPreview from '../../components/ContentPreview.astro'
 import Hero from '../../components/ui/Hero.astro'
@@ -20,9 +20,9 @@ interface Props {
 
 export async function getStaticPaths() {
   const contentPromises = [getCollection('notes'), getCollection('work')],
-    contentResult = await Promise.allSettled(contentPromises),
-    content: Frontmatter[] = []
+    contentResult = await Promise.allSettled(contentPromises)
 
+  let content: Frontmatter[] = []
   for (const result of contentResult) {
     if (result.status === 'fulfilled') {
       content.push(...result.value)
@@ -31,7 +31,9 @@ export async function getStaticPaths() {
     }
   }
 
-  return groupContentByTag(content).map(([tag, entries]) => ({
+  content = sortContent(content)
+  content = groupContentByTag(content)
+  return content.map(([tag, entries]) => ({
     params: { slug: slugify(tag) },
     props: { tag, entries }
   }))

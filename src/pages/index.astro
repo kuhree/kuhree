@@ -2,8 +2,11 @@
 import { getCollection } from 'astro:content'
 import { sortContent } from 'src/lib/content'
 
+import { SITE } from 'src/config'
+
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from 'src/layouts/Default.astro'
+import Hero from 'src/components/ui/Hero.astro'
 
 // Component Imports
 import ContentPreview from 'src/components/ContentPreview.astro'
@@ -12,54 +15,115 @@ const maxWorkCount = 5,
   allWork = await getCollection('work').then(sortContent),
   featuredWork = allWork.filter((e) => e.data.isFeatured).slice(0, maxWorkCount)
 
-const maxPostCount = 3,
-  allNotes = await getCollection('notes').then(sortContent),
-  featuredNotes = allNotes
-    .filter((e) => e.data.isFeatured)
-    .slice(0, maxWorkCount)
+const siteOwnerName = SITE.owner.name,
+  pageTitle = `Hi! I'm ${siteOwnerName}.`,
+  pageDescription = `Software Engineer, Wannabe Mechanic, Gamer.`
 ---
 
-<BaseLayout>
-  <main
-    class:list={[
-      'flex flex-col gap-8 h-full',
-      'xl:flex-row justify-center xl:px-12'
-    ]}
-  >
-    <section class='flex flex-col gap-8 max-w-3xl'>
-      <h2 class='text-2xl'>
-        <a href='/notes' class='underline'>
-          Some of the things I've written about...
-        </a>
+<BaseLayout
+  title={`${pageTitle} | ${siteOwnerName}`}
+  description={pageDescription}
+>
+  <main class='about flex flex-col gap-20 max-w-3xl mx-auto px-4'>
+    <Hero title={pageTitle} tagline={pageDescription} align='start'>
+      <div class='img-container max-w-xl mx-auto overflow-hidden'>
+        <img
+          class='w-full h-full object-cover object-center'
+          width='1553'
+          height='873'
+          {...SITE.assets.profile}
+        />
+      </div>
+    </Hero>
+
+    <div class='prose w-full content'>
+      <h2>
+        Software Engineer 
+        <span class="block text-sm">
+          with a passion for...
+        </span>
       </h2>
 
-      <ul class:list={['flex flex-col gap-12']}>
-        {
-          featuredNotes.map((entry) => (
-            <li>
-              <ContentPreview entry={entry} variant='row' />
-            </li>
-          ))
-        }
+      <ul>
+        <li>solving problems that annoy me</li>
+        <li>sharing/automating the process</li>
       </ul>
-    </section>
 
-    <section class='flex flex-col gap-8 max-w-3xl'>
-      <h2 class='text-2xl'>
-        <a href='/notes' class='underline'>
-          Some of the things I've worked on...
-        </a>
+      <p>
+        I've been lucky to take on different roles like designing systems,
+        handling DevOps tasks, providing tech support, coding the front end,
+        testing stuff out, improving performance, working on the back end, and
+        making sure everything runs smoothly.
+      </p>
+      
+      <p class='text-lg'>
+        I've had some amazing opportunities to work on some exciting projects,
+        such as:
+      </p>
+      <ul>
+        <li>
+          <a href='https://timemaching.love' target='_blank'>Time Machine</a>
+          - A simple, non-addictive app that brings hope into people's lives.
+        </li>
+        <li>
+          <a href='https://theqube.app' target='_blank'>The Qube</a> - Discover the
+          best music & podcasts by BIPOC & QTPOC creators
+        </li>
+      </ul>
+
+      <p>
+        To learn more about my profressional history, take a look at my
+        <a href='/about/resume' target='_blank'>resume</a>.
+      </p>
+
+      <h2 class='text-xl'>
+        When I'm not coding, 
+        <span class="block text-sm">
+          you can catch me...
+        </span>
       </h2>
 
-      <ul class:list={['flex flex-col gap-12']}>
-        {
-          featuredWork.map((entry) => (
-            <li>
-              <ContentPreview entry={entry} variant={'row'} />
-            </li>
-          ))
-        }
+      <ul>
+        <li>
+          gaming on <a href='/about/steam'>steam</a>, exploring worlds and
+          checking out the systems
+        </li>
+        <li>
+          tinkering on the latest interest from Facebook Marketplace/eBay
+        </li>
+        <li>
+          walking to anywhere
+        </li>
       </ul>
-    </section>
+    </div>
   </main>
 </BaseLayout>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .img-container {
+    img {
+      margin-top: 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--gray-200);
+  }
+
+  .section-title {
+    font-size: var(--text-xl);
+    color: var(--gray-0);
+  }
+</style>

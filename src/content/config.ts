@@ -27,8 +27,8 @@ export const WorkFrontmatter = z.object({
     .optional()
 })
 
-export type PostFrontmatter = z.infer<typeof PostFrontmatter>
-export const PostFrontmatter = z.object({
+export type NoteFrontmatter = z.infer<typeof NoteFrontmatter>
+export const NoteFrontmatter = z.object({
   isDraft: z.boolean().default(true),
   isFeatured: z.boolean().default(false),
   publishedAt: z.date().or(z.coerce.date()),
@@ -59,6 +59,6 @@ export const collections = {
   }),
   notes: defineCollection({
     type: 'content',
-    schema: PostFrontmatter
+    schema: NoteFrontmatter
   })
 }

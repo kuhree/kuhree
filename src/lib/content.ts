@@ -95,14 +95,14 @@ export function getContentByTag(notes: Frontmatter[], tag: string) {
   return notes
     .filter(filterContentEntry)
     .filter((post) => {
-    const { tags } = post.data
+      const { tags } = post.data
 
-    if (tags) {
-      return slugifyMany(tags).includes(tag)
-    }
+      if (tags) {
+        return slugifyMany(tags).includes(tag)
+      }
 
-    return false
-  })
+      return false
+    })
 }
 
 export function getUniqueTags(content: Frontmatter[]) {
@@ -116,7 +116,7 @@ export function getUniqueTags(content: Frontmatter[]) {
 
       return true
     }
-  )
+    )
 
   filteredContent.forEach((post) => {
     tags = [...tags, ...(post.data.tags ?? [])]
@@ -134,25 +134,25 @@ export function groupContentByTag(content: Frontmatter[]) {
   const contentByTag: Array<[string, Frontmatter[]]> = content
     .filter(filterContentEntry)
     .reduce(
-    (prev, curr) => {
-      const tags = getUniqueTags([curr])
+      (prev, curr) => {
+        const tags = getUniqueTags([curr])
 
-      if (tags?.length) {
-        for (const tag of tags) {
-          const currIndex = prev.findIndex((entry) => entry[0] === tag)
+        if (tags?.length) {
+          for (const tag of tags) {
+            const currIndex = prev.findIndex((entry) => entry[0] === tag)
 
-          if (prev[currIndex]) {
-            prev[currIndex][1].push(curr)
-          } else {
-            prev[prev.length] = [tag, [curr]]
+            if (prev[currIndex]) {
+              prev[currIndex][1].push(curr)
+            } else {
+              prev[prev.length] = [tag, [curr]]
+            }
           }
         }
-      }
 
-      return prev
-    },
-    [] as Array<[string, Frontmatter[]]>
-  )
+        return prev
+      },
+      [] as Array<[string, Frontmatter[]]>
+    )
 
   return contentByTag
 }
