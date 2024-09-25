@@ -28,23 +28,24 @@ Here are my findings.
 
 - Servers: ollama (preferred), LmStudio, LocalAI
 - Clients: Open-WebUI/LibreChat/SillyTavern
+- Editors: Cursor / VS Code + Continue, NeoVim + avante/codecompanion
 
 ## Usecases
 
-## Life
+#### Life
 
-### Responding to emails
+#### Responding to emails
 
-### Drafting content
+#### Drafting content
 
-### Enhanced Journaling
+#### Enhanced Journaling
 
-## Work
+### Work
 
-### Code Generation
+#### Code Generation
 
-### Coding Assistant
+#### Coding Assistant
 
-### Image generation
+#### Image generation
 
 ## Conclusion

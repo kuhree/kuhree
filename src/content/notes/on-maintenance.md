@@ -17,4 +17,4 @@ banner_alt: 'White background with black text that show the dimensions'
 
 ## Table of Contents
 
-I've found maintenance increasingly improntant in my every day decisions. It starte with tech and has grown to something much larger.
+I've found maintenance increasingly important in my every day decisions. It started with tech and has grown to something much larger.
