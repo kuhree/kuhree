@@ -50,6 +50,8 @@
     "prettier-plugin-astro": "^0.13.0"
   },
   "trustedDependencies": [
-    "@sentry/cli"
+    "@sentry/cli",
+    "esbuild",
+    "sharp"
   ]
 }
