@@ -16,7 +16,6 @@ links:
 tags:
   - Squarespace
   - Frontend
-  - Operations
 ---
 
 ## Table of Contents

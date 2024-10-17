@@ -3,124 +3,194 @@ layout: ../../layouts/Resume.astro
 title: 'Resume'
 ---
 
-# Khari Johnson
+<div class="flex flex-col items-center justify-center text-center">
+    <h1 class="my-0">Khari Johnson</h1>
+    <h2 class="my-0">Full-Stack Engineer</h2>
+    <span>Remote US / Atlanta, GA</span>
+    <a href="mailto:hi+resume@kuhree.com">hi@kuhree.com</a>
+</div>
 
-[ Remote US / Atlanta, GA ] . [[ kuhree.com ](https://kuhree.com)] . [ [ hi@kuhree.com ](mailto:hi+resume@kuhree.com) ]
+<!-- <p class="mx-auto text-center"> -->
+<!-- Innovative Full Stack Software Engineer with 5+ years of experience in developing scalable web applications and leading technical teams. Proven track record of optimizing performance, reducing costs, and driving user engagement across diverse platforms. Skilled in JavaScript/TypeScript ecosystems and cloud technologies. Passionate about leveraging technology to solve complex business challenges and mentor junior developers. -->
+<!-- </p> -->
 
-<hr class="my-4" />
+<h2 class="mt-4 mb-0">Experience</h2>
 
-## Builder | Explorer | Technology Enthusiast
+<hr class="mb-2" />
 
-**Experienced Software Engineer** with a proven track record of delivering impactful results and collaborating with cross-functional teams. Adept in utilizing a range of technologies to build complete end-to-end solutions. Skilled in a variety of technologies and passionate about solving complex problems through simple and data-drive solutions. A lifelong curiosity for automation to improve productivity and efficiency, driven to continuously expand my skill set and share my expertise with others.
+<div class="detail">
+    <h3 class="my-0">Searchspring</h3>
+    <strong class="font-light">San Antonio, Texas (Remote)</strong>
+</div>
 
-- **Adept in utilizing a range of technologies**, to build complete end-to-end solutions.
-- Possess a deep understanding of \*Nix systems and a keen interest in maximizing their potential to drive efficiency and effectiveness.
-- **Proven ability to thrive in dynamic and fast-paced environments**, delivering results and continuously striving to improve.
-- **Strong communication skills**, with a proven ability to build positive relationships with stakeholders and collaborate effectively with cross-functional teams.
-- **Passionate about fostering a collaborative and inclusive team environment**, where success is achieved through collective effort and support.
+<div class="detail">
+    <em>Software Support Engineer II</em>
+    <em class="font-light">March, 2024 - Present</em>
+</div>
 
-## Experience
+<div class="detail">
+    <em>Software Support Engineer I</em>
+    <em class="font-light">March, 2023 - April, 2024</em>
+</div>
 
-### Searchspring <small class="font-light">- San Antonio, Texas (Remote) | April, 2023 - Present</small>
+Provided advanced technical support to Searchspring customers, focusing on creative problem-solving. Achieved an 80% reduction in the APAC support queue through efficient issue resolution and process improvements, significantly enhancing customer satisfaction in the region. Consistently resolved over 50 complex technical issues monthly, maintaining a 98% customer satisfaction rate. Developed and implemented more than 100 custom JavaScript solutions for e-commerce clients, enhancing search functionality and overall user experience.
 
-<hr class="my-2" />
+<div class="detail">
+    <h3 class="my-0">E3 Radio</h3>
+    <strong class="font-light">Chicago, Illinois (Remote)</strong>
+</div>
 
-#### **Software Support Engineer II** <small class="font-light">(April, 2024 - Present)</small>
+<div class="detail">
+    <em>Full-Stack Engineer</em>
+    <em class="font-light">March, 2021 - March 2023</em>
+</div>
 
-#### **Software Support Engineer I** <small class="font-light">(March, 2023 - April, 2024)</small>
+<div class="detail">
+    <em>The Qube</em>
+    <a href="https://theqube.app" class="font-light">theqube.app</a>
+</div>
 
-**What I Do:**
+Architected and implemented a scalable podcast directory platform, hosting over 100 podcasts and 10,000+ episodes within 18 months and growing. Includes a secure, scalable, backend, supporting features such as user authentication, audio streaming, and RSS Sync. Led a team of 2+ frontend developers, conducting 10+ code reviews per month and implementing besDesigned and built a scalable podcast directory platform that grew to host over 100 podcasts and 10,000+ episodes within 18 months. Developed a secure, scalable backend supporting key features such as user authentication, audio streaming, and RSS synchronization. Led a team of frontend developers, conducting regular code reviews and implementing best practices, which resulted in a 50% increase in team productivity. Collaborated with internal teams to define and prioritize the feature roadmap, successfully delivering 15 major updates over two years.
 
-- Provide excellent support to Searchspring customers, proactively seeking innovative solutions to their problems.
-- Collaborate with customers and internal teams to troubleshoot and resolve challenges, ensuring prompt and accurate feedback.
-- Document knowledge and contribute to the knowledge base for future reference.
+<div class="detail">
+    <h3 class="my-0">The Institute for Love and Time (TILT)</h3>
+    <strong class="font-light">Sebastopol, California (Remote)</strong>
+</div>
 
-**How I Succeed:**
+<div class="detail">
+    <em>Frontend Engineer</em>
+    <em class="font-light">March, 2022 – August, 2022</em>
+</div>
 
-- Possess working knowledge of JavaScript, React, HTML, CSS, and JSON.
-- Demonstrate strong problem-solving skills and excellent client-facing communication.
-- Manage time effectively and establish reasonable deadlines for issue resolution.
+<div class="detail">
+    <em>Vis-a-Vis</em>
+    <a href="https://loveandtime.org/vis-a-vis/" class="font-light">loveandtime.org/vis-a-vis</a>
+</div>
 
-**Achievements:**
+Worked with a cross-functional team to create an innovative web application for real-time "Mutual-Gaze" sessions between users. Integrated machine learning models for facial detection and implemented privacy-enhancing overlay features. Used WebSocket technology to create seamless, real-time connection rooms. Collaborated closely with backend and ML engineers to ensure smooth integration of all system components, contributing to TILT's mission of fostering human connection through technology.
 
-- Voted "Searchspring Superstar" within the Support organization in the first year of hire.
-- Took ownership of the APAC region to help decrease the queue up to 80 percent.
+<div class="detail">
+    <h3 class="my-0">R2CW</h3>
+    <strong class="font-light">Brazil (Remote)</strong>
+</div>
 
-**Technologies Used:**
+<div class="detail">
+    <em>Full-Stack Engineer</em>
+    <em class="font-light">June, 2020 – July, 2020</em>
+</div>
 
-- SCSS, Javascript, React.js (Preact), Java (Groovy), Github Actions, Asana, Zendesk
+<div class="detail">
+    <em>BTG Pactual Conference</em>
+    <a href="https://r2cw.com" class="font-light">r2cw.com</a>
+</div>
 
-### E3 RADIO <small class="font-light">- Chicago, Illinois (Remote) | March, 2021 - April 2023</small>
+Led the development of a custom website for BTG Pactual's annual conference, working directly with the project manager to meet client needs. Created a robust event scheduling system to manage multiple conference sessions and speakers. Integrated a third-party video conferencing API to enable virtual attendance. Delivered a high-performance, user-friendly platform capable of handling large-scale virtual event traffic, completing the project within tight deadlines.
 
-<hr class="my-2" />
+<div class="detail">
+    <h3 class="my-0">The Institute for Love and Time (TILT)</h3>
+    <strong class="font-light">Sebastopol, California (Remote)</strong>
+</div>
 
-#### **Software Engineer**
+<div class="detail">
+    <em>Software Engineer</em>
+    <em class="font-light">February, 2020 – August, 2022</em>
+</div>
 
-Built and maintained a podcast directory platform that now boasts over 100 podcasts and 10k episodes.
+<div class="detail">
+    <em>Time Machine</em>
+    <a href="https://timemachine.love" class="font-light">timemachine.love</a>
+</div>
 
-- **Provided technical leadership to a team of 2 frontend developers**, conducting code reviews and coaching on best practices, leading to a 50% increase in their productivity.
-- **Worked closely with internal teams and stakeholders** to deliver a seamless user experience, making use of data-driven insights to drive platform improvement.
+Played a key role in a team developing a web app focused on improving self-love through user-recorded messages. Designed and implemented a secure, scalable, serverless backend using GCP, supporting features like user authentication, scheduled notifications, and real-time updates. Optimized live audio encoding processes, reducing audio processing time by 40%. Improved frontend performance by 30%, enhancing user experience and increasing retention. Established efficient CI/CD pipelines using Github Actions, cutting deployment time in half.
 
-**Technologies Used:** Typescript, Next.js, Chakra-ui, Github Actions, Postgres w/ Prisma, GCP and Docker
+<div class="detail mt-4">
+    <h3 class="my-0">
+        <small>(Founder)</small>
+    </h3>
+    <strong class="font-light">Colorado Spring, Colorado (Remote)</strong>
+</div>
 
-### The Institute for Love and Time (TILT) <small class="font-light">- Sebastopol, California (Remote) | February, 2020 – August, 2022 </small>
+<div class="detail">
+    <em>Contract Web Developer</em>
+    <em class="font-light">February, 2018 – Present</em>
+</div>
 
-<hr class="my-2" />
+Managed full-cycle development for diverse web projects, from e-commerce sites to SaaS products. Built strong client relationships, increasing project referrals by 30% YoY. Honed full-stack development skills through hands-on experience with various technologies and project types.
 
-#### **Software Engineer II** <small class="font-light">(February, 2021 - August, 2022)</small>
+<h2 class="mt-4 mb-0">Skills</h2>
 
-#### **Software Engineer I** <small class="font-light">(February, 2020 - February, 2021)</small>
+<hr class="mb-2" />
 
-First Engineering hire for a web app that records messages from users to themselves, resulting in improved positive self-talk.
+<div class="skill-summary">
 
-- **Developed and maintained a scalable and secure backend architecture**: Implemented various cloud technologies within GCP to support user authentication, scheduled notifications, real-time updates, and live audio encoding, ensuring the platform's security and stability.
-- **Improved frontend performance and user experience**: Collaborated with a designer and other stakeholders to implement frontend designs, resulting in an improvement to the overall user experience.
-- **Streamlined project processes and workflows**: Established project-wide workflows and tools, including code reviews and team communications, to improve efficiency, maintainability, and collaboration among team members.
-- **Provided technical input** to weekly meetings with project stakeholders and team members and led customer support efforts to resolve common issues.
+**Programming Languages**:
+    JavaScript (ES6, TypeScript),
+    Go
 
-**Technologies Used:** Typescript, Next.js, Emotion.js, Node.js, Github Actions, GCP Cloud Functions and Vercel
+**Professional Skills**:
+    Cross-functional Collaboration,
+    Stakeholder Communication,
+    Problem-Solving & Strategic Thinking,
+    Client Relations & Customer Success,
+    Continuous Learning & Innovation
 
-<!-- ## Awards & Recognition -->
-<!---->
-<!-- - Winner TechCrunch Disrupt 2001 -->
-<!-- - People Magazine's sexiest man alive at 123 My Address, MyCity, TX -->
+**Frontend**:
+- **Frameworks/Libraries**:
+    React,
+    Next.js,
+    Remix/React Router
+- **Concepts**:
+    Design Systems,
+    State Management,
+    Accessibility
 
-## Projects
+**Backend**:
+- **Frameworks/Libraries**:
+    Node.js,
+    Express/Fastify,
+- **Concepts**:
+    System Design,
+    RESTful and GraphQL APIs
 
+**DevOps & Cloud**:
+- **Platforms**:
+    Amazon Web Services (AWS),
+    Google Cloud Platform (GCP),
+    Fly.io/Render/Railway.app
+- **Tools**:
+    Docker,
+    Linux,
+    Github Actions,
+    Ansible
 
-- Drove full-cycle development process for a number of brochure and ecommerce sites, including ideation, design, implementation, and maintenance.
-- Advised client leadership on technical implementations, Pay-Per-Click advertising, and product ownership.
-- Built strong client relationships with online brands nationwide, resulting in a 30% increase in project referrals.
+**Databases**:
+- **SQL** (PostgreSQL, MySQL, SQLite)
+- **NoSQL** (MongoDB, Firestore, DynamoDB)
 
-<!-- **Electrician's Apprentice** (2019 | Colorado Springs, CO) -->
-<!---->
-<!-- Through my apprenticeship, I learned the importance of attention to detail and the value of effective communication, both of which have helped me in my work as a software developer. -->
-<!---->
-<!-- - Gained hands-on experience with electrical systems and learned to safely install and repair wiring, lighting, and electrical equipment -->
-<!-- - Developed strong problem-solving skills, honing my ability to diagnose and fix complex electrical issues. -->
+</div>
 
-<!-- **Sound Technician / Photographer** (2019 | Colorado Springs, CO) -->
-<!---->
-<!-- As a Sound Technician/Photographer for a local band, I was responsible for setting up, operating, and maintaining the audio and lighting equipment used in live performances. In addition, I was responsible for capturing visually stunning images that showcased the essence of the band. -->
-<!---->
-<!-- - I gained experience in fast-paced, low-light photography, as well as sound reinforcement and mixing techniques. -->
-<!-- - These skills helped the band by providing high-quality, visually stunning images and sound for live performances, enhancing the overall experience for the audience and helping to promote the band. -->
+<h2 class="mt-4 mb-0">Awards & Achievements</h2>
 
-## Relevant Skills
+<hr class="mb-2" />
 
-`software development`
-`customer service`
-`time management`
-`CI/CD`
+- 2023 Q3 - Voted "Searchspring Superstar" within first year of hire, recognizing exceptional performance and contributions to the Support team.
+- 2024 Q2 - Won 2nd place in the "Best Legs" competition on a Royal Carribean cruise
 
-**Frontend**: JS/Typescript, Node.js, React.js
-**'Ops**: Github Actions, Drone.io, GitlabCI, Docker, Nixpacks
-**Cloud**: Google Cloud Platform (GCP), Amazon Web Services (AWS)
-**Databases**: Postgres, Prisma
-**CMS & WYSIWYG**: Shopify, Squarespace, Wordpress, Sanity, Prismic
+<h2 class="mt-4 mb-0">Education</h2>
 
-## Education
+<hr class="mb-2" />
 
-### LASSITER HIGH SCHOOL - <small class="font-light">Marietta, GA</small>
+<div class="flex justify-between">
+    <h3 class="my-0">Lassiter High School</h3>
+    <strong class="font-light">Marietta, Georgia</strong>
+</div>
 
-**High School Diploma**: 2013 - 2017
+<div class="flex justify-between">
+    <em>High School Diploma</em>
+    <em class="font-light">August, 2013 – May, 2017</em>
+</div>
+
+<div class="flex justify-between">
+    <em>AP Computer Science</em>
+    <em class="font-light">August, 2015 – May, 2016</em>
+</div>
