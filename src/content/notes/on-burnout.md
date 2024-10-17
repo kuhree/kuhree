@@ -2,7 +2,7 @@
 author: Khari Johnson
 publishedAt: 2024-09-21T12:30:00Z
 isFeatured: false
-isDraft: true
+isDraft: false
 
 aliases:
   - On shitty living
