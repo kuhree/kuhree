@@ -2,19 +2,18 @@
 author: Khari Johnson
 publishedAt: 2024-10-17T12:30:00Z
 isFeatured: true
-isDraft: true
+isDraft: false
 
 aliases:
-  - Editors
-  - Editors: From Notepad to ???
+  - On Editors as tools
 description:
-  Over the years, I've experimented with various editors, each leaving its mark on my coding journey. I'll share my experiences with different editors, from the humble beginnings with Notepad to my current setup with Neovim and beyond.
-banner: 'https://placehold.co/600x400'
-banner_alt: 'White background with black text that show the dimensions'
+  Over the years, I've experimented with various editors.
+  Outside of being technical marvels and great pieces of software, they have played  large part in developing the workflow and mindset I have today. I think there's something to learn in the experience for all of them.
+banner: 'https://images.pexels.com/photos/5466161/pexels-photo-5466161.jpeg'
+banner_alt: 'Man installing equipment into network rack. Forearm and drill in the foreground. Cabling and another person doing the same in the background.'
 tags:
+  - tools
   - editors
-  - editors/vscode
-  - editors/nvim
 ---
 
 ## Table of contents
@@ -23,17 +22,15 @@ Over the years, I've experimented with various editors, each leaving its mark on
 
 ## Notepad (and Notepad++)
 
-In the beginning there was Notepad. It was on every machine by default. It opened every type of file whether it was supported or not.
+In the beginning there was Notepad. It was on every (Windows) machine by default. It opened every type of file whether it was supported or not.
 
-It was my first introduction into source code. I was downloading Bloons TD5  tweak/crack/hack for every iOS jailbreak I had available to me.
+It was my first introduction into source code, downloading Bloons TD5 tweak/crack/hack for every iOS jailbreak I had available to me.
 
-A truly GOATED series by the way. I've since spent way too much actual money on this game) highly recommend checking it out if you enjoy tower defense types.
+A truly GOATED series by the way. I've since spent way too much actual money on this game) highly recommend checking it out if you enjoy tower defense types. Still not sure if I ever outgrew the script kiddie phase.
 
 Notepad was/is great, and Notepad++ is even better when I'm editing game files on Windows.
 
-These days, I'm not on windows all that often. So let's see what else is out there.
-
-I didn't really think about editors all that much until we started coding in school.
+These days, I'm not on windows all too often. So let's see what else is out there.
 
 ## Eclipse
 
@@ -51,11 +48,13 @@ So I found Brackets, which was the one editor with the cleanest implementation o
 
 ## VS Code
 
-Open-Source, cross-platform, extensions galore. One editor for every language on every device. I was aa dream.  I got over the LivePreview bug when I started writing more app-like experiences and less websites.
+Open-Source, cross-platform, extensions galore. One editor for every language on every device. I was a dream. I got over the LivePreview bug when I started writing more app-like experiences and less websites, also hot-reloading was a thing.
 
-VS Code helped me launch a career. It was great until I got into more complicated projects, "managing" infrastructure, and starting my homelab. While there was an extension for everything, you never knew if it was going to blow up in 10 minutes, so I didn't bother after a while.
+VS Code helped me launch a career. It was great until I got into more complicated projects, "managing" infrastructure, and starting my homelab.
 
-I don't need my editor to tell me my code is shit. Something about tsserver + eslint + vscode would just eat all the hardware I have on larger projects. I started a whole homelab to get around this. I explored VSCode over remote desktop protocols, ssh X11 forwarding, docker container "workspaces" and all. Not for me.
+While there was an extension for everything, you never knew if it was going to blow up in 10 minutes, so I didn't bother after a while. You see, I don't need my editor to tell me my code is shit. I already knew that working in it every day.
+
+Something about tsserver + eslint + vscode would just eat all the hardware I have on larger projects. I started a whole homelab to get around this. I explored VSCode over remote desktop protocols, ssh X11 forwarding, docker container "workspaces" and all. Not for me.
 
 As I explored how to get VS code to run better, my workflow used it less and less. I found myself using vim on the servers where I would run `vscode-server`.
 
@@ -65,7 +64,7 @@ I still use VS Code today. Certain projects, specific extensions, pairing. It ha
 
 However, I found myself wanting to combine the terminal and the editor. I was already in the terminal for most of my work anyway, why not edit text in there too? So, I eventually came across...
 
-## (Neo)Vim
+## Vim (and Neovim)
 
 Vim. Ah, Neovim. The home for the last few years. My everything editor and "personal development environment" (credit to @teej_dv).
 
@@ -77,7 +76,7 @@ I write notes, designs, docs, code, planning, everything I can in nvim or anothe
 
 Plus, every time some editor gets a cool feature, someone in the community is already on it. Great stuff.
 
-I'm still exploring all the time, tweaking and testing. And recently, something interesting has popped up.
+Even so, I'm still testing, tweaking, and exploring. Recently, someone's been making more and more news in my algos.
 
 ## Zed
 
@@ -119,6 +118,8 @@ If I had discovered Sublime Text earlier in my journey, I might never have left.
 
 A bit different, but I saw no advantages over the current nvim config and the motions don't transfer really. It actually helped me learn more motions though so that's a plus.
 
+### Never Used
+
 - Emacs - I heard it's a great OS looking for a text editor. Got nvim-pilled first, never gave a real shot
 - Jetbrains Suite - Heard great things, I'm not paying a subscription tho.
 
@@ -128,10 +129,10 @@ Most editors are pretty good. Eclipse was/is hell, but even it served its purpos
 
 I (and maybe you) often get caught up in the "best tool" debate, but who cares?
 
-In a past life, I asked an old mentor, "what's your favorite brand, milwaukee, dewault, ..." his response,
+In a past life I asked an old mentor, "what's your favorite brand; Milwaukee, DeWault, Craftsman, ..."
 
-> "The one that works after I get paid."
+> "The one that works"
 
-The best tool is the one that helps you solve people's real problems. Whatever it is, each editor (tool) has its strengths and quirks. Embrace the learning curve, customize your environment, and have fun with it.
+The best ~editor~ tool is the one that helps you solve real people's real problems. Whatever it is, has its strengths and quirks. Embrace the learning curve, customize your environment, and have fun with it. Just don't get lost.
 
 Who knows? I might even try out Emacs next. I already can't use my pinky.

@@ -5,42 +5,58 @@ isFeatured: false
 isDraft: true
 
 aliases:
-  - On Burnout
+  - On shitty living
 description:
-  We've all experienced it at least once. I just happen to be a slow learner.
-  Here's what I've learned so far...
+  Mostly, living life is pretty cool. Sometimes, not.
 tags:
-  - burnout
-banner: 'https://placehold.co/600x400'
-banner_alt: 'White background with black text that show the dimensions'
+  - incoherent
+  - life
+banner: 'https://images.pexels.com/photos/9535495/pexels-photo-9535495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+banner_alt: 'Close-Up Shot of a Traffic Light'
 ---
 
 ## Table of Contents
 
-## Introduction 
+Mostly, living life is pretty cool. Sometimes it kinda sucks.
 
-## Recognizing Burnout
+This is a personal reminder on how to fix that.
 
-I define being burned out when I have to convince myself to code (even more than usual). I don't mean the casual "if I want to live I have to work" every Monday in the shower. I'm talking about the more existential crisis-coded "I've always loved coding, why do I feel like I hate it now" way of existing.
+## Recognizing ~Burnout~ ~Depression~ ~when I don't feel quite right~ when I'm living shitty
 
-You can replace computer with tech/learning/cars or whatever you're thinking of.
+When I have to convince myself to [insert-loved-activity-since-childhood]. I don't mean the casual "if I want to live I have to work" conversation I have with myself every Monday. I'm talking about the more existential crisis-like "I've always loved X, why do I feel like I hate it now" way of existing.
 
-Google/Brave Search (same thing) says that burnout is
+Google/Brave Search says that burnout is
 
 > a state of emotional, mental, and often physical exhaustion brought on by prolonged or repeated stress
 
-and... yea that tracks for me.
+and... sure that's close
 
-## The Experience of Burnout
+Depression is
 
-Being burned out doesn't feel good. It makes the little things of every day work 10x harder and the harder things 100x. It kinda sucks. It hurts you, your team, and everyone else up and down the org chart. It's not pretty, but it happens.
+> Depression is a mood disorder that causes a persistent feeling of sadness and loss of interest and can interfere with your daily functioning.
 
-It starts slowly with the Monday Blues, the Hump-day Hiccups, and waiting for the weekend.
+ehh, not quite right
 
-## Root Causes of Burnout
+To be clear, I've never been diagnosed with anything here.
 
-I lose my grounding and end up focusing 100% on whatever I'm working on with very little regard for the world outside of it. I lose myself in the process and find myself lost when I inevitably have to move on.
+I just know that something the little things of every day life are 10x harder and the harder things 100x.
 
-## Coping with Burnout
+It kinda sucks. It sucks for me, for you, for family, friends, teams.
 
-Literally, go outside. 
+It's not pretty, but it happens.
+
+## My solution
+
+Literally, go outside.
+
+Outside of the house, outside of your routine, outside of your comfort zone.
+
+Go do something you've never done before. Make a new memory. Make 5, 10.
+
+Focus on new habits. Learn a new skill.
+
+Get lost in the city you've lived in for years. Take a picture to remember the spot.
+
+Remember that life is long. You're gonna get the ups and downs, but ... you get the rest.
+
+Just keep living, stay curious, have fun with it. You'll be alright.
