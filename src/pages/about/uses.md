@@ -14,7 +14,7 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 ## Utilities
 
 - Internet
-    - Google Fiber 1G @ $70/month
+    - Google Fiber 2G @ $100/month
 - Cell
     - Visible @ $25/month
 - Electricity
