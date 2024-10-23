@@ -4,7 +4,7 @@ isFeatured: true
 author: Khari Johnson
 publishedAt: 2024-08-18:12:30.000Z
 
-banner: 'https://go.dev/blog/gopher/wfmu.jpg'
+banner: "https://go.dev/blog/gopher/wfmu.jpg"
 bannerAlt: 'The original golang gopher'
 aliases:
   - Learning golang

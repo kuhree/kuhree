@@ -4,7 +4,7 @@ isFeatured: false
 author: Khari Johnson
 publishedAt: 2023-01-27:12:30.000Z
 
-banner: 'https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png'
+banner: "https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"
 banner_alt: "Docker's Logo"
 aliases:
   - Running Docker on MacOS

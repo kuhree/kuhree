@@ -9,7 +9,7 @@ aliases:
 description:
   Over the years, I've experimented with various editors.
   Outside of being technical marvels and great pieces of software, they have played  large part in developing the workflow and mindset I have today. I think there's something to learn in the experience for all of them.
-banner: 'https://images.pexels.com/photos/5466161/pexels-photo-5466161.jpeg'
+banner: "https://images.pexels.com/photos/5466161/pexels-photo-5466161.jpeg"
 banner_alt: 'Man installing equipment into network rack. Forearm and drill in the foreground. Cabling and another person doing the same in the background.'
 tags:
   - tools

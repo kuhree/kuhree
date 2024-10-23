@@ -11,7 +11,7 @@ description:
 tags:
   - incoherent
   - life
-banner: 'https://images.pexels.com/photos/9535495/pexels-photo-9535495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+banner: "https://images.pexels.com/photos/9535495/pexels-photo-9535495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 banner_alt: 'Close-Up Shot of a Traffic Light'
 ---
 

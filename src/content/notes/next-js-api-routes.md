@@ -5,7 +5,7 @@ isDraft: false
 isFeatured: false
 # slug: next-api-routes
 
-banner: 'https://images.pexels.com/photos/4578665/pexels-photo-4578665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+banner: "https://images.pexels.com/photos/4578665/pexels-photo-4578665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
 banner_alt: 'Map of computers'
 aliases:
   - Using Next.js API routes
