@@ -11,7 +11,7 @@ description:
   theme.
 tags:
   - template
-banner: 'https://placehold.co/600x400'
+banner: "https://placehold.co/600x400"
 banner_alt: 'White background with black text that show the dimensions'
 ---
 
