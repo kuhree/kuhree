@@ -14,18 +14,18 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 ## Utilities
 
 - Internet
-    - Google Fiber 2G @ $101/month
+  - Google Fiber 2G @ $101/month
 - Cell
-    - Visible @ $25/month
+  - Visible @ $25/month
 - Electricity
-    - Georgia Power @ $0.20/kWh
+  - Georgia Power @ $0.20/kWh
 - DNS + Domains
-    - Cloudflare @ ~$50/yr
+  - Cloudflare @ ~$50/yr
 - Hosting
-    - Github/Cloudflare Pages
-    - Railway / Fly.io / Cloudflare Workers
-    - Google Cloud Run / AWS EC2
-    - Coolify / Self-Hosted
+  - Github/Cloudflare Pages
+  - Railway / Fly.io / Cloudflare Workers
+  - Google Cloud Run / AWS EC2
+  - Coolify / Self-Hosted
 
 ## Hardware
 
@@ -38,46 +38,51 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 ### Laptop(s)
 
 - Personal
-    - Model: 2019 15" Macbook Pro
-    - CPU: 6-Core i7 @ 2.6GHz
-    - RAM: 16GB
-    - STORAGE: 512GB SSD
+  - Model: Lenovo ThinkPad E15
+  - CPU: 4-Core i5-10210U @ 1.5GHz-4.2GHz
+  - RAM: 8GB DDR4 2666Mhz
+  - STORAGE: 256GB SSD
 - Work
-    - Model: 2022 13" Macbook Pro
-    - CPU: Apple M2
-    - RAM: 16GB
-    - STORAGE: 256GB
+  - Model: 2022 13" Macbook Pro
+  - CPU: Apple M2
+  - RAM: 16GB
+  - STORAGE: 256GB
 
 ### Desktop(s)
 
 - Personal
-    - CPU: 8-Core AMD R7 5800X3D @ 3.4GHz
-    - GPU: NVIDIA RTX 3070 8GB
-    - RAM: 32GB
-    - STORAGE: 512GB SATA + 1TB NVME M.2 SSD
+  - CPU: 8-Core AMD R7 5800X3D @ 3.4GHz
+  - GPU: NVIDIA RTX 3070 8GB
+  - RAM: 32GB
+  - STORAGE: 512GB SATA + 1TB NVME M.2 SSD
 
 ### "Server(s)"
 
+- ~Personal Laptop~ "Headless (cracked the screen, keyboard is done for)" Dev Server
+  - Model: 2019 15" Macbook Pro
+  - CPU: 6-Core i7 @ 2.6GHz
+  - RAM: 16GB
+  - STORAGE: 512GB SSD
 - NAS (TrueNAS)
-    - CPU: Intel i5 5930K @ 3.5GHz
-    - GPU: AMD R7 250 2GB
-    - RAM: 48GB RAM
-    - STORAGE: 25GB SSD + 3x 1TB HDD + 5TB HDD
+  - CPU: Intel i5 5930K @ 3.5GHz
+  - GPU: AMD R7 250 2GB
+  - RAM: 48GB RAM
+  - STORAGE: 25GB SSD + 3x 1TB HDD + 5TB HDD
 - Virtualization (Proxmox)
-    - CPU: 8-Core AMD Ryzen 7 5600X @ ??GHz
-    - GPU: NVIDIA RTX 2070 Super 8GB
-    - RAM: 64GB RAM
-    - STORAGE: 512 SSD + 1TB SDD + 2TB SDD
+  - CPU: 8-Core AMD Ryzen 7 5600X @ ??GHz
+  - GPU: NVIDIA RTX 2070 Super 8GB
+  - RAM: 64GB RAM
+  - STORAGE: 512 SSD + 1TB SDD + 2TB SDD
 - Router (pfSense)
-    - CPU: Intel i7 4790 @ ?? GHz
-    - GPU: Integrated
-    - RAM: 12GB
-    - STORAGE: 256GB SSD + 1TB HDD
+  - CPU: Intel i7 4790 @ ?? GHz
+  - GPU: Integrated
+  - RAM: 12GB
+  - STORAGE: 256GB SSD + 1TB HDD
 - Offsite Backups (Dietpi)
-    - CPU: Broadcom BCM2837B0 @ 1.4GHz
-    - GPU: Integrated
-    - RAM: 1GB LPDDR2 SDRAM
-    - STORAGE: 128GB Mini SDC + 3.5TB HDD
+  - CPU: Broadcom BCM2837B0 @ 1.4GHz
+  - GPU: Integrated
+  - RAM: 1GB LPDDR2 SDRAM
+  - STORAGE: 128GB Mini SDC + 3.5TB HDD
 
 ### Peripherals
 
@@ -113,27 +118,27 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 ### Self-Hosted
 
 - Services
-    - Traefik
-    - Gitea
-    - Vaultwarden
-    - Searx
-    - Wakapi
-    - Owncloud
-    - Commafeed
-    - Flame
+  - Traefik
+  - Gitea
+  - Vaultwarden
+  - Searx
+  - Wakapi
+  - Owncloud
+  - Commafeed
+  - Flame
 - Development
-    - Coder
-    - Coolify
+  - Coder
+  - Coolify
 - Monitoring
-    - Grafana
-    - Prometheus / IndexDB
-    - Loki
-    - Umami
-    - Telegraf
-    - Uptime Kuma
+  - Grafana
+  - Prometheus / IndexDB
+  - Loki
+  - Umami
+  - Telegraf
+  - Uptime Kuma
 - Media Streaming
-    - Jellyfin + Jellystat + Jellyseerr
-    - Photoprism
+  - Jellyfin + Jellystat + Jellyseerr
+  - Photoprism
 
 ### Terminal
 
@@ -159,26 +164,25 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 ### Browser(s)
 
 - Chrome
-    - Thorium
-    - Arc
+  - Thorium
+  - Arc
 - Firefox
-    - Dev Edition
-    - Zen
+  - Dev Edition
+  - Zen
 - Safari
-    - Orion
+  - Orion
 
 ### Text Editor(s)
 
 - Neovim
-- VSCode
 - Zed
-- Cursor
+- VSCode
 
 ### Terminal Emulator(s)
 
 - Ghostty
 - Kitty
-- Wez Term
+- iTerm2
 
 ### Video Editor(s)
 
@@ -206,3 +210,7 @@ This page is a bit verbose beacuse it doubles as a way for me to keep track of s
 #### Linux
 
 - Timeshift
+- hyprland/i3wm/herbsluftwm/bspwm
+- wofi/rofi/dmenu
+- waybar/polybar
+- swaynotificationncenter/dunst
