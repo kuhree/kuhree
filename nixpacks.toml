@@ -1,6 +1,0 @@
-[phases.build]
-cmds = [ "bunx astro build" ]
-
-[start]
-runImage = "oven/bun"
-cmd = "bun run --bun --smol ./dist/server/entry.mjs"
