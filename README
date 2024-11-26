@@ -1,13 +1,58 @@
-# Welcome to Kuhree.com
+<img style="display" height="64" width="64" src="https://notes.kuhree.com/logo.png"/>
 
-Learn more about me
-  - [about](https://public.kuhree.com/about)
-      - [uses](https://public.kuhree.com/uses)
-      - [resume](https://public.kuhree.com/resume)
-  - ["blog"](https://public.kuhree.com)
+## Khari (kuhree) Johnson
 
-Get in touch [hi@kuhree.com](mailto:hi@kuhree.com)
+**Learn More**
+| [About](https://notes.kuhree.com/about)
+| [Resume](https://notes.kuhree.com/resume)
+| [Uses](https://notes.kuhree.com/uses)
+| [Notes](https://notes.kuhree.com)
 
-See some code [github.com/kuhree](https://github.com/kuhree)
+**Contact**
+| [hi@kuhree.com](mailto:hi@kuhree.com)
+| [github.com/kuhree](https://github.com/kuhree)
+| [x.com/kuhreee](https://x.com/kuhreee) 
 
-Other ways to contact me.
+---
+
+### Professionally 
+
+I build products (usually software, mostly for the web).
+
+- **Frontend:** [JavaScript](https://notes.kuhree.com/tags/language/javascript)/[TypeScript](https://notes.kuhree.com/tags/language/typescript), [React](https://notes.kuhree.com/tags/tools/react)
+- **Backend:** [Node.js](https://nodejs.org), [Go](https://notes.kuhree.com/tags/language/go)
+- **Databases:** [SQLite](https://sqlite.org), [Postgres](https://postgresql.org)
+- **CI:** [Docker](https://notes.kuhree.com/tags/tools/docker), [GitHub Actions](https://notes.kuhree.com/tags/tools/github-actions)
+- **Hosting:** [Cloudflare](https://cloudflare.com), `[insert cloud provider]`
+
+### Personally
+
+I'm wherever today's curiosity takes me, often exploring:
+
+- **Tech:**
+  - Gaming and hardware
+  - Privacy and self-hosting FOSS
+- **Art:**
+  - [Photography](https://notes.kuhree.com/gallery)
+  - TV/Movies/Stories 
+- **Mech:**
+  - Keyboards
+  - Bikes/Drones
+  - Anything else with wheels, buttons, levers...
+
+### Currently Working On
+
+- Solving problems at `[work]`
+- Building [terminal games in Go](https://notes.kuhree.com/projects/gg)
+- Making GC in [Rocket League](https://rocketleague.tracker.network/rocket-league/profile/steam/tkjohnson121/overview)
+
+---
+
+**Credits**
+| Styling - [The Monospace Web](https://owickstrom.github.io/the-monospace-web)
+
+**Sitemap**
+| [README](/README)
+| [Dockerfile](/Dockerfile)
+| [ci.yaml](/.github/workflows/ci.yaml)
+| [fly.toml](/fly.toml)
