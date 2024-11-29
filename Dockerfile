@@ -23,14 +23,9 @@ COPY --from=builder /usr/src/app/ /usr/share/caddy/
 RUN cat > /etc/caddy/Caddyfile <<EOF
 :${PORT} {
     root * /usr/share/caddy
-    try_files {path} {path}.html {path}/ =404
+    try_files {path} {path}.html {path}/ =404 /index.html
     file_server
     encode gzip
-
-    handle_errors {
-        rewrite * /{err.status_code}.html
-        file_server
-    }
 }
 EOF
 
