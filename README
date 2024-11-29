@@ -1,23 +1,11 @@
-<img style="display" height="64" width="64" src="https://notes.kuhree.com/logo.png"/>
-
-## Khari (kuhree) Johnson
-
-**Learn More**
-| [About](https://notes.kuhree.com/about)
+[About](https://notes.kuhree.com/about)
 | [Resume](https://notes.kuhree.com/resume)
 | [Uses](https://notes.kuhree.com/uses)
 | [Notes](https://notes.kuhree.com)
 
-**Contact**
-| [hi@kuhree.com](mailto:hi@kuhree.com)
-| [github.com/kuhree](https://github.com/kuhree)
-| [x.com/kuhreee](https://x.com/kuhreee) 
-
 ---
 
-### Professionally 
-
-I build products (usually software, mostly for the web).
+I code. Usually software, mostly on the web.
 
 - **Frontend:** [JavaScript](https://notes.kuhree.com/tags/language/javascript)/[TypeScript](https://notes.kuhree.com/tags/language/typescript), [React](https://notes.kuhree.com/tags/tools/react)
 - **Backend:** [Node.js](https://nodejs.org), [Go](https://notes.kuhree.com/tags/language/go)
@@ -25,22 +13,19 @@ I build products (usually software, mostly for the web).
 - **CI:** [Docker](https://notes.kuhree.com/tags/tools/docker), [GitHub Actions](https://notes.kuhree.com/tags/tools/github-actions)
 - **Hosting:** [Cloudflare](https://cloudflare.com), `[insert cloud provider]`
 
-### Personally
+Otherwise, often exploring...
 
-I'm wherever today's curiosity takes me, often exploring:
-
-- **Tech:**
+- **More Tech:**
   - Gaming and hardware
   - Privacy and self-hosting FOSS
 - **Art:**
   - [Photography](https://notes.kuhree.com/gallery)
   - TV/Movies/Stories 
-- **Mech:**
+- **Mechanical things:**
   - Keyboards
   - Bikes/Drones
-  - Anything else with wheels, buttons, levers...
 
-### Currently Working On
+## Currently Working On
 
 - Solving problems at `[work]`
 - Building [terminal games in Go](https://notes.kuhree.com/projects/gg)
@@ -50,6 +35,12 @@ I'm wherever today's curiosity takes me, often exploring:
 
 **Credits**
 | Styling - [The Monospace Web](https://owickstrom.github.io/the-monospace-web)
+| Hosting - [fly.io](https://fly.io)
+
+**Contact**
+| [hi@kuhree.com](mailto:hi@kuhree.com)
+| [github.com/kuhree](https://github.com/kuhree)
+| [x.com/kuhreee](https://x.com/kuhreee) 
 
 **Sitemap**
 | [README](/README)

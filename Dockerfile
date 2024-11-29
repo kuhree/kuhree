@@ -1,31 +1,43 @@
+ARG DOMAIN=kuhree.com
+ARG TITLE="Khari (kuhree) Johnson"
+
 FROM pandoc/core:3.5 AS builder
 WORKDIR /usr/src/app
 COPY . .
 RUN cat > scripts.txt <<EOF
-<script defer data-domain="kuhree.com" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.js"></script>
+<script defer data-domain="${DOMAIN}" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.js"></script>
 EOF
 
 RUN pandoc \
-    --from=gfm \
+    --standalone \
+    --from="gfm" \
     --to="html" \
     --output="index.html" \
-    --standalone \
     --embed-resources="true" \
     --include-in-header="scripts.txt" \
     --css="https://owickstrom.github.io/the-monospace-web/reset.css" \
     --css="https://owickstrom.github.io/the-monospace-web/index.css" \
-    --metadata title="kuhree.com" \
+    --metadata title="${TITLE}" \
     README
 
-FROM caddy:2.8-alpine AS runner
+FROM nginx:alpine AS runner
 ENV PORT=8080
-COPY --from=builder /usr/src/app/ /usr/share/caddy/
-RUN cat > /etc/caddy/Caddyfile <<EOF
-:${PORT} {
-    root * /usr/share/caddy
-    try_files {path} {path}.html {path}/ =404 /index.html
-    file_server
-    encode gzip
+COPY --from=builder /usr/src/app/ /usr/share/nginx/html/
+RUN cat > /etc/nginx/conf.d/default.conf <<EOF
+server {
+    listen ${PORT};
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    location / {
+        try_files \$uri \$uri/ /index.html;
+    }
+
+    location ~* \.(html|css|js|json)$ {
+        gzip on;
+        gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+    }
 }
 EOF
 
