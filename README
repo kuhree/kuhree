@@ -1,16 +1,16 @@
-[About](https://notes.kuhree.com/about)
-| [Resume](https://notes.kuhree.com/resume)
-| [Uses](https://notes.kuhree.com/uses)
-| [Notes](https://notes.kuhree.com)
+[About](https://wiki.kuhree.com/about)
+| [Resume](https://wiki.kuhree.com/resume)
+| [Uses](https://wiki.kuhree.com/uses)
+| [Notes](https://wiki.kuhree.com)
 
 ---
 
 I code. Usually software, mostly on the web.
 
-- **Frontend:** [JavaScript](https://notes.kuhree.com/tags/language/javascript)/[TypeScript](https://notes.kuhree.com/tags/language/typescript), [React](https://notes.kuhree.com/tags/tools/react)
-- **Backend:** [Node.js](https://nodejs.org), [Go](https://notes.kuhree.com/tags/language/go)
+- **Frontend:** [JavaScript](https://wiki.kuhree.com/tags/language/javascript)/[TypeScript](https://wiki.kuhree.com/tags/language/typescript), [React](https://wiki.kuhree.com/tags/tools/react)
+- **Backend:** [Node.js](https://nodejs.org), [Go](https://wiki.kuhree.com/tags/language/go)
 - **Databases:** [SQLite](https://sqlite.org), [Postgres](https://postgresql.org)
-- **CI:** [Docker](https://notes.kuhree.com/tags/tools/docker), [GitHub Actions](https://notes.kuhree.com/tags/tools/github-actions)
+- **CI:** [Docker](https://wiki.kuhree.com/tags/tools/docker), [GitHub Actions](https://wiki.kuhree.com/tags/tools/github-actions)
 - **Hosting:** [Cloudflare](https://cloudflare.com), `[insert cloud provider]`
 
 Otherwise, often exploring...
@@ -19,7 +19,7 @@ Otherwise, often exploring...
   - Gaming and hardware
   - Privacy and self-hosting FOSS
 - **Art:**
-  - [Photography](https://notes.kuhree.com/gallery)
+  - [Photography](https://wiki.kuhree.com/gallery)
   - TV/Movies/Stories 
 - **Mechanical things:**
   - Keyboards
@@ -28,7 +28,7 @@ Otherwise, often exploring...
 ## Currently Working On
 
 - Solving problems at `[work]`
-- Building [terminal games in Go](https://notes.kuhree.com/projects/gg)
+- Building [terminal games in Go](https://wiki.kuhree.com/projects/gg)
 - Making GC in [Rocket League](https://rocketleague.tracker.network/rocket-league/profile/steam/tkjohnson121/overview)
 
 ---
