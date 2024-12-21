@@ -37,6 +37,9 @@ Managed full-cycle development for diverse web projects, from e-commerce sites t
 
 _Network Engineer Apprentice_ | _April, 2018 - October, 2018_
 
+- Configured networking and IT infrastructure for offices, managing installation for 40+ workstations and associated devices.
+- Troubleshot technical issues across hardware and network systems, resolving over 95% of issues independently.
+
 ### Contract Photography
 
 **Colorado Springs, CO**
