@@ -1,7 +1,7 @@
+FROM pandoc/core:3.5 AS builder
+ARG FILE=README
 ARG DOMAIN=kuhree.com
 ARG TITLE="Khari (kuhree) Johnson"
-
-FROM pandoc/core:3.5 AS builder
 WORKDIR /usr/src/app
 COPY . .
 RUN cat > scripts.txt <<EOF
@@ -13,12 +13,12 @@ RUN pandoc \
     --from="gfm" \
     --to="html" \
     --output="index.html" \
-    --embed-resources="true" \
-    --include-in-header="scripts.txt" \
+    # --embed-resources="true" \
+    # --include-in-header="scripts.txt" \
     --css="https://owickstrom.github.io/the-monospace-web/reset.css" \
     --css="https://owickstrom.github.io/the-monospace-web/index.css" \
     --metadata title="${TITLE}" \
-    README
+    ${FILE}
 
 FROM nginx:alpine AS runner
 ENV PORT=8080
