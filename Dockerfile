@@ -5,7 +5,7 @@ ARG UMAMI_ID=a8924939-e88e-4817-b6a9-ddca06a842a7
 ARG TITLE="Khari (kuhree) Johnson"
 WORKDIR /usr/src/app
 COPY . .
-RUN cat > scripts.txt <<EOF
+RUN cat > scripts.html <<EOF
 <script defer src="${UMAMI_SRC}" data-website-id="${DOMAIN}"></script>
 EOF
 
@@ -14,10 +14,10 @@ RUN pandoc \
 	--from="gfm" \
 	--to="html" \
 	--output="index.html" \
-	--include-in-header="scripts.txt" \
+	--include-in-header="scripts.html" \
 	--embed-resources="true" \
-	--css="https://owickstrom.github.io/the-monospace-web/reset.css" \
-	--css="https://owickstrom.github.io/the-monospace-web/index.css" \
+	--css="https://owickstrom.github.io/the-monospace-web/src/reset.css" \
+	--css="https://owickstrom.github.io/the-monospace-web/src/index.css" \
 	--metadata title="${TITLE}" \
 	${FILE}
 
