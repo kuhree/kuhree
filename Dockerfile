@@ -1,24 +1,25 @@
 FROM pandoc/core:3.5 AS builder
 ARG FILE=README
-ARG DOMAIN=kuhree.com
+ARG UMAMI_SRC=https://cloud.umami.is/script.js
+ARG UMAMI_ID=a8924939-e88e-4817-b6a9-ddca06a842a7
 ARG TITLE="Khari (kuhree) Johnson"
 WORKDIR /usr/src/app
 COPY . .
 RUN cat > scripts.txt <<EOF
-<script defer data-domain="${DOMAIN}" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.js"></script>
+<script defer src="${UMAMI_SRC}" data-website-id="${DOMAIN}"></script>
 EOF
 
 RUN pandoc \
-    --standalone \
-    --from="gfm" \
-    --to="html" \
-    --output="index.html" \
-    # --embed-resources="true" \
-    # --include-in-header="scripts.txt" \
-    # --css="https://owickstrom.github.io/the-monospace-web/reset.css" \
-    # --css="https://owickstrom.github.io/the-monospace-web/index.css" \
-    --metadata title="${TITLE}" \
-    ${FILE}
+	--standalone \
+	--from="gfm" \
+	--to="html" \
+	--output="index.html" \
+	--include-in-header="scripts.txt" \
+	--embed-resources="true" \
+	--css="https://owickstrom.github.io/the-monospace-web/reset.css" \
+	--css="https://owickstrom.github.io/the-monospace-web/index.css" \
+	--metadata title="${TITLE}" \
+	${FILE}
 
 FROM nginx:alpine AS runner
 ENV PORT=8080
@@ -40,5 +41,3 @@ server {
     }
 }
 EOF
-
-EXPOSE $PORT
