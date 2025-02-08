@@ -102,9 +102,9 @@ jobs:
         with:
           fetch-depth: 1
 
+      - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Deploy to Fly.io
-        uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --local-only
+        run: flyctl deploy --local-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
