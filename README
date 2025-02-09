@@ -1,26 +1,26 @@
-[About](https://wiki.kuhree.com/about)
-| [Resume](https://wiki.kuhree.com/resume)
-| [Uses](https://wiki.kuhree.com/uses)
-| [Notes](https://wiki.kuhree.com)
+[About][about]
+| [Resume][resume]
+| [Uses][uses]
+| [Notes][notes]
 
 ---
 
 I code. Usually software, mostly on the web.
 
-- **Frontend:** [JavaScript](https://wiki.kuhree.com/tags/language/javascript)/[TypeScript](https://wiki.kuhree.com/tags/language/typescript), [React](https://wiki.kuhree.com/tags/tools/react)
-- **Backend:** [Node.js](https://nodejs.org), [Go](https://wiki.kuhree.com/tags/language/go)
-- **Databases:** [SQLite](https://sqlite.org), [Postgres](https://postgresql.org)
-- **CI:** [Docker](https://wiki.kuhree.com/tags/tools/docker), [GitHub Actions](https://wiki.kuhree.com/tags/tools/github-actions)
-- **Hosting:** [Cloudflare](https://cloudflare.com), `[insert cloud provider]`
+- **Frontend:** [JavaScript][js]/[TypeScript][ts], [React][react]
+- **Backend:** [Node.js][node], [Go][go]
+- **Databases:** [SQLite][sqlite], [Postgres][postgres]
+- **CI:** [Docker][docker], [GitHub Actions][gh-actions]
+- **Hosting:** [Cloudflare][cloudflare], `[insert cloud provider]`
 
 Otherwise, often exploring...
 
 - **More Tech:**
-  - Gaming and hardware
+  - [Gaming][steam] and hardware
   - Privacy and self-hosting FOSS
 - **Art:**
-  - [Photography](https://wiki.kuhree.com/gallery)
-  - [TV/Movies/Stories](https://trakt.tv/users/kuhree)
+  - [Photography][gallery]
+  - [TV/Movies/Stories][trakt]
 - **Mechanical things:**
   - Keyboards
   - Bikes/Drones
@@ -28,22 +28,64 @@ Otherwise, often exploring...
 ## Currently Working On
 
 - Solving problems at `[work]`
-- Building [terminal games in Go](https://wiki.kuhree.com/projects/gg)
-- Making GC in [Rocket League](https://rocketleague.tracker.network/rocket-league/profile/steam/tkjohnson121/overview)
+- Building [terminal games in Go][gg]
+- Making GC in [Rocket League][rocket-league]
 
 ---
 
 **Credits**
-| Styling - [The Monospace Web](https://owickstrom.github.io/the-monospace-web)
-| Hosting - [fly.io](https://fly.io)
+| Styling - [The Monospace Web][monospace]
+| Hosting - [fly.io][fly]
 
 **Contact**
-| [hi@kuhree.com](mailto:hi@kuhree.com)
-| [github.com/kuhree](https://github.com/kuhree)
-| [x.com/kuhreee](https://x.com/kuhreee) 
+| [hi@kuhree.com][email]
+| [github.com/kuhree][github]
+| [x.com/kuhreee][twitter]
 
 **Sitemap**
-| [README](/README)
-| [Dockerfile](/Dockerfile)
-| [ci.yaml](/.github/workflows/ci.yaml)
-| [fly.toml](/fly.toml)
+| [README][readme]
+| [Dockerfile][dockerfile]
+| [ci.yaml][ci]
+| [fly.toml][fly-toml]
+
+<!-- Navigation -->
+[about]: https://wiki.kuhree.com/about
+[resume]: https://wiki.kuhree.com/resume
+[uses]: https://wiki.kuhree.com/uses
+[notes]: https://wiki.kuhree.com
+
+<!-- Technologies -->
+[js]: https://wiki.kuhree.com/tags/language/javascript
+[ts]: https://wiki.kuhree.com/tags/language/typescript
+[react]: https://wiki.kuhree.com/tags/tools/react
+[node]: https://nodejs.org
+[go]: https://wiki.kuhree.com/tags/language/go
+[sqlite]: https://sqlite.org
+[postgres]: https://postgresql.org
+[docker]: https://wiki.kuhree.com/tags/tools/docker
+[gh-actions]: https://wiki.kuhree.com/tags/tools/github-actions
+[cloudflare]: https://cloudflare.com
+
+<!-- Projects -->
+[gg]: https://wiki.kuhree.com/projects/gg
+[rocket-league]: https://rocketleague.tracker.network/rocket-league/profile/steam/tkjohnson121/overview
+
+<!-- Social -->
+[steam]: https://steamcommunity.com/id/tkjohnson121/
+[gallery]: https://wiki.kuhree.com/gallery
+[trakt]: https://trakt.tv/users/kuhree
+
+<!-- Credits -->
+[monospace]: https://owickstrom.github.io/the-monospace-web
+[fly]: https://fly.io
+
+<!-- Contact -->
+[email]: mailto:hi@kuhree.com
+[github]: https://github.com/kuhree
+[twitter]: https://x.com/kuhreee
+
+<!-- Sitemap -->
+[readme]: /README
+[dockerfile]: /Dockerfile
+[ci]: /.github/workflows/ci.yaml
+[fly-toml]: /fly.toml
