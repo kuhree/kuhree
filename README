@@ -48,15 +48,15 @@ Otherwise, often exploring...
 
 <!-- Navigation -->
 [about]: https://wiki.kuhree.com/about
-[resume]: https://wiki.kuhree.com/resume
-[uses]: https://wiki.kuhree.com/uses
+[resume]: https://wiki.kuhree.com/about/resume
+[uses]: https://wiki.kuhree.com/about/uses
 [notes]: https://wiki.kuhree.com
 
 <!-- Technologies -->
 [js]: https://wiki.kuhree.com/tags/language/javascript
 [ts]: https://wiki.kuhree.com/tags/language/typescript
 [react]: https://wiki.kuhree.com/tags/tools/react
-[node]: https://nodejs.org
+[node]: https://wiki.kuhree.com/tags/language/react
 [go]: https://wiki.kuhree.com/tags/language/go
 [sqlite]: https://sqlite.org
 [postgres]: https://postgresql.org
