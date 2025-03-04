@@ -66,8 +66,8 @@ I'm always open for collaborations and/or general chats about tech. Feel free to
 ---
 
 **Credits**
-| Styled by [The Monospace Web][monospaceweb]
-| Hosting on [fly.io][fly]
+| Styled by [sindresorhus/github-markdown-css][githubmarkdown]
+| Hosted on [fly.io][fly]
 
 <!-- Navigation -->
 [portfolio]: https://wiki.kuhree.com/projects
@@ -115,5 +115,5 @@ I'm always open for collaborations and/or general chats about tech. Feel free to
 [github]: https://github.com/kuhree
 [linkedin]: https://linkedin.com/in/khari-johnson
 <!-- Credits -->
-[monospaceweb]: https://owickstrom.github.io/the-monospace-web
+[githubmarkdown]: https://github.com/sindresorhus/github-markdown-css
 [fly]: https://fly.io
