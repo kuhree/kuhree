@@ -62,7 +62,6 @@ I'm always open for collaborations and/or general chats about tech. Feel free to
 [Email][email]
 | [LinkedIn][linkedin]
 | [Github][github]
->>>>>>> revamp
 
 ---
 
