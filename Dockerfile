@@ -5,6 +5,9 @@ ARG UMAMI_ID=a8924939-e88e-4817-b6a9-ddca06a842a7
 ARG TITLE="Khari (kuhree) Johnson"
 WORKDIR /usr/src/app
 COPY . .
+RUN cat > style.html <<EOF
+<style> body { max-width: 80ch; margin: 0 auto; } </style>
+EOF
 RUN cat > scripts.html <<EOF
 <script defer src="${UMAMI_SRC}" data-website-id="${DOMAIN}"></script>
 EOF
@@ -14,6 +17,7 @@ RUN pandoc \
 	--from="gfm" \
 	--to="html" \
 	--output="index.html" \
+	--include-in-header="style.html" \
 	--include-in-header="scripts.html" \
 	--embed-resources="true" \
 	--css="https://raw.githubusercontent.com/sindresorhus/github-markdown-css/refs/heads/main/github-markdown.css" \
