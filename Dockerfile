@@ -16,8 +16,7 @@ RUN pandoc \
 	--output="index.html" \
 	--include-in-header="scripts.html" \
 	--embed-resources="true" \
-	--css="https://owickstrom.github.io/the-monospace-web/src/reset.css" \
-	--css="https://owickstrom.github.io/the-monospace-web/src/index.css" \
+	--css="https://raw.githubusercontent.com/sindresorhus/github-markdown-css/refs/heads/main/github-markdown.css" \
 	--metadata title="${TITLE}" \
 	${FILE}
 
