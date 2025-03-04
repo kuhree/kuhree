@@ -1,5 +1,5 @@
 FROM pandoc/core:3.5 AS builder
-ARG FILE=README
+ARG FILE=README.md
 ARG UMAMI_SRC=https://cloud.umami.is/script.js
 ARG UMAMI_ID=a8924939-e88e-4817-b6a9-ddca06a842a7
 ARG TITLE="Khari (kuhree) Johnson"

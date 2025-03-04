@@ -1,92 +1,120 @@
 [About][about]
-| [Resume][resume]
+| [Portfolio][portfolio]
+| [Résumé][resume]
 | [Uses][uses]
 | [Notes][notes]
 
----
+## 👨‍💻 Full-Stack Developer
 
-Professionally, I build web apps that can grow without breaking. I enjoy digging into the messy tech problems and finding ways to keep everything humming along.
-I generally use the JavaScript/TypeScript ecosystem and cloud technologies while helping out teammates and pitching in to make the business goals happen.
+**Code, Cloud, and Command Lines.** I'm a full-stack developer who thrives on building scalable apps, optimizing cloud infrastructure, and tinkering with terminal tools along the way.
 
-- **Frontend:** [JavaScript][js]/[TypeScript][ts], [React][react]
-- **Backend:** [Node.js][node], [Go][go]
-- **Databases:** [SQLite][sqlite], [Postgres][postgres]
-- **CI:** [Docker][docker], [GitHub Actions][gh-actions]
-- **Hosting:** [Cloudflare][cloudflare], `[insert cloud provider]`
+### Tech Stack
 
-Personally, often exploring...
+- **Frontend** 
+| [JavaScript][js]
+| [TypeScript][ts]
+| [React][react]
+| [Next.js][nextjs] 
+| [React Native][reactnative]
+| [Expo][expo]
+| [Tailwind CSS][tailwind]
+- **Backend** 
+| [Node.js][node]
+| [Express.js][express]
+| [Hono][hono]
+| [Go][go]
+- **Databases** 
+| [SQLite][sqlite]
+| [Postgres][postgres]
+| [Redis][redis]
+| [MongoDB][mongodb]
+- **DevOps** 
+| [Docker][docker]
+| [GitHub Actions][gh-actions]
+| [Google Cloud Platform][gcp]
+| [Cloudflare][cloudflare]
+- **Tools** 
+| [Bun][bun]
+| [Vite][vite]
+| [Jest][jest]
+| [Playwright][playwright]
+| [Zod][zod]
+- **Other** 
+| [Neovim][neovim]
+| [Linux][linux]
+| [NixOS][nixos]
+| [Obsidian][obsidian]
+| [tmux][tmux]
+| [zsh][zsh]
 
-- **More Tech:**
-  - [Gaming][steam] and hardware
-  - Privacy and self-hosting FOSS
-- **Art:**
-  - [Photography][gallery]
-  - [TV/Movies/Stories][trakt]
-- **Mechanical things:**
-  - Keyboards
-  - Bikes/Drones
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=kuhree&layout=compact&theme=transparent&hide_border=true)
 
 ## Currently Working On
 
-- Solving problems at `[work]`
-- Building [terminal games in Go][gg]
-- Making GC in [Rocket League][rocket-league]
+- Building [terminal games in Go][gg] - a fun side project to explore TUI design and sharpen Go skills
+- Self-hosting FOSS until I have my own "cloud"
+- Experimenting with NixOS to streamline my dev setup
+
+## Get in Touch
+
+I'm always open for collaborations and/or general chats about tech. Feel free to reach out.
+
+[Email][email]
+| [LinkedIn][linkedin]
+| [Github][github]
+>>>>>>> revamp
 
 ---
 
 **Credits**
-| Styling - [The Monospace Web][monospace]
-| Hosting - [fly.io][fly]
-
-**Contact**
-| [hi@kuhree.com][email]
-| [github.com/kuhree][github]
-| [x.com/kuhreee][twitter]
-
-**Sitemap**
-| [README][readme]
-| [Dockerfile][dockerfile]
-| [ci.yaml][ci]
-| [fly.toml][fly-toml]
+| Styled by [The Monospace Web][monospaceweb]
+| Hosting on [fly.io][fly]
 
 <!-- Navigation -->
+[portfolio]: https://wiki.kuhree.com/projects
 [about]: https://wiki.kuhree.com/about
 [resume]: https://wiki.kuhree.com/about/resume
 [uses]: https://wiki.kuhree.com/about/uses
 [notes]: https://wiki.kuhree.com
-
 <!-- Technologies -->
-[js]: https://wiki.kuhree.com/tags/language/javascript
-[ts]: https://wiki.kuhree.com/tags/language/typescript
-[react]: https://wiki.kuhree.com/tags/tools/react
-[node]: https://wiki.kuhree.com/tags/language/react
-[go]: https://wiki.kuhree.com/tags/language/go
-[sqlite]: https://sqlite.org
-[postgres]: https://postgresql.org
-[docker]: https://wiki.kuhree.com/tags/tools/docker
-[gh-actions]: https://wiki.kuhree.com/tags/tools/github-actions
+[ansible]: https://www.ansible.com
+[bun]: https://bun.sh
 [cloudflare]: https://cloudflare.com
-
+[docker]: https://wiki.kuhree.com/tags/tools/docker
+[expo]: https://expo.dev
+[express]: https://expressjs.com
+[gcp]: https://console.google.com
+[gh-actions]: https://wiki.kuhree.com/tags/tools/github-actions
+[go]: https://wiki.kuhree.com/tags/language/go
+[hono]: https://hono.dev
+[jest]: https://jestjs.io
+[js]: https://wiki.kuhree.com/tags/language/javascript
+[linux]: https://wiki.kuhree.com/tags/tools/linux
+[mongodb]: https://mongodb.com
+[neovim]: https://neovim.io
+[nextjs]: https://nextjs.org
+[nixos]: https://nixos.org
+[node]: https://wiki.kuhree.com/tags/language/react
+[obsidian]: https://obsidian.md
+[playwright]: https://playwright.dev
+[postgres]: https://postgresql.org
+[react]: https://wiki.kuhree.com/tags/tools/react
+[reactnative]: https://reactnative.dev
+[redis]: https://redis.io
+[sqlite]: https://sqlite.org
+[tailwind]: https://tailwindcss.com
+[terraform]: https://www.terraform.io
+[tmux]: https://github.com/tmux/tmux/wiki
+[ts]: https://wiki.kuhree.com/tags/language/typescript
+[vite]: https://vitejs.dev
+[zod]: https://zod.dev
+[zsh]: https://www.zsh.org
 <!-- Projects -->
 [gg]: https://wiki.kuhree.com/projects/gg
-[rocket-league]: https://rocketleague.tracker.network/rocket-league/profile/steam/tkjohnson121/overview
-
-<!-- Social -->
-[steam]: https://steamcommunity.com/id/tkjohnson121/
-[gallery]: https://wiki.kuhree.com/gallery
-[trakt]: https://trakt.tv/users/kuhree
-
-<!-- Credits -->
-[monospace]: https://owickstrom.github.io/the-monospace-web
-[fly]: https://fly.io
-
 <!-- Contact -->
 [email]: mailto:hi@kuhree.com
 [github]: https://github.com/kuhree
-[twitter]: https://x.com/kuhreee
-
-<!-- Sitemap -->
-[readme]: /README
-[dockerfile]: /Dockerfile
-[ci]: /.github/workflows/ci.yaml
-[fly-toml]: /fly.toml
+[linkedin]: https://linkedin.com/in/khari-johnson
+<!-- Credits -->
+[monospaceweb]: https://owickstrom.github.io/the-monospace-web
+[fly]: https://fly.io
