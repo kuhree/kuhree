@@ -1,7 +1,7 @@
 FROM pandoc/core:3.5 AS builder
 ARG FILE=README.md
-ARG UMAMI_SRC=https://cloud.umami.is/script.js
-ARG UMAMI_ID=a8924939-e88e-4817-b6a9-ddca06a842a7
+ARG UMAMI_SRC=https://umami.kuhree.com
+ARG UMAMI_ID=ca37f2de-805e-4182-8e66-71a405c9fc27
 ARG TITLE="Khari (kuhree) Johnson"
 WORKDIR /usr/src/app
 COPY . .
