@@ -11,17 +11,12 @@
 ### Tech Stack
 
 - **Frontend** 
-| [JavaScript][js]
-| [TypeScript][ts]
+| [JavaScript][js] ([TypeScript][ts])
 | [React][react]
-| [Next.js][nextjs] 
-| [React Native][reactnative]
-| [Expo][expo]
+| [React Native][reactnative] ([Expo][expo])
 | [Tailwind CSS][tailwind]
 - **Backend** 
-| [Node.js][node]
-| [Express.js][express]
-| [Hono][hono]
+| [Node.js][node] ([Express.js][express])
 | [Go][go]
 - **Databases** 
 | [SQLite][sqlite]
@@ -38,11 +33,9 @@
 | [Vite][vite]
 | [Jest][jest]
 | [Playwright][playwright]
-| [Zod][zod]
 - **Other** 
 | [Neovim][neovim]
-| [Linux][linux]
-| [NixOS][nixos]
+| [Linux][linux] ([NixOS][nixos])
 | [Obsidian][obsidian]
 | [tmux][tmux]
 | [zsh][zsh]
@@ -51,13 +44,13 @@
 
 ## Currently Working On
 
-- Building [terminal games in Go][gg] - a fun side project to explore TUI design and sharpen Go skills
-- Self-hosting FOSS until I have my own "cloud"
-- Experimenting with NixOS to streamline my dev setup
+- Experimenting with NixOS
+- [x] Building [terminal games in Go][gg] - a fun side project to explore TUI design and sharpen Go skills
+- [x] Self-hosting FOSS until I have my own "cloud"
 
 ## Get in Touch
 
-I'm always open for collaborations and/or general chats about tech. Feel free to reach out.
+I'm always open for collaborations and/or general chats. Feel free to reach out.
 
 [Email][email]
 | [LinkedIn][linkedin]
