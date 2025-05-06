@@ -78,7 +78,7 @@ jobs:
             -H "Title: Docker Build: $STATUS_EMOJI" \
             -H "Tags: whale,cd,${STATUS_TEXT}" \
             -H "Priority: ${{ job.status == 'success' && '3' || '5' }}" \
-            -H "Click: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            -H "Click: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_number }}" \
             -H "Markdown: yes" \
             -d "### Build Details
             - **Repository**: \`${{ github.repository }}\`
@@ -88,7 +88,7 @@ jobs:
 
             ${STATUS_EMOJI} Build **${{ job.status }}**
 
-            [View Run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            [View Run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_number }})
             [View Container](${{ github.server_url }}/${{ env.OWNER_LOWERCASE }}/-/packages/container/${{ github.repository }})" \
             ${{ secrets.NTFY_URL }}
 
