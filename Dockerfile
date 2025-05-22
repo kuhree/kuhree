@@ -9,19 +9,19 @@ RUN cat > style.html <<EOF
 <style> body { max-width: 80ch; margin: 0 auto; } </style>
 EOF
 RUN cat > scripts.html <<EOF
-<script defer src="${UMAMI_SRC}" data-website-id="${DOMAIN}"></script>
+<script defer src="${UMAMI_SRC}" data-website-id="${UMAMI_ID}"></script>
 EOF
 
 RUN pandoc \
 	--standalone \
+	--metadata title="${TITLE}" \
+	--include-in-header="scripts.html" \
+	--include-in-header="style.html" \
+	--css="https://raw.githubusercontent.com/sindresorhus/github-markdown-css/refs/heads/main/github-markdown.css" \
+	--embed-resources="true" \
 	--from="gfm" \
 	--to="html" \
 	--output="index.html" \
-	--include-in-header="style.html" \
-	--include-in-header="scripts.html" \
-	--embed-resources="true" \
-	--css="https://raw.githubusercontent.com/sindresorhus/github-markdown-css/refs/heads/main/github-markdown.css" \
-	--metadata title="${TITLE}" \
 	${FILE}
 
 FROM nginx:alpine AS runner
