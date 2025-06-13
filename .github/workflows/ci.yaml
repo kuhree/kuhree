@@ -23,11 +23,11 @@ jobs:
 
       - name: Setup Docker
         uses: docker/setup-buildx-action@v3
-        with:
-          install: true
-          driver-opts: |
-            image=moby/buildkit:master
-            network=host
+        # with:
+        #   install: true
+        #   driver-opts: |
+        #     image=moby/buildkit:master
+        #     network=host
 
       - name: Login to Registry
         if: github.event_name != 'pull_request'
