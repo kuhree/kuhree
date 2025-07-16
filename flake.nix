@@ -1,5 +1,5 @@
 {
-  description = "Markdown to HTML via Pandoc with Nginx serving";
+  description = "kuhree.com";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
