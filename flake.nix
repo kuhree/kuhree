@@ -49,6 +49,11 @@
           mkdir -p $out
           cp index.html $out/
         '';
+
+        checkPhase = ''
+          test -f public/index.html
+          echo "✅ Build looks successful"
+        '';
       };
     in {
       devShells.default = pkgs.mkShell {
