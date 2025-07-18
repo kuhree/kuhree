@@ -60,7 +60,7 @@ I'm always open for collaborations and/or general chats. Feel free to reach out.
 
 **Credits**
 | Styled by [sindresorhus/github-markdown-css][githubmarkdown]
-| Hosted on [fly.io][fly]
+| Hosted on a Raspberry Pi 3b+
 
 <!-- Navigation -->
 [portfolio]: https://wiki.kuhree.com/projects
