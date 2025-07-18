@@ -16,7 +16,7 @@
 
     title = "Khari (kuhree) Johnson";
     umamiSrc = "https://umami.kuhree.com/script.js";
-    umamiId = "4d955c4c-7bc5-48b6-98ad-1a87efee9505";
+    umamiId = "4d96a606-4cc7-47cc-bcb5-0e001f131adc";
     cssSrc = "https://raw.githubusercontent.com/sindresorhus/github-markdown-css/refs/heads/main/github-markdown.css";
   in
     flake-utils.lib.eachDefaultSystem (system: let

@@ -1,7 +1,7 @@
 FROM pandoc/core:3.5 AS builder
 ARG FILE=README.md
 ARG UMAMI_SRC=https://umami.kuhree.com/script.js
-ARG UMAMI_ID=4d955c4c-7bc5-48b6-98ad-1a87efee9505
+ARG UMAMI_ID=4d96a606-4cc7-47cc-bcb5-0e001f131adc
 ARG TITLE="Khari (kuhree) Johnson"
 WORKDIR /usr/src/app
 COPY . .
@@ -9,7 +9,7 @@ RUN cat > style.html <<EOF
 <style> body { max-width: 80ch; margin: 0 auto; } </style>
 EOF
 RUN cat > scripts.html <<EOF
-<script defer src="${UMAMI_SRC}" data-website-id="${UMAMI_ID}"></script>
+<script defer src="${UMAMI_SRC:?}" data-website-id="${UMAMI_ID:?}"></script>
 EOF
 
 RUN pandoc \
