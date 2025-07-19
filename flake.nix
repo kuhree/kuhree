@@ -28,6 +28,8 @@
           pname = "www-kuhree";
           version = "1.0.0";
           src = self;
+          doCheck = true;
+
           nativeBuildInputs = buildDeps;
 
           buildPhase = ''

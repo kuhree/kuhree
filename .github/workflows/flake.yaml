@@ -1,4 +1,4 @@
-name: check flake
+name: flake
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
       - name: build package
         run: nix build
 
-      - name: upload site
+      - name: upload artifacts
         uses: https://github.com/actions/upload-artifact@v3
         with:
           name: index.html
