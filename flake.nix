@@ -60,6 +60,23 @@
         };
     in {
       formatter = pkgs.alejandra;
+      checks = {
+        lint =
+          pkgs.runCommand "check-lint" {
+            buildInputs = [pkgs.nil];
+          } ''
+            find ${self} -type f -name "*.nix" | xargs -I {} ${pkgs.nil}/bin/nil diagnostics {}
+            touch $out
+          '';
+
+        fmt =
+          pkgs.runCommand "check-fmt" {
+            buildInputs = [pkgs.alejandra];
+          } ''
+            alejandra --check ${self}
+            touch $out
+          '';
+      };
       packages.default = www-kuhree;
       devShells.default = pkgs.mkShell {
         packages = buildDeps;

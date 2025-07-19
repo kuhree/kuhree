@@ -19,12 +19,6 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
 
-      - name: format
-        run: nix fmt -- --check .
-
-      - name: lint with nil
-        run: find . -type f -wholename "**.nix" | xargs -I {} nix run 'nixpkgs#nil' -- diagnostics {}
-
       - name: check flake
         run: nix flake check
 
@@ -32,7 +26,7 @@ jobs:
         run: nix build
 
       - name: upload site
-        uses: https://github.com/actions/upload-artifact@v4
+        uses: https://github.com/actions/upload-artifact@v3
         with:
           name: html
           path: result
