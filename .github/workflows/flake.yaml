@@ -47,5 +47,4 @@ jobs:
 
             [View Run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_number }})" \
             ${{ vars.NTFY_URL }}
-           ${{ vars.NTFY_URL }}
 
