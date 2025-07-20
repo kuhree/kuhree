@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: flake
     steps:
-      - name: checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v25
+        with:
+          extra_nix_config: experimental-features = nix-command flakes
 
       - name: check and build flake
         uses: https://git.kuhree.com/kuhree/actions-flake-ci@v1
