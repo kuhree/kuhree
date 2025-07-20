@@ -61,7 +61,7 @@
           checkPhase = ''
             runHook preCheck
 
-            test -f public/index.html
+            test -f index.html
             echo "✅ Build looks successful"
 
             runHook postCheck
