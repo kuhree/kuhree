@@ -13,12 +13,14 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
 
-      - uses: https://git.kuhree.com/kuhree/actions-flake-ci@v1
+      - name: check and build flake
+        uses: https://git.kuhree.com/kuhree/actions-flake-ci@v1
         with:
           artifact_name: www-kuhree.zip
           artifact_path: result
 
-      - uses: https://git.kuhree.com/kuhree/actions-ntfy@v1
+      - name: ntfy.sh
+        uses: https://git.kuhree.com/kuhree/actions-ntfy@v1
         if: always()
         with:
           token: ${{ secrets.NTFY_API_TOKEN }}
