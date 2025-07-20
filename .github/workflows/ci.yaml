@@ -13,44 +13,15 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
 
-      - name: install nix
-        uses: https://github.com/cachix/install-nix-action@v25
+      - uses: https://git.kuhree.com/kuhree/actions-flake-ci@v1
         with:
-          extra_nix_config: |
-            experimental-features = nix-command flakes
+          artifact_name: www-kuhree.zip
+          artifact_path: result
 
-      - name: check flake
-        run: nix flake check
-
-      - name: build package
-        run: nix build
-
-      - name: upload artifacts
-        uses: https://github.com/actions/upload-artifact@v3
-        with:
-          name: result.zip
-          path: result
-
-      - name: notify status
+      - uses: https://git.kuhree.com/kuhree/actions-ntfy@v1
         if: always()
-        run: |
-          STATUS_EMOJI="${{ job.status == 'success' && '✅' || '❌' }}"
-          STATUS_TEXT="${{ job.status == 'success' && 'white_checkmark' || 'x' }}"
-
-          curl \
-            -H "Authorization: Bearer ${{ secrets.NTFY_API_TOKEN }}" \
-            -H "Title: Nix Flake CI: $STATUS_EMOJI" \
-            -H "Tags: snowflake,ci,${STATUS_TEXT}" \
-            -H "Priority: ${{ job.status == 'success' && '3' || '5' }}" \
-            -H "Click: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
-            -H "Markdown: yes" \
-            -d "### CI Details
-            - **Repository**: \`${{ github.repository }}\`
-            - **Branch/Tag**: \`${{ github.ref_name }}\`
-            - **Commit**: [\`${GITHUB_SHA::7}\`](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }})
-
-            ${STATUS_EMOJI} CI **${{ job.status }}**
-
-            [View Run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_number }})" \
-            ${{ vars.NTFY_URL }}
-
+        with:
+          token: ${{ secrets.NTFY_API_TOKEN }}
+          url: ${{ vars.NTFY_URL }}
+          status: ${{ job.status }}
+          title: WWW-KUHREE CI
