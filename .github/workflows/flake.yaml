@@ -28,7 +28,7 @@ jobs:
       - name: upload artifacts
         uses: https://github.com/actions/upload-artifact@v3
         with:
-          name: index.html
+          name: result.zip
           path: result
 
       - name: notify status
