@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: flake
     steps:
-      - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v25
+      - uses: https://github.com/actions/checkout@v4
+      - uses: https://github.com/cachix/install-nix-action@v25
         with:
           extra_nix_config: experimental-features = nix-command flakes
 
@@ -21,7 +21,7 @@ jobs:
           artifact_name: www-kuhree.zip
           artifact_path: result
 
-      - name: ntfy.sh
+      - name: ntfy status
         uses: https://git.kuhree.com/kuhree/actions-ntfy@v1
         if: always()
         with:
