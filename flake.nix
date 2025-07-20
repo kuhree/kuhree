@@ -50,13 +50,21 @@
           '';
 
           installPhase = ''
+            runHook preInstall
+
             mkdir -p $out
             cp index.html $out/
+
+            runHook postInstall
           '';
 
           checkPhase = ''
+            runHook preCheck
+
             test -f public/index.html
             echo "✅ Build looks successful"
+
+            runHook postCheck
           '';
         };
     in {
