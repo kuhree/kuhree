@@ -18,7 +18,7 @@ jobs:
       - name: check and build flake
         uses: https://git.kuhree.com/kuhree/actions-flake-ci@v1
         with:
-          artifact_name: www-kuhree.zip
+          artifact_name: www-kuhree
           artifact_path: result
 
       - name: ntfy status
