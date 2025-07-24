@@ -10,35 +10,35 @@
 
 ### Tech Stack
 
-- **Frontend** 
-| [JavaScript][js] ([TypeScript][ts])
-| [React][react]
-| [React Native][reactnative] ([Expo][expo])
-| [Tailwind CSS][tailwind]
-- **Backend** 
-| [Node.js][node] ([Express.js][express])
-| [Go][go]
-- **Databases** 
-| [SQLite][sqlite]
-| [Postgres][postgres]
-| [Redis][redis]
-| [MongoDB][mongodb]
-- **DevOps** 
-| [Docker][docker]
-| [GitHub Actions][gh-actions]
-| [Google Cloud Platform][gcp]
-| [Cloudflare][cloudflare]
-- **Tools** 
-| [Bun][bun]
-| [Vite][vite]
-| [Jest][jest]
-| [Playwright][playwright]
-- **Other** 
-| [Neovim][neovim]
-| [Linux][linux] ([NixOS][nixos])
-| [Obsidian][obsidian]
-| [tmux][tmux]
-| [zsh][zsh]
+- **Frontend**
+  | [JavaScript][js] ([TypeScript][ts])
+  | [React][react]
+  | [React Native][reactnative] ([Expo][expo])
+  | [Tailwind CSS][tailwind]
+- **Backend**
+  | [Node.js][node] ([Express.js][express])
+  | [Go][go]
+- **Databases**
+  | [SQLite][sqlite]
+  | [Postgres][postgres]
+  | [Redis][redis]
+  | [MongoDB][mongodb]
+- **DevOps**
+  | [Docker][docker]
+  | [GitHub Actions][gh-actions]
+  | [Google Cloud Platform][gcp]
+  | [Cloudflare][cloudflare]
+- **Tools**
+  | [Bun][bun]
+  | [Vite][vite]
+  | [Jest][jest]
+  | [Playwright][playwright]
+- **Other**
+  | [Neovim][neovim]
+  | [Linux][linux] ([NixOS][nixos])
+  | [Obsidian][obsidian]
+  | [tmux][tmux]
+  | [zsh][zsh]
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=kuhree&layout=compact&theme=transparent&hide_border=true)
 
@@ -63,12 +63,15 @@ I'm always open for collaborations and/or general chats. Feel free to reach out.
 | Hosted on a Raspberry Pi 3b+
 
 <!-- Navigation -->
+
 [portfolio]: https://wiki.kuhree.com/projects
 [about]: https://wiki.kuhree.com/about
 [resume]: https://wiki.kuhree.com/about/resume
 [uses]: https://wiki.kuhree.com/about/uses
 [notes]: https://wiki.kuhree.com
+
 <!-- Technologies -->
+
 [ansible]: https://www.ansible.com
 [bun]: https://bun.sh
 [cloudflare]: https://cloudflare.com
@@ -101,12 +104,18 @@ I'm always open for collaborations and/or general chats. Feel free to reach out.
 [vite]: https://vitejs.dev
 [zod]: https://zod.dev
 [zsh]: https://www.zsh.org
+
 <!-- Projects -->
+
 [gg]: https://wiki.kuhree.com/projects/gg
+
 <!-- Contact -->
+
 [email]: mailto:hi@kuhree.com
 [github]: https://github.com/kuhree
 [linkedin]: https://linkedin.com/in/khari-johnson
+
 <!-- Credits -->
+
 [githubmarkdown]: https://github.com/sindresorhus/github-markdown-css
 [fly]: https://fly.io

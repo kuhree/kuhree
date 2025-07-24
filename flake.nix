@@ -3,22 +3,43 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = {
     self,
     nixpkgs,
-    flake-utils,
-  }:
-    flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = nixpkgs.legacyPackages."${system}";
+  }: let
+    supportedSystems = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
 
-      buildDeps = [
-        pkgs.pandoc
-      ];
+    # See: https://ayats.org/blog/no-flake-utils
+    forAllSystems = fn:
+      nixpkgs.lib.genAttrs supportedSystems (
+        system: fn nixpkgs.legacyPackages.${system}
+      );
+  in {
+    formatter = forAllSystems (pkgs: pkgs.alejandra);
 
-      www-kuhree = let
+    checks = forAllSystems (pkgs: {
+      fmt =
+        pkgs.runCommand "check-fmt" {
+          buildInputs = [
+            pkgs.alejandra
+            pkgs.nodePackages.prettier
+          ];
+        } ''
+          alejandra -q --check ${self}
+          prettier --check ${self}
+          touch $out
+        '';
+    });
+
+    packages = forAllSystems (pkgs: {
+      default = let
         title = "Khari (kuhree) Johnson";
         umamiSrc = "https://umami.kuhree.com/script.js";
         umamiId = "4d96a606-4cc7-47cc-bcb5-0e001f131adc";
@@ -26,11 +47,13 @@
       in
         pkgs.stdenv.mkDerivation {
           pname = "www-kuhree";
-          version = "1.0.0";
+          version = builtins.substring 0 8 (self.lastModifiedDate or self.lastModified or "19700101");
           src = self;
           doCheck = true;
 
-          nativeBuildInputs = buildDeps;
+          nativeBuildInputs = [
+            pkgs.pandoc
+          ];
 
           buildPhase = ''
             echo '<style> body { max-width: 80ch; margin: 0 auto; } </style>' > style.html
@@ -67,29 +90,16 @@
             runHook postCheck
           '';
         };
-    in {
-      packages.default = www-kuhree;
+    });
 
-      formatter = pkgs.alejandra;
-
-      checks.lint =
-        pkgs.runCommand "check-lint" {
-          buildInputs = [pkgs.nil];
-        } ''
-          find ${self} -type f -name "*.nix" | xargs -I {} ${pkgs.nil}/bin/nil diagnostics {}
-          touch $out
-        '';
-
-      checks.fmt =
-        pkgs.runCommand "check-fmt" {
-          buildInputs = [pkgs.alejandra];
-        } ''
-          alejandra --check ${self}
-          touch $out
-        '';
-
-      devShells.default = pkgs.mkShell {
-        packages = buildDeps;
+    devShells = forAllSystems (pkgs: {
+      default = pkgs.mkShell {
+        packages = [
+          pkgs.pandoc
+          pkgs.alejandra
+          pkgs.nodePackages.prettier
+        ];
       };
     });
+  };
 }
