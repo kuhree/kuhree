@@ -105,7 +105,7 @@
           packages = [
             pkgs.pandoc
             pkgs.nixfmt-rfc-style
-            pkgs.nodePackages.prettier
+            pkgs.prettier
           ];
         };
       });
