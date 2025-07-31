@@ -45,6 +45,16 @@
         }
       );
 
+      devShells = forAllSystems (pkgs: {
+        default = pkgs.mkShell {
+          packages = [
+            pkgs.pandoc
+            pkgs.nixfmt-rfc-style
+            pkgs.prettier
+          ];
+        };
+      });
+
       packages = forAllSystems (pkgs: {
         default =
           let
@@ -98,16 +108,6 @@
               runHook postCheck
             '';
           };
-      });
-
-      devShells = forAllSystems (pkgs: {
-        default = pkgs.mkShell {
-          packages = [
-            pkgs.pandoc
-            pkgs.nixfmt-rfc-style
-            pkgs.prettier
-          ];
-        };
       });
 
       hydraJobs = {
