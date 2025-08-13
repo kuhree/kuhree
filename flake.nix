@@ -11,18 +11,27 @@
       nixpkgs,
     }:
     let
-      supportedSystems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
 
       # See: https://ayats.org/blog/no-flake-utils
       forAllSystems =
         fn: nixpkgs.lib.genAttrs supportedSystems (system: fn nixpkgs.legacyPackages.${system});
     in
     {
+      hydraJobs = {
+        inherit (self) formatter devShells packages;
+      };
+
+      devShells = forAllSystems (pkgs: {
+        default = pkgs.mkShell {
+          packages = [
+            pkgs.pandoc
+            pkgs.nixfmt-rfc-style
+            pkgs.prettier
+          ];
+        };
+      });
+
       formatter = forAllSystems (
         pkgs:
         pkgs.treefmt.withConfig {
@@ -44,16 +53,6 @@
           };
         }
       );
-
-      devShells = forAllSystems (pkgs: {
-        default = pkgs.mkShell {
-          packages = [
-            pkgs.pandoc
-            pkgs.nixfmt-rfc-style
-            pkgs.prettier
-          ];
-        };
-      });
 
       packages = forAllSystems (pkgs: {
         default =
@@ -109,9 +108,5 @@
             '';
           };
       });
-
-      hydraJobs = {
-        inherit (self) packages;
-      };
     };
 }
