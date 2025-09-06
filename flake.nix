@@ -23,7 +23,7 @@
         enable = lib.mkEnableOption "kuhree static site";
         listenAddress = lib.mkOption {
           type = lib.types.str;
-          default = "127.0.0.0";
+          default = "127.0.0.1";
           description = "Listen address for nginx";
         };
         port = lib.mkOption {
