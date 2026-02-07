@@ -100,8 +100,8 @@
         default =
           let
             title = "Khari (kuhree) Johnson";
-            umamiSrc = "https://umami.kuhree.com/script.js";
-            umamiId = "4d96a606-4cc7-47cc-bcb5-0e001f131adc";
+            rybbitSrc = "https://rybbit.kuhree.com/api/script.js";
+            rybbitSiteId = "ee76db1ec098";
             cssSrc = "https://raw.githubusercontent.com/sindresorhus/github-markdown-css/refs/heads/main/github-markdown.css";
           in
           pkgs.stdenv.mkDerivation {
@@ -116,7 +116,7 @@
 
             buildPhase = ''
               echo '<style> body { max-width: 80ch; margin: 0 auto; } </style>' > style.html
-              echo '<script defer src="${umamiSrc}" data-website-id="${umamiId}"></script>' > scripts.html
+              echo '<script defer src="${rybbitSrc}" data-site-id="${rybbitSiteId}"></script>' > scripts.html
 
               pandoc \
                 --standalone \
