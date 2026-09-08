@@ -42,11 +42,11 @@
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=kuhree&layout=compact&theme=transparent&hide_border=true)
 
-## Currently Working On
+## Currently Building
 
-- Experimenting with NixOS
-- [x] Building [terminal games in Go][gg] - a fun side project to explore TUI design and sharpen Go skills
-- [x] Self-hosting FOSS until I have my own "cloud"
+- Running a declarative NixOS homelab and personal cloud
+- Building developer tools and personal products
+- Occasionally returning to [terminal games in Go][gg]
 
 ## Get in Touch
 
@@ -58,9 +58,7 @@ I'm always open for collaborations and/or general chats. Feel free to reach out.
 
 ---
 
-**Credits**
-| Styled by [sindresorhus/github-markdown-css][githubmarkdown]
-| Hosted on a Raspberry Pi 3b+
+Styled with [sindresorhus/github-markdown-css][githubmarkdown].
 
 <!-- Navigation -->
 
