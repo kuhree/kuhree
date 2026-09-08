@@ -85,7 +85,6 @@
                 --include-in-header="scripts.html" \
                 --include-in-header="style.html" \
                 --css="${cssSrc}" \
-                --embed-resources=true \
                 --from=gfm \
                 --to=html \
                 --output=index.html \
