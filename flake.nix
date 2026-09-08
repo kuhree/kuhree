@@ -29,7 +29,7 @@
         default = pkgs.mkShell {
           packages = [
             pkgs.pandoc
-            pkgs.nixfmt-rfc-style
+            pkgs.nixfmt
             pkgs.prettier
           ];
         };
@@ -39,7 +39,7 @@
         pkgs:
         pkgs.treefmt.withConfig {
           runtimeInputs = [
-            pkgs.nixfmt-rfc-style
+            pkgs.nixfmt
             pkgs.prettier
           ];
 
