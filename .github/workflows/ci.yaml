@@ -15,17 +15,56 @@ jobs:
         with:
           extra_nix_config: experimental-features = nix-command flakes
 
-      - name: check and build flake
-        uses: https://git.kuhree.com/kuhree/actions-flake-ci@v1
-        with:
-          artifact_name: www-kuhree
-          artifact_path: result
+      - name: check flake
+        run: nix flake check --accept-flake-config
 
-      - name: ntfy status
-        uses: https://git.kuhree.com/kuhree/actions-ntfy@v1
-        if: always()
+      - name: build flake
+        run: nix build --accept-flake-config
+
+      - name: upload artifact
+        uses: https://github.com/actions/upload-artifact@v3
         with:
-          token: ${{ secrets.NTFY_API_TOKEN }}
-          url: ${{ vars.NTFY_URL }}
-          status: ${{ job.status }}
-          title: WWW-KUHREE CI
+          name: www-kuhree
+          path: result
+
+      - name: Apprise status
+        if: always()
+        shell: bash
+        env:
+          JOB_STATUS: ${{ job.status }}
+          JOB_TITLE: WWW-KUHREE CI
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+        run: |
+          set -euo pipefail
+
+          if [ "$JOB_STATUS" = "success" ]; then
+            status_emoji="✅"
+            notification_type="success"
+          else
+            status_emoji="❌"
+            notification_type="failure"
+          fi
+
+          repository_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+          run_url="$repository_url/actions/runs/$GITHUB_RUN_NUMBER"
+          title="$status_emoji $JOB_TITLE"
+          body="$(cat <<EOF
+          $status_emoji $JOB_TITLE finished with status: **$JOB_STATUS**
+
+          - **Repository:** [$GITHUB_REPOSITORY]($repository_url)
+          - **Ref:** $GITHUB_REF_NAME
+          - **Commit:** [${GITHUB_SHA:0:7}]($repository_url/commit/$GITHUB_SHA)
+          - **Run:** [$GITHUB_RUN_NUMBER]($run_url)
+          EOF
+          )"
+
+          curl --fail-with-body --silent --show-error \
+            --data-urlencode "title=$title" \
+            --data-urlencode "body=$body" \
+            --data-urlencode "type=$notification_type" \
+            --data-urlencode "format=markdown" \
+            https://notify.kuhree.com/notify/notify
