@@ -2,16 +2,24 @@ name: ci
 
 on:
   push:
+    branches: [main]
   pull_request:
   workflow_dispatch:
+
+concurrency:
+  # PR runs are keyed by PR number so separate PRs never cancel one another.
+  # Main pushes retain their ref and are never canceled.
+  group: kuhree-${{ github.event_name == 'pull_request' && github.event.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   ci:
     runs-on: ubuntu-latest
-    concurrency: flake
     steps:
-      - uses: https://github.com/actions/checkout@v4
-      - uses: https://github.com/cachix/install-nix-action@v25
+      # v4.4.0
+      - uses: https://github.com/actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      # v25
+      - uses: https://github.com/cachix/install-nix-action@6004951b182f8860210c8d6f0d808ec5b1a33d28
         with:
           extra_nix_config: experimental-features = nix-command flakes
 
@@ -22,13 +30,16 @@ jobs:
         run: nix build --accept-flake-config
 
       - name: upload artifact
-        uses: https://github.com/actions/upload-artifact@v3
+        # v3
+        uses: https://github.com/actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5
         with:
           name: www-kuhree
           path: result
 
-      - name: Apprise status
+      - name: Report Apprise status (best effort)
         if: always()
+        continue-on-error: true
+        timeout-minutes: 1
         shell: bash
         env:
           JOB_STATUS: ${{ job.status }}
@@ -63,6 +74,8 @@ jobs:
           )"
 
           curl --fail-with-body --silent --show-error \
+            --connect-timeout 5 \
+            --max-time 15 \
             --data-urlencode "title=$title" \
             --data-urlencode "body=$body" \
             --data-urlencode "type=$notification_type" \
